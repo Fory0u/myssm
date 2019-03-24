@@ -29,7 +29,7 @@ public class InitCtrl {
         map.addAttribute("a",1);
 //    return "jj/jjq/shouye";
 //        return "index.jsp";
-        return "jj/jjq/shouye.jsp";
+        return "jj/jjq/login.jsp";
 
     }
 //    @RequestMapping("/login.do")
