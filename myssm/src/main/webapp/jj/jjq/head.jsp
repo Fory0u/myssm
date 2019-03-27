@@ -5,7 +5,8 @@
   Time: 12:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,14 @@
 <body>
 ​<div class="container ">
     <ul class="breadcrumb" style="text-align: right;">
+
         <li><a href="jj/jjq/register.jsp"><span class="glyphicon glyphicon-user"></span>注册</a></li>
+<c:if test="${user==null}">
         <li><a href="jj/jjq/login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+    </c:if>
+        <c:if test="${user!=null}">
+            <li><i class="layui-icon layui-icon-username iphone-icon"></i>${user.CName}</li>
+        </c:if>
         <li><a href="jj/jjq/wddd.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
     </ul>
     <div class="form-inline">

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -21,9 +21,9 @@
 <title>用户添加</title>
 <script language="javascript" type="text/javascript">
 function validate() {
-	var itemName = document.getElementById("userName").value;
-	var itemprice = document.getElementById("loginid").value;
-	var itemDepart = document.getElementById("userPwd").value;
+	var itemName = document.getElementById("CName").value;
+	var itemprice = document.getElementById("CLoginId").value;
+	var itemDepart = document.getElementById("CPassWord").value;
 	if(itemName.length==0){
 	   alert("请输入姓名");
 	   return false;
@@ -46,18 +46,18 @@ function validate() {
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="user.do?addUser" method="post" target="_parent">
+	<form class="form form-horizontal" id="form-admin-add" action="/add.do" method="post" target="_parent">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="userName" name="userName" placeholder="用户姓名" style="width: 250px">
+				<input type="text" class="input-text" id="CName" name="CName" placeholder="用户姓名" style="width: 250px">
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登录id：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off" placeholder="登录id" id="loginid" name="loginid" style="width: 250px">
+				<input type="text" class="input-text" autocomplete="off" placeholder="登录id" id="CLoginId" name="CLoginId" style="width: 250px">
 			</div>
 		</div>
 	
@@ -73,16 +73,16 @@ function validate() {
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员标记：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<select id="adminFlag" name="adminFlag"  style='width:250px;height:30px'>
-			  	<option value ="1">管理员</option> 
-				<option value ="2">用户</option> 
+				<select id="NFlag" name="NFlag"  style='width:250px;height:30px'>
+			  	<option value ="1">用户</option>
+				<option value ="2">管理员</option>
 			  	</select>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off" placeholder="密码" id="userPwd" name="userPwd" style="width: 250px">
+				<input type="text" class="input-text" autocomplete="off" placeholder="密码" id="CPassWord" name="CPassWord" style="width: 250px">
 			</div>
 		</div>
 		<div class="row cl">

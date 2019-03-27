@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -24,39 +24,39 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-dish-edit" action="user.do?editUser" method="post" target="_parent">
+	<form class="form form-horizontal" id="form-dish-edit" action="/update.do" method="post" target="_parent">
 	<div class="row cl" style="display:none;" >
 		<label class="form-label col-xs-4 col-sm-3">id：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="${user.CId}" name="cid" readonly="readonly" style="width: 250px" >
+			<input type="text" class="input-text" value="${user.CId}" name="CId" readonly="readonly" style="width: 250px" >
 		</div>
 	</div>
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3">登录名：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="${user.CLoginId}" name="loginid" readonly="readonly" style="width: 250px" >
+			<input type="text" class="input-text" value="${user.CLoginId}" name="CLoginId" readonly="readonly" style="width: 250px" >
 		</div>
 	</div>
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3">姓名：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="${user.CName}" name="userName" readonly="readonly" style="width: 250px">
+			<input type="text" class="input-text" value="${user.CName}" name="CName" readonly="readonly" style="width: 250px">
 		</div>
 	</div>
    
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3">密码：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="${user.CPassword}" name="userPwd" style="width: 250px">
+			<input type="text" class="input-text" value="${user.CPassWord}" name="CPassWord" style="width: 250px">
 		</div>
 	</div>
 	
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3">管理员标记：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-		   <select id="adminFlag" class="select" name="adminFlag"  size="1" style="width: 250px">
-				<option value="1">管理员</option>
-				<option value="2">用户</option>
+		   <select id="NFlag" class="select" name="NFlag"  size="1" style="width: 250px">
+				<option value="1">用户</option>
+				<option value="2">管理员</option>
 			</select>
 		</div>
 		

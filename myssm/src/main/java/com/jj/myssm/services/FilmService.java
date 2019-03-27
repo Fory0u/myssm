@@ -13,9 +13,9 @@ import java.util.List;
 @Service
 public class FilmService {
     @Autowired
-    private IFilmsDAO fdao;
+    private IFilmsDAO iFilmsDAO;
 
     public List<Films> findAllFilms(Films film){
-        return fdao.findAllFilms(film);
+        return iFilmsDAO.findAllFilms(film);
     }
 }

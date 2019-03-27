@@ -54,7 +54,7 @@
 				</div>
 				--%><div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
-						onclick="admin_add('用户添加','${pageContext.request.contextPath}/user_add.jsp','600','500')"
+						onclick="admin_add('用户添加','jj/ht/user_add.jsp','600','500')"
 						class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
 							添加用户</a>
 					</span>
@@ -107,11 +107,11 @@
 								</td>
 								<td class="td-manage">
 									<a title="编辑" href="javascript:;"
-										onclick="admin_edit('用户编辑','${pageContext.request.contextPath}/user.do?detailUser&cid=${s.CId}','1','600','500')"
+										onclick="admin_edit('用户编辑','/findByCid.do?cid=${s.CId}','1','600','500')"
 										class="ml-5" style="text-decoration: none"><i
 										class="Hui-iconfont">&#xe6df;</i>
 									</a>									
-									<a title="删除" href="${pageContext.request.contextPath}/user.do?deleteUser&cid=${s.CId}"
+									<a title="删除" href="${pageContext.request.contextPath}/delete.do?id=${s.CId}"
 										onclick="if(confirm('确定要删除吗?')==false)return false;"
 										 class="ml-5"
 										style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -158,6 +158,7 @@
  */
 /*管理员-增加*/
 function admin_add(title, url, w, h) {
+
 	layer_show(title, url, w, h);
 }
 /*管理员-删除*/

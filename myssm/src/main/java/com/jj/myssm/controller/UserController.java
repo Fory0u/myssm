@@ -51,11 +51,36 @@ public class UserController {
         map.put("users",userList);
         return "/jj/ht/usersList.jsp";
     }
+    @RequestMapping("/delete.do")
+    public String delete(String id){
+       int count=userService.delete(id);
+        System.out.print(count);
+        return "listUser.do";
+
+    }
+    @RequestMapping("/add.do")
+    public String add(User user){
+       int count= userService.add(user);
+        return "listUser.do";
+    }
+    @RequestMapping("/update.do")
+    public String update(User user){
+        userService.update(user);
+        return "listUser.do";
+    }
+    @RequestMapping("/findByCid.do")
+    public String findByCid(String cid,ModelMap map){
+        User user= userService.findByCid(cid);
+        System.out.print(user);
+        map.put("user",user);
+        return "/jj/ht/user-edit.jsp";
+    }
 
     @RequestMapping("/goLogin.do")
     public String goLogin(ModelMap map){
         map.remove("user");
         return "/jj/jjq/login.jsp";
     }
+
 
 }

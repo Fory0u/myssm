@@ -24,7 +24,8 @@
         t_user.c_password = #{password}
     </select>
     <select id="getListUser" resultMap="ReslutUser" >
-        select t_user.c_id,
+        select
+        t_user.c_id,
         t_user.c_loginid,
         t_user.c_password,
         t_user.c_name,
@@ -33,5 +34,37 @@
     </select>
     <select id="countUser" resultType="int">
         select count(1) from t_user
+    </select>
+    <update id="delete">
+        DELETE from t_user where t_user.c_id = #{id}
+    </update>
+    <insert id="add">
+        insert into t_user
+       (c_loginid,
+        c_password,
+        c_name,
+        n_flag) VALUES(
+        #{CLoginId},
+        #{CPassWord},
+        #{CName},
+        #{NFlag}
+        )
+    </insert>
+    <update id="update">
+        update t_user
+        set
+         c_loginid=#{CLoginId},
+        c_password=#{CPassWord},
+        c_name=#{CName},
+        n_flag=#{NFlag} where c_id=#{CId}
+    </update>
+    <select id="findByCid"  resultMap="ReslutUser">
+        SELECT
+        c_id,
+        c_loginid,
+        c_password,
+        c_name,
+        n_flag from t_user where c_id=#{cid}
+
     </select>
 </mapper>

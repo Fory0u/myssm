@@ -12,6 +12,6 @@ import java.util.List;
 @Component
 public interface IFilmsDAO {
 
-    public List<Films> findAllFilms(Films film);
-    public List<Actors> findActorByFilmid(int filmid);
+     List<Films> findAllFilms(Films film);
+     List<Actors> findActorByFilmid(int filmid);
 }

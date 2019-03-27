@@ -14,9 +14,13 @@ import java.util.List;
 @Component
 public interface IUserDAO {
 
-    public User login(@Param("loginid") String loginid, @Param("password") String password);
-
+     User login(@Param("loginid") String loginid, @Param("password") String password);
+    User findByCid(@Param("cid") String cid);
     int countUser();
+    int delete(@Param("id") String id);
+    int add(User user);
+    int update(User user);
 
     List<User> getListUser(@Param("index")Integer index, @Param("page")Integer page);
+
 }
