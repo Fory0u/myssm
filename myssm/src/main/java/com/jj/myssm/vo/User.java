@@ -4,7 +4,7 @@ package com.jj.myssm.vo;
  * Created by admin on 2019/3/24.
  */
 public class User {
-    private String CId;
+    private int CId;
     private String CLoginId;
     private String CPassWord;
     private String CName;
@@ -24,11 +24,11 @@ public class User {
                 '}';
     }
 
-    public String getCId() {
+    public int getCId() {
         return CId;
     }
 
-    public void setCId(String CId) {
+    public void setCId(int CId) {
         this.CId = CId;
     }
 

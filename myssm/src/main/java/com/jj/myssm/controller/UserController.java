@@ -34,25 +34,24 @@ public class UserController {
         }
     }
     @RequestMapping("/listUser.do")
-    public String listUser(Integer index , Integer page, ModelMap map ){
-        if(index==null || index <=0)
-            index = 5;
-        if(page==null || page<=0){
-            page = 0;
-        }else{
-            page=page-1;
-        }
+    public String listUser(Integer index , ModelMap map ){
+        int size = 5;//每页个数
+        if(index == null || index <=0)
+            index = 1;
+        int start = (index-1)*size;//开始数
         int count = userService.countUser();
-        int total = count%index==0?count/index:count/index+1;
+        int total = count%size==0?count/size:count/size+1;
+
+        List<User> userList = userService.getListUser(start,size);
+
         map.put("total",total);
-        map.put("count",count);
         map.put("index",index);
-        List<User> userList = userService.getListUser(index,page);
         map.put("users",userList);
+
         return "/jj/ht/usersList.jsp";
     }
     @RequestMapping("/delete.do")
-    public String delete(String id){
+    public String delete(int id){
        int count=userService.delete(id);
         System.out.print(count);
         return "listUser.do";
@@ -69,7 +68,7 @@ public class UserController {
         return "listUser.do";
     }
     @RequestMapping("/findByCid.do")
-    public String findByCid(String cid,ModelMap map){
+    public String findByCid(int cid,ModelMap map){
         User user= userService.findByCid(cid);
         System.out.print(user);
         map.put("user",user);

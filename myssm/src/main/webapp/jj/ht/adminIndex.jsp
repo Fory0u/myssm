@@ -62,36 +62,36 @@ basePath:<%=basePath%>
 		</dl>
 
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i>餐桌管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe620;</i>公告管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/cz.do?listCz" data-title="餐桌列表" href="javascript:void(0)">餐桌列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/listNews.do" data-title="公告列表" href="javascript:void(0)">公告列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 		
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe60c;</i>菜类管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe60c;</i>动态管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/cl.do?listCl" data-title="菜类列表" href="javascript:void(0)">菜类列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/cl.do?listCl" data-title="动态列表" href="javascript:void(0)">动态列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 		
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe681;</i>菜单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe681;</i>留言管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/cd.do?listCd" data-title="菜单列表" href="javascript:void(0)">菜单列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/listMessage.do" data-title="留言列表" href="javascript:void(0)">留言列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe627;</i>订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe627;</i>通信管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/order.do?listOrder" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/listChart.do" data-title="通信列表" href="javascript:void(0)">通信列表</a></li>
 				</ul>
 			</dd>
 		</dl>

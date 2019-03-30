@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jj.myssm.dao.IUserDAO">
     <resultMap id="ReslutUser" type="com.jj.myssm.vo.User">
-        <id column="c_id" property="CId" jdbcType="VARCHAR"/>
+        <id column="c_id" property="CId" jdbcType="INTEGER"/>
         <result column="c_loginid" property="CLoginId" jdbcType="VARCHAR"/>
         <result column="c_password" property="CPassWord" jdbcType="VARCHAR"/>
         <result column="c_name" property="CName" jdbcType="VARCHAR"/>
@@ -30,7 +30,7 @@
         t_user.c_password,
         t_user.c_name,
         t_user.n_flag from t_user
-        LIMIT #{page},#{index}
+        LIMIT #{start},#{size}
     </select>
     <select id="countUser" resultType="int">
         select count(1) from t_user

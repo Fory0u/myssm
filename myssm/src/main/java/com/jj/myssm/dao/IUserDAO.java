@@ -15,12 +15,12 @@ import java.util.List;
 public interface IUserDAO {
 
      User login(@Param("loginid") String loginid, @Param("password") String password);
-    User findByCid(@Param("cid") String cid);
+    User findByCid(@Param("cid") int cid);
     int countUser();
-    int delete(@Param("id") String id);
+    int delete(@Param("id") int id);
     int add(User user);
     int update(User user);
 
-    List<User> getListUser(@Param("index")Integer index, @Param("page")Integer page);
+    List<User> getListUser(@Param("start")Integer start, @Param("size")Integer size);
 
 }

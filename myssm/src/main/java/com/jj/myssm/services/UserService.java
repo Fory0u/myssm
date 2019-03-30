@@ -19,7 +19,7 @@ public class UserService {
     public User login(String loginid ,String password){
        return iUserDAO.login(loginid,password);
     }
-    public int delete(String id){
+    public int delete(int id){
         return iUserDAO.delete(id);
     }
     public int add(User user){
@@ -28,11 +28,9 @@ public class UserService {
     public int update(User user){
         return iUserDAO.update(user);
     }
-    public User findByCid(String cid){
-        return iUserDAO.findByCid(cid);
-    }
-    public List<User> getListUser(Integer index , Integer page) {
-        return iUserDAO.getListUser(index,page);
+    public User findByCid(int cid){return iUserDAO.findByCid(cid);}
+    public List<User> getListUser(Integer index , Integer size) {
+        return iUserDAO.getListUser(index,size);
     }
     public int countUser() {
         return iUserDAO.countUser();
