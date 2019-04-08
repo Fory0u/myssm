@@ -16,5 +16,6 @@ public interface IChartDAO {
     int delete(@Param("cid") int cid);
     int add(Chart chart);
     int update(Chart chart);
-    List<Chart> getListChart(@Param("index")Integer index, @Param("page")Integer page);
+    List<Chart> getListChart(@Param("start")Integer start, @Param("size")Integer size);
+    List<Chart> findMoByChart(@Param("CGjc")String CGjc);
 }

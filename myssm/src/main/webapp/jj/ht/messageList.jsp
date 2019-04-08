@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -38,21 +39,23 @@
             class="Hui-iconfont">&#xe68f;</i>
     </a>
 </nav>
-<form action="listNews.do" method="post">
+
     <div class="page-container">
-        <%--<div class="text-c">
+        <div class="text-c">
+            <form action="/findMoByMessage.do" method="post" id="findMoByMessage">
             <input type="text" class="input-text" style="width: 250px"
-                placeholder="输入姓名" id="" name="hosName">
-            <input type="text" class="input-text" style="width: 250px"
-            placeholder="输入编码" id="" name="hosNo">
-            <select id="hosType" name="hosType"  style='width:250px;height:30px'>
-                <option value="">全选</option>
-               </select>
-            <button type="submit" class="btn btn-success">
+                placeholder="输入商品名称" id="CSpmc" name="CSpmc">
+            <%--<input type="text" class="input-text" style="width: 250px"--%>
+            <%--placeholder="输入编码" id="" name="hosNo">--%>
+            <%--<select id="hosType" name="hosType"  style='width:250px;height:30px'>--%>
+                <%--<option value="">全选</option>--%>
+               <%--</select>--%>
+            <button type="submit"  class="btn btn-success mhcx">
                 <i class="Hui-iconfont">&#xe665;</i>查询
             </button>
+                </form>
         </div>
-        --%><div class="cl pd-5 bg-1 bk-gray mt-20">
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
                                         onclick="admin_add('留言添加','jj/ht/message_add.jsp','600','500')"
                                         class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
@@ -115,7 +118,8 @@
                             ${m.CLxnr}
                     </td>
                     <td>
-                            ${m.DCjsj}
+                        <fmt:formatDate value="${m.DCjsj}" pattern="yyyy-MM-dd HH:mm:ss"/>
+
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
@@ -136,14 +140,14 @@
         <p align="center">
 
             总页数：${total}
-            <a href="${pageContext.request.contextPath}/user.do?listMessge&index=${index-1}"><c:if
+            <a href="${pageContext.request.contextPath}/listMessage.do?index=${index-1}"><c:if
                     test="${index-1>0}">上一页</c:if> </a>
-            <a href="${pageContext.request.contextPath}/user.do?listMessage&index=${index+1}"><c:if
+            <a href="${pageContext.request.contextPath}/listMessage.do?index=${index+1}"><c:if
                     test="${index<total}">下一页</c:if> </a>
 
         </p>
     </div>
-</form>
+
 <script type="text/javascript"
         src="<%=path%>/jj/ht/ht/lib/jquery/1.9.1/jquery.min.js">
 </script>
@@ -188,6 +192,14 @@
     /*管理员-编辑*/
     function admin_edit(title, url, id, w, h) {
         layer_show(title, url, w, h);
+    }
+    $('.mhcx').on("click",function(){
+        $('#findMoByMessage').submit();
+//        var  cxbt ='CBt='+$('#CBt').val();
+//        window.location.href =getHref()+'findMo.do?'+cxbt;
+    })
+    function getHref(){
+        return  window.location.protocol + '//' + window.location.host +   window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1)+'/'
     }
     <%--
     $(function(){

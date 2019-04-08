@@ -19,5 +19,9 @@ public class ChartService {
     public int delete(int cid){return iChartDAO.delete(cid); }
     public int add(Chart chart){return iChartDAO.add(chart);}
     public int update(Chart chart){return iChartDAO.update(chart);}
-    public List<Chart> getListChart(Integer index , Integer page) {return iChartDAO.getListChart(index,page);}
+    public List<Chart> getListChart(Integer start , Integer size) {
+        return iChartDAO.getListChart(start,size);}
+    public List<Chart> findMoByChart(String CGjc){
+        return iChartDAO.findMoByChart(CGjc);
+    }
 }

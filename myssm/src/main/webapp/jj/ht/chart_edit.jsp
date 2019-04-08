@@ -5,7 +5,6 @@
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,45 +28,27 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-dish-edit" action="/update.do" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-dish-edit" action="/updateNews.do" method="post" target="_parent">
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CId}" name="CId" readonly="readonly"
+                <input type="text" class="input-text" value="${chart.CId}" name="CId" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">登录名：</label>
+            <label class="form-label col-xs-4 col-sm-3">关键词：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CLoginId}" name="CLoginId" readonly="readonly"
+                <input type="text" class="input-text" value="${chart.CGjc}" name="CGjc" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">姓名：</label>
+            <label class="form-label col-xs-4 col-sm-3">返回信息：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CName}" name="CName" readonly="readonly"
+                <input type="text" class="input-text" value="${chart.CFhxx}" name="CFhxx" readonly="readonly"
                        style="width: 250px">
             </div>
-        </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">密码：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CPassWord}" name="CPassWord" style="width: 250px">
-            </div>
-        </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">管理员标记：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <select id="NFlag" class="select" name="NFlag" size="1" style="width: 250px">
-                    <option value="1" <c:if test="${user.NFlag == 1}" >selected </c:if>  >用户</option>
-                    <option value="2"  <c:if test="${user.NFlag == 2}" >selected </c:if> >管理员</option>
-                </select>
-            </div>
-
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">

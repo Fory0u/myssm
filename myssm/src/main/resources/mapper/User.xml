@@ -67,4 +67,12 @@
         n_flag from t_user where c_id=#{cid}
 
     </select>
+    <select id="findMoByUser" resultMap="ReslutUser">
+        SELECT
+        c_loginid,
+        c_password,
+        c_name,
+        n_flag from t_user
+        where c_loginid like CONCAT(CONCAT('%', #{CLoginId}), '%')
+    </select>
 </mapper>

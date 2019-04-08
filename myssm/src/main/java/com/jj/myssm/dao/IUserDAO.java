@@ -22,5 +22,6 @@ public interface IUserDAO {
     int update(User user);
 
     List<User> getListUser(@Param("start")Integer start, @Param("size")Integer size);
+    List<User> findMoByUser(@Param("CLoginId") String CLoginId);//模糊查询
 
 }

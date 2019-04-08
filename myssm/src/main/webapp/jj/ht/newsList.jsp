@@ -39,26 +39,29 @@
             class="Hui-iconfont">&#xe68f;</i>
     </a>
 </nav>
-<form action="listNews.do" method="post">
+<%--<form action="/listNews.do" method="post">--%>
     <div class="page-container">
-        <%--<div class="text-c">
-            <input type="text" class="input-text" style="width: 250px"
-                placeholder="输入姓名" id="" name="hosName">
-            <input type="text" class="input-text" style="width: 250px"
-            placeholder="输入编码" id="" name="hosNo">
-            <select id="hosType" name="hosType"  style='width:250px;height:30px'>
-                <option value="">全选</option>
-               </select>
-            <button type="submit" class="btn btn-success">
-                <i class="Hui-iconfont">&#xe665;</i>查询
-            </button>
+        <div class="text-c">
+            <form action="/findMoByNews.do" method="post" id="findMoByNews">
+                <input type="text" class="input-text" style="width: 250px"
+                       placeholder="输入标题" id="CBt" name="CBt">
+                <%--<input type="text" class="input-text" style="width: 250px"--%>
+                       <%--placeholder="输入编码" id="" name="hosNo">--%>
+                <%--<select id="hosType" name="hosType"  style='width:250px;height:30px'>--%>
+                    <%--<option value="">全选</option>--%>
+                <%--</select>--%>
+                <button type="submit"  class="btn btn-success mhcx">
+                    <i class="Hui-iconfont">&#xe665;</i>查询
+                </button>
+            </form>
         </div>
-        --%><div class="cl pd-5 bg-1 bk-gray mt-20">
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
                                         onclick="admin_add('新闻添加','jj/ht/news_add.jsp','600','500')"
                                         class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
                         添加新闻</a>
 					</span>
+
     </div>
         <div>新闻列表</div>
         <table class="table table-border table-bordered table-bg">
@@ -126,7 +129,7 @@
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>
-                        <a title="删除" href="${pageContext.request.contextPath}/deleteNews.do?cid=${c.CId}"
+                        <a title="删除" href="${pageContext.request.contextPath}/deleteNews.do?cid=${n.CId}"
                            onclick="if(confirm('确定要删除吗?')==false)return false;"
                            class="ml-5"
                            style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -146,7 +149,7 @@
 
         </p>
     </div>
-</form>
+<%--</form>--%>
 <script type="text/javascript"
         src="<%=path%>/jj/ht/ht/lib/jquery/1.9.1/jquery.min.js">
 </script>
@@ -207,6 +210,15 @@
                           }
                     );
         });
-    --%></script>
+    --%>
+    $('.mhcx').on("click",function(){
+        $('#findMoByNews').submit();
+//        var  cxbt ='CBt='+$('#CBt').val();
+//        window.location.href =getHref()+'findMo.do?'+cxbt;
+    })
+    function getHref(){
+        return  window.location.protocol + '//' + window.location.host +   window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1)+'/'
+    }
+    </script>
 </body>
 </html>

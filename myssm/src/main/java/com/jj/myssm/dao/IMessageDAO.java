@@ -17,5 +17,6 @@ public interface IMessageDAO {
     int delete(@Param("cid") int cid);
     int add(Message message);
     int update(Message message);
-    List<Message> getListMessage(@Param("index")Integer index, @Param("page")Integer page);
+    List<Message> getListMessage(@Param("start")Integer start, @Param("size")Integer size);
+    List<Message> findMoByMessage(@Param("CSpmc")String CSpmc);
 }

@@ -19,5 +19,9 @@ public class MessageService {
     public int delete(int cid){return iMessageDAO.delete(cid); }
     public int add(Message message){return iMessageDAO.add(message);}
     public int update(Message message){return iMessageDAO.update(message);}
-    public List<Message> getListMessage(Integer index , Integer page) {return iMessageDAO.getListMessage(index,page);}
+    public List<Message> getListMessage(Integer start , Integer size) {
+        return iMessageDAO.getListMessage(start,size);}
+    public List<Message> findMoByMessage(String CSpmc){
+        return iMessageDAO.findMoByMessage(CSpmc);
+    }
 }

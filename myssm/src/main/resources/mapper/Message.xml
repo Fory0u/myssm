@@ -22,7 +22,7 @@
         c_lxnr,
         d_cjsj
         from t_message
-        LIMIT #{page},#{index}
+        LIMIT #{start},#{size}
     </select>
     <select id="countMessage" resultType="int">
         select count(1) from t_message
@@ -60,12 +60,22 @@
         SELECT
         c_id,
         c_userid,
-        c_uesrname,
+        c_username,
         c_spid,
         c_spmc,
         c_lxnr,
         d_cjsj
         from t_message where c_id=#{cid}
 
+    </select>
+    <select id="findMoByMessage" resultMap="ReslutMessage">
+        SELECT
+        c_userid ,
+        c_username,
+        c_spid,
+        c_spmc,
+        c_lxnr,
+        d_cjsj from t_message
+        where c_spmc like CONCAT(CONCAT('%', #{CSpmc}), '%')
     </select>
 </mapper>

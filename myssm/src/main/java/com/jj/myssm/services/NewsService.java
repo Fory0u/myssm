@@ -20,9 +20,11 @@ public class NewsService {
     public int delete(int cid){return iNewsDAO.delete(cid); }
     public int add(News news){return iNewsDAO.add(news);}
     public int update(News news){return iNewsDAO.update(news);}
-    public List<News> getListNews(Integer index , Integer page) {
-        return iNewsDAO.getListNews(index,page);
+    public List<News> getListNews(Integer start , Integer size) {
+        return iNewsDAO.getListNews(start,size);
     }
-
+    public List<News> findMoByNews(String CBt){
+        return iNewsDAO.findMoByNews(CBt);
+    }
 
 }

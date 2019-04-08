@@ -14,7 +14,7 @@
         c_gjc,
         c_fhxx
       from t_chart
-        LIMIT #{page},#{index}
+        LIMIT #{start},#{size}
     </select>
     <select id="countChart" resultType="int">
         select count(1) from t_chart
@@ -44,5 +44,12 @@
         c_gjc,
         c_fhxx
         from t_chart where c_id=#{cid}
+    </select>
+    <select id="findMoByChart" resultMap="ReslutChart">
+        SELECT
+        c_gjc,
+        c_fhxx
+        from t_chart
+        where c_gjc like CONCAT(CONCAT('%', #{CGjc}), '%')
     </select>
 </mapper>

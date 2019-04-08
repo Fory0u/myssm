@@ -18,21 +18,20 @@ public class ChartController {
     @Autowired
     ChartService chartService;
     @RequestMapping("/listChart.do")
-    public String listChart(Integer index , Integer page, ModelMap map ){
-        if(index==null || index <=0)
-            index = 5;
-        if(page==null || page<=0){
-            page = 0;
-        }else{
-            page=page-1;
-        }
+    public String listChart(Integer index , ModelMap map ){
+        int size = 5;//每页个数
+        if(index == null || index <=0)
+            index = 1;
+        int start = (index-1)*size;//开始数
         int count = chartService.countChart();
-        int total = count%index==0?count/index:count/index+1;
+        int total = count%size==0?count/size:count/size+1;
+
+        List<Chart> chartList = chartService.getListChart(start,size);
+
         map.put("total",total);
-        map.put("count",count);
         map.put("index",index);
-        List<Chart> chartList = chartService.getListChart(index,page);
         map.put("chart",chartList);
+
         return "/jj/ht/chartList.jsp";
     }
     @RequestMapping("/deleteChart.do")
@@ -57,6 +56,20 @@ public class ChartController {
         Chart chart= chartService.findByCid(cid);
         System.out.print(chart);
         map.put("chart",chart);
-        return "/jj/ht/chart-edit.jsp";
+        return "/jj/ht/chart_edit.jsp";
+    }
+    @RequestMapping("/findMoByChart.do")
+    public String findMoByChart(String CGjc,Integer index, ModelMap map){
+        int size = 5;//每页个数
+        if (index == null || index <= 0)
+            index = 1;
+        List<Chart> chartList1 = chartService.findMoByChart(CGjc);
+        int count = chartList1.size();
+        int total = count % size == 0 ? count / size : count / size + 1;
+
+        map.put("chart", chartList1);
+        map.put("total", total);
+        map.put("index", index);
+        return "/jj/ht/chartList.jsp";
     }
 }

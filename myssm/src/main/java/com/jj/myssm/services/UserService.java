@@ -16,23 +16,35 @@ public class UserService {
     @Autowired
     IUserDAO iUserDAO;
 
-    public User login(String loginid ,String password){
-       return iUserDAO.login(loginid,password);
+    public User login(String loginid, String password) {
+        return iUserDAO.login(loginid, password);
     }
-    public int delete(int id){
+
+    public int delete(int id) {
         return iUserDAO.delete(id);
     }
-    public int add(User user){
+
+    public int add(User user) {
         return iUserDAO.add(user);
     }
-    public int update(User user){
+
+    public int update(User user) {
         return iUserDAO.update(user);
     }
-    public User findByCid(int cid){return iUserDAO.findByCid(cid);}
-    public List<User> getListUser(Integer index , Integer size) {
-        return iUserDAO.getListUser(index,size);
+
+    public User findByCid(int cid) {
+        return iUserDAO.findByCid(cid);
     }
+
+    public List<User> getListUser(Integer start, Integer size) {
+        return iUserDAO.getListUser(start, size);
+    }
+
     public int countUser() {
         return iUserDAO.countUser();
+    }
+
+    public List<User> findMoByUser(String CLoginId) {
+        return iUserDAO.findMoByUser(CLoginId);
     }
 }

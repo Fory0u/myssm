@@ -16,5 +16,6 @@ public interface INewsDAO {
     int delete(@Param("cid") int cid);
     int add(News news);
     int update(News news);
-    List<News> getListNews(@Param("index")Integer index, @Param("page")Integer page);
+    List<News> getListNews(@Param("start")Integer start, @Param("size")Integer size);
+    List<News> findMoByNews(@Param("CBt") String CBt);//模糊查询
 }

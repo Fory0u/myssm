@@ -80,6 +80,20 @@ public class UserController {
         map.remove("user");
         return "/jj/jjq/login.jsp";
     }
+    @RequestMapping("/findMoByUser.do")
+    public String findMoByUser(String CLoginId,Integer index,ModelMap map){
+        int size = 5;//每页个数
+        if(index == null || index <=0)
+            index = 1;
+        List<User> userList1= userService.findMoByUser(CLoginId);
+        int count = userList1.size();
+        int total = count%size==0?count/size:count/size+1;
+
+        map.put("users",userList1);
+        map.put("total",total);
+        map.put("index",index);
+        return "/jj/ht/usersList.jsp";
+    }
 
 
 }
