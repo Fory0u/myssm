@@ -1,6 +1,6 @@
 package com.jj.myssm.vo;
 
-/**
+/**用户表
  * Created by admin on 2019/3/24.
  */
 public class User {

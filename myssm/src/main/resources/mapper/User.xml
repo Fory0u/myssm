@@ -30,14 +30,17 @@
         t_user.c_password,
         t_user.c_name,
         t_user.n_flag from t_user
-        LIMIT #{start},#{size}
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
+
     </select>
     <select id="countUser" resultType="int">
         select count(1) from t_user
     </select>
-    <update id="delete">
-        DELETE from t_user where t_user.c_id = #{id}
-    </update>
+    <delete id="delete" >
+        DELETE from t_user where t_user.c_id = #{cid}
+    </delete>
     <insert id="add">
         insert into t_user
        (c_loginid,
@@ -69,10 +72,11 @@
     </select>
     <select id="findMoByUser" resultMap="ReslutUser">
         SELECT
+        c_id,
         c_loginid,
         c_password,
         c_name,
         n_flag from t_user
-        where c_loginid like CONCAT(CONCAT('%', #{CLoginId}), '%')
+        where c_loginid like CONCAT('%', #{CLoginId}, '%')
     </select>
 </mapper>

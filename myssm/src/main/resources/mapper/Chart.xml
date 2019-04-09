@@ -14,7 +14,9 @@
         c_gjc,
         c_fhxx
       from t_chart
-        LIMIT #{start},#{size}
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
     </select>
     <select id="countChart" resultType="int">
         select count(1) from t_chart

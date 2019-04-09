@@ -24,7 +24,9 @@
          d_cjsj,
          d_gxsj from t_news
          where  n_type = 1
-        LIMIT #{start},#{size}
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
     </select>
     <select id="getListDT" resultMap="ReslutNews" >
         select

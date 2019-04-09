@@ -2,10 +2,10 @@ package com.jj.myssm.vo;
 
 import java.util.Date;
 
-/**公告表
- * Created by admin on 2019/3/28.
+/***
+ * 校园动态表
  */
-public class News {
+public class Xydt {
     private  int CId;//主键
     private String CBt;//标题
     private String CFbt;//副标题
@@ -15,6 +15,8 @@ public class News {
     private Date DCjsj;//创建时间
     private Date DGxsj;//跟新时间
 
+    public Xydt() {
+    }
 
     public int getCId() {
         return CId;

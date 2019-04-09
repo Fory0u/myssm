@@ -2,7 +2,7 @@ package com.jj.myssm.vo;
 
 import java.util.Date;
 
-/**
+/**商品留言表
  * Created by admin on 2019/3/30.
  */
 public class Message {

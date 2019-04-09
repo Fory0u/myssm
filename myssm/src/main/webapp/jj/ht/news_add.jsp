@@ -25,8 +25,6 @@
             var CFbt = document.getElementById("CFbt").value;
             var CNr = document.getElementById("CNr").value;
             var CType = document.getElementById("CType").value;
-            var DCjsj = document.getElementById("DCjsj").value;
-            var DGxsj = document.getElementById("DGxsj").value;
             if(CBt.length==0){
                 alert("请输入标题");
                 return false;
@@ -74,6 +72,7 @@
                 <input type="text" class="input-text" autocomplete="off" placeholder="副标题" id="CFbt" name="CFbt" style="width: 250px">
             </div>
         </div>
+
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>内容：</label>
             <div class="formControls col-xs-8 col-sm-9">

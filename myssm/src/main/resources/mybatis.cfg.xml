@@ -4,8 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.jj.myssm.vo.Films" alias="film"></typeAlias>
-        <typeAlias type="com.jj.myssm.vo.Actors" alias="act"></typeAlias>
     </typeAliases>
 
 </configuration>

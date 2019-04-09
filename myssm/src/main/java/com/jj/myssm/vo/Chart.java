@@ -1,6 +1,7 @@
 package com.jj.myssm.vo;
 
 /**
+ * 即时通信表
  * Created by admin on 2019/3/30.
  */
 public class Chart {

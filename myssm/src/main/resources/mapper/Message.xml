@@ -22,7 +22,9 @@
         c_lxnr,
         d_cjsj
         from t_message
-        LIMIT #{start},#{size}
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
     </select>
     <select id="countMessage" resultType="int">
         select count(1) from t_message

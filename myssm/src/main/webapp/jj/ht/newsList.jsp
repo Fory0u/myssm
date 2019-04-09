@@ -26,13 +26,13 @@
           href="<%=path%>/jj/ht/ht/lib/icheck/icheck.css" />
     <link rel="stylesheet" type="text/css"
           href="<%=path%>/jj/ht/ht/static/h-ui.admin/skin/default/skin.css" id="skin" />
-    <title>新闻列表</title>
+    <title>公告列表</title>
 </head>
 <body>
 <nav class="breadcrumb">
     <i class="Hui-iconfont">&#xe67f;</i> 首页
-    <span class="c-gray en">&gt;</span> 新闻
-    <span class="c-gray en">&gt;</span> 新闻列表
+    <span class="c-gray en">&gt;</span> 公告
+    <span class="c-gray en">&gt;</span> 公告列表
     <a class="btn btn-success radius r"
        style="line-height: 1.6em; margin-top: 3px"
        href="javascript:location.replace(location.href);" title="刷新"><i
@@ -57,18 +57,18 @@
         </div>
         <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
-                                        onclick="admin_add('新闻添加','jj/ht/news_add.jsp','600','500')"
+                                        onclick="admin_add('公告添加','jj/ht/news_add.jsp','600','500')"
                                         class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
-                        添加新闻</a>
+                        添加公告</a>
 					</span>
 
     </div>
-        <div>新闻列表</div>
+        <div>公告列表</div>
         <table class="table table-border table-bordered table-bg">
             <thead>
             <tr class="text-c">
                 <th  class="">
-                   新闻编码
+                    公告编码
                 </th>
                 <th width="120">
                     标题
@@ -125,7 +125,7 @@
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('新闻编辑','/findByCidNews.do?cid=${n.CId}','1','600','500')"
+                           onclick="admin_edit('公告编辑','/findByCidNews.do?cid=${n.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>
