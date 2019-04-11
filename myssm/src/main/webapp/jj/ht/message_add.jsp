@@ -20,42 +20,7 @@
 
     <title>公告添加</title>
     <script language="javascript" type="text/javascript">
-        function validate() {
-            var CUserId = document.getElementById("CUserId").value;
-            var CUserName = document.getElementById("CUserName").value;
-            var CSpid = document.getElementById("CSpid").value;
-            var CSpmc = document.getElementById("CSpmc").value;
-            var CLxnr = document.getElementById("CLxnr").value;
-            var DCjsj = document.getElementById("DCjsj").value;
-            if(DCjsj.length==0){
-                alert("请输入用户id");
-                return false;
-            }
-            if(CUserName.length==0){
-                alert("请输入用户姓名！");
-                return false;
-            }
 
-            if(CSpid.length==0){
-                alert("请输入商品信息id!");
-                return false;
-            }
-            if(CSpmc.length==0){
-                alert("请选择商品名称!");
-                return false;
-            } if(CLxnr.length==0){
-                alert("请输入留言内容!");
-                return false;
-            }
-            if(DCjsj.length==0){
-                alert("请输入创建时间!");
-                return false;
-            }else{
-                document.getElementById("form-admin-add").submit();
-                return true;
-
-            }
-        }
     </script>
 </head>
 <body>
@@ -64,65 +29,47 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户i(对应用户表C_id)：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" id="CUserId" name="CUserId" placeholder="用户i(对应用户表C_id)" style="width: 250px">
+                <input required type="text" class="input-text" id="CUserId" name="CUserId" placeholder="用户i(对应用户表C_id)" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="用户姓名" id="CUerName" name="CUerName" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="用户姓名" id="CUerName" name="CUerName" style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品信息id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="商品信息id" id="CSpid" name="CSpid" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="商品信息id" id="CSpid" name="CSpid" style="width: 250px">
             </div>
         </div>
-
-        <!-- <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                    <select id="userAgender" name="userAgender"  style='width:250px;height:30px'>
-                    <option value ="男">男</option>
-                    <option value ="女">女</option>
-                      </select>
-            </div>
-        </div> -->
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品名称：</label>--%>
-            <%--<div class="formControls col-xs-8 col-sm-9">--%>
-                <%--<select id="CType" name="CType"  style='width:250px;height:30px'>--%>
-                    <%--<option value ="1">强制性公告</option>--%>
-                    <%--<option value ="2">指挥性公告</option>--%>
-                    <%--<option value ="3">决策性公告</option>--%>
-                <%--</select>--%>
-            <%--</div>--%>
-        <%--</div>--%>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="商品名称" id="CSpmc" name="CSpmc" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="商品名称" id="CSpmc" name="CSpmc" style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>留言内容：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="留言内容" id="CLxnr" name="CLxnr" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="留言内容" id="CLxnr" name="CLxnr" style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DCjsj" name="DCjsj" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DCjsj" name="DCjsj" style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="button" onclick="validate()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
+
+
     </form>
 </article>
 

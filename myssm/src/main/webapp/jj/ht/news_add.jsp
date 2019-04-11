@@ -20,40 +20,40 @@
 
     <title>公告添加</title>
     <script language="javascript" type="text/javascript">
-        function validate() {
-            var CBt = document.getElementById("CBt").value;
-            var CFbt = document.getElementById("CFbt").value;
-            var CNr = document.getElementById("CNr").value;
-            var CType = document.getElementById("CType").value;
-            if(CBt.length==0){
-                alert("请输入标题");
-                return false;
-            }
-            if(CFbt.length==0){
-                alert("请输入副标题！");
-                return false;
-            }
-
-            if(CNr.length==0){
-                alert("请输入内容!");
-                return false;
-            }
-            if(CType.length==0){
-                alert("请选择公告类型!");
-                return false;
-//            } if(DCjsj.length==0){
-//                alert("请输入创建时间!");
-//                return false;
-//            }
-//            if(DGxsj.length==0){
-//                alert("请输入跟新时间!");
-//                return false;
-            }else{
-                document.getElementById("form-admin-add").submit();
-                return true;
-
-            }
-        }
+//         function validate() {
+//             var CBt = document.getElementById("CBt").value;
+//             var CFbt = document.getElementById("CFbt").value;
+//             var CNr = document.getElementById("CNr").value;
+//             var CType = document.getElementById("CType").value;
+//             if(CBt.length==0){
+//                 alert("请输入标题");
+//                 return false;
+//             }
+//             if(CFbt.length==0){
+//                 alert("请输入副标题！");
+//                 return false;
+//             }
+//
+//             if(CNr.length==0){
+//                 alert("请输入内容!");
+//                 return false;
+//             }
+//             if(CType.length==0){
+//                 alert("请选择公告类型!");
+//                 return false;
+// //            } if(DCjsj.length==0){
+// //                alert("请输入创建时间!");
+// //                return false;
+// //            }
+// //            if(DGxsj.length==0){
+// //                alert("请输入跟新时间!");
+// //                return false;
+//             }else{
+//                 document.getElementById("form-admin-add").submit();
+//                 return true;
+//
+//             }
+//         }
     </script>
 </head>
 <body>
@@ -62,21 +62,21 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" id="CBt" name="CBt" placeholder="标题" style="width: 250px">
+                <input required type="text" class="input-text" id="CBt" name="CBt" placeholder="标题" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>副标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="副标题" id="CFbt" name="CFbt" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="副标题" id="CFbt" name="CFbt" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>内容：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="内容" id="CNr" name="CNr" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="内容" id="CNr" name="CNr" style="width: 250px">
             </div>
         </div>
 
@@ -99,21 +99,10 @@
                 </select>
             </div>
         </div>
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>--%>
-            <%--<div class="formControls col-xs-8 col-sm-9">--%>
-                <%--<input type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DCjsj" name="DCjsj" style="width: 250px">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>更新时间：</label>--%>
-            <%--<div class="formControls col-xs-8 col-sm-9">--%>
-                <%--<input type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DGxsj" name="DGxsj" style="width: 250px">--%>
-            <%--</div>--%>
-        <%--</div>--%>
+        <input type="hidden"  id="NType" name="NType" value="1">
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="button" onclick="validate()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
     </form>

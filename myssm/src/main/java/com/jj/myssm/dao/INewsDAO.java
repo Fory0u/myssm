@@ -17,5 +17,5 @@ public interface INewsDAO {
     int add(News news);
     int update(News news);
     List<News> getListNews(@Param("start")Integer start, @Param("size")Integer size);
-    List<News> findMoByNews(@Param("CBt") String CBt);//模糊查询
+    List<News> findMoNewsByBt(@Param("CBt") String CBt);//模糊查询
 }

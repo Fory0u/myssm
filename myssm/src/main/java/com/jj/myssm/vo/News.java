@@ -1,6 +1,6 @@
 package com.jj.myssm.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**公告表
  * Created by admin on 2019/3/28.

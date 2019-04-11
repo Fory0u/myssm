@@ -23,8 +23,8 @@ public class NewsService {
     public List<News> getListNews(Integer start , Integer size) {
         return iNewsDAO.getListNews(start,size);
     }
-    public List<News> findMoByNews(String CBt){
-        return iNewsDAO.findMoByNews(CBt);
+    public List<News> findMoNewsByBt(String CBt){
+        return iNewsDAO.findMoNewsByBt(CBt);
     }
 
 }

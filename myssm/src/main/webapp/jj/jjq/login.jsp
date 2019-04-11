@@ -49,19 +49,19 @@
                         <div class="layui-inline iphone">
                             <div class="layui-input-inline">
                                 <i class="layui-icon layui-icon-username iphone-icon"></i>
-                                <input type="text" name="loginid" id="loginid"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                                <input required type="text" name="loginid" id="loginid"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-inline  iphone">
                             <div class="layui-input-inline">
                                 <i class="layui-icon layui-icon-password iphone-icon"></i>
-                                <input id="password" type="password" name="password" placeholder="请输入密码"  class="layui-input">
+                                <input required id="password" type="password" name="password" placeholder="请输入密码"  class="layui-input">
                             </div>
                         </div>
                     </div>
                     <div class="layui-form-item login-btn">
                         <div class="layui-input-block" style="  padding: 0 !important;">
-                            <%--<input class="layui-btn" type="submit" value="登录">--%>
+                            <%--<input required class="layui-btn" type="submit" value="登录">--%>
                             <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="login()">登录</button>
                         </div>
                     </div>

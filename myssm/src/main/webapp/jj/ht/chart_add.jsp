@@ -20,22 +20,22 @@
 
     <title>公告添加</title>
     <script language="javascript" type="text/javascript">
-        function validate() {
-            var CGjc = document.getElementById("CGjc").value;
-            var CFhxx = document.getElementById("CFhxx").value;
-            if(CGjc.length==0){
-                alert("请输入关键词");
-                return false;
-            }
-            if(CFhxx.length==0){
-                alert("请输入返回信息！");
-                return false;
-            }else{
-                document.getElementById("form-admin-add").submit();
-                return true;
-
-            }
-        }
+        // function validate() {
+        //     var CGjc = document.getElementById("CGjc").value;
+        //     var CFhxx = document.getElementById("CFhxx").value;
+        //     if(CGjc.length==0){
+        //         alert("请输入关键词");
+        //         return false;
+        //     }
+        //     if(CFhxx.length==0){
+        //         alert("请输入返回信息！");
+        //         return false;
+        //     }else{
+        //         document.getElementById("form-admin-add").submit();
+        //         return true;
+        //
+        //     }
+        // }
     </script>
 </head>
 <body>
@@ -44,19 +44,19 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>关键词：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" id="CGjc" name="CGjc" placeholder="关键词" style="width: 250px">
+                <input required type="text" class="input-text" id="CGjc" name="CGjc" placeholder="关键词" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>返回信息：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" placeholder="返回信息" id="CFhxx" name="CFhxx" style="width: 250px">
+                <input required type="text" class="input-text" autocomplete="off" placeholder="返回信息" id="CFhxx" name="CFhxx" style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="button" onclick="validate()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
     </form>

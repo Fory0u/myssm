@@ -65,9 +65,9 @@
     <!--第一种方法-->
     <div class="navbar-collapse collapse" >
         <ul class="nav navbar-nav" >
-            <li class="">
-                <a href="#">首页</a>
-            </li>
+            <%--<li class="">--%>
+                <%--<a href="#">首页</a>--%>
+            <%--</li>--%>
             <li class="">
                 <a href="#">首页</a>
             </li>

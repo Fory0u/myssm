@@ -20,28 +20,28 @@
 
 <title>用户添加</title>
 <script language="javascript" type="text/javascript">
-function validate() {
-	var itemName = document.getElementById("CName").value;
-	var itemprice = document.getElementById("CLoginId").value;
-	var itemDepart = document.getElementById("CPassWord").value;
-	if(itemName.length==0){
-	   alert("请输入姓名");
-	   return false;
-	}
-	if(itemprice.length==0){
-		alert("请输入登录id！");
-		return false;
-	}
-	
-	if(itemDepart.length==0){
-		alert("请输入密码!");
-		return false;
-	}else{
-      document.getElementById("form-admin-add").submit();
-	return true;
-    
-	}
-}
+// function validate() {
+// 	var itemName = document.getElementById("CName").value;
+// 	var itemprice = document.getElementById("CLoginId").value;
+// 	var itemDepart = document.getElementById("CPassWord").value;
+// 	if(itemName.length==0){
+// 	   alert("请输入姓名");
+// 	   return false;
+// 	}
+// 	if(itemprice.length==0){
+// 		alert("请输入登录id！");
+// 		return false;
+// 	}
+//
+// 	if(itemDepart.length==0){
+// 		alert("请输入密码!");
+// 		return false;
+// 	}else{
+//       document.getElementById("form-admin-add").submit();
+// 	return true;
+//
+// 	}
+// }
 </script>
 </head>
 <body>
@@ -50,14 +50,14 @@ function validate() {
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="CName" name="CName" placeholder="用户姓名" style="width: 250px">
+				<input required type="text" class="input-text" id="CName" name="CName" placeholder="用户姓名" style="width: 250px">
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登录id：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off" placeholder="登录id" id="CLoginId" name="CLoginId" style="width: 250px">
+				<input required type="text" class="input-text" autocomplete="off" placeholder="登录id" id="CLoginId" name="CLoginId" style="width: 250px">
 			</div>
 		</div>
 	
@@ -82,12 +82,12 @@ function validate() {
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off" placeholder="密码" id="CPassWord" name="CPassWord" style="width: 250px">
+				<input required type="text" class="input-text" autocomplete="off" placeholder="密码" id="CPassWord" name="CPassWord" style="width: 250px">
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="validate()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>

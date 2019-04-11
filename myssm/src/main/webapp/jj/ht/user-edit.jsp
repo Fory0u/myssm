@@ -33,21 +33,21 @@
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CId}" name="CId" readonly="readonly"
+                <input required type="text" class="input-text" value="${user.CId}" name="CId" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">登录名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CLoginId}" name="CLoginId" readonly="readonly"
+                <input required type="text" class="input-text" value="${user.CLoginId}" name="CLoginId" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CName}" name="CName" readonly="readonly"
+                <input required type="text" class="input-text" value="${user.CName}" name="CName" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${user.CPassWord}" name="CPassWord" style="width: 250px">
+                <input required type="text" class="input-text" value="${user.CPassWord}" name="CPassWord" style="width: 250px">
             </div>
         </div>
 
@@ -71,7 +71,7 @@
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
                        style="width: 250px">
             </div>
         </div>

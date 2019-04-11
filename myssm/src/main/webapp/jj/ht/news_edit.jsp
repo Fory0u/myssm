@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -32,21 +33,21 @@
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.CId}" name="CId" readonly="readonly"
+                <input required type="text" class="input-text" value="${news.CId}" name="CId" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.CBt}" name="CBt" readonly="readonly"
+                <input required type="text" class="input-text" value="${news.CBt}" name="CBt" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">副标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.CFbt}" name="CFbt" readonly="readonly"
+                <input required type="text" class="input-text" value="${news.CFbt}" name="CFbt" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
@@ -54,16 +55,17 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">内容：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.CNr}" name="CNr" style="width: 250px">
+                <input required type="text" class="input-text" value="${news.CNr}" name="CNr" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">公告类型：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <select id="CType" class="select" name="CType" size="1" style="width: 250px">
-                    <option value="1">用户</option>
-                    <option value="2">管理员</option>
+                <select id="CType" name="CType"  style='width:250px;height:30px'>
+                    <option value ="强制性公告" <c:if test="${news.CType == '强制性公告'}">checked</c:if> >强制性公告</option>
+                    <option value ="指挥性公告" <c:if test="${news.CType == '指挥性公告'}">checked</c:if> >指挥性公告</option>
+                    <option value ="决策性公告" <c:if test="${news.CType == '决策性公告'}">checked</c:if> >决策性公告</option>
                 </select>
             </div>
 
@@ -71,19 +73,13 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">创建时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.DCjsj}" name="DCjsj" style="width: 250px">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">跟新时间：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${news.DGxsj}" name="DGxsj" style="width: 250px">
+                <input disabled type="time" class="input-text" value="${news.DCjsj}" name="DCjsj" style="width: 250px">
             </div>
         </div>
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
                        style="width: 250px">
             </div>
         </div>

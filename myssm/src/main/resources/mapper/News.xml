@@ -10,8 +10,8 @@
         <result column="c_nr" property="CNr" jdbcType="VARCHAR"/>
         <result column="c_type" property="CType" jdbcType="VARCHAR"/>
         <result column="n_type" property="NType" jdbcType="INTEGER"/>
-        <result column="d_cjsj" property="DCjsj" jdbcType="DATE"/>
-        <result column="d_gxsj" property="DGxsj" jdbcType="DATE"/>
+        <result column="d_cjsj" property="DCjsj" jdbcType="TIMESTAMP"/>
+        <result column="d_gxsj" property="DGxsj" jdbcType="TIMESTAMP"/>
     </resultMap>
     <select id="getListNews" resultMap="ReslutNews" >
          select
@@ -42,12 +42,12 @@
         LIMIT #{start},#{size}
     </select>
     <select id="countNews" resultType="int">
-        select count(1) from t_news
+        select count(1) from t_news where n_type = 1
     </select>
     <update id="delete">
         DELETE from t_news where c_id = #{cid}
     </update>
-    <insert id="add">
+    <insert id="add" >
         insert into t_news
         (c_bt,
         c_fbt,
@@ -72,8 +72,7 @@
          c_fbt=#{CFbt},
          c_nr=#{CNr},
          c_type=#{CType},
-         n_type=#{NType},
-         d_gxsj=now()where c_id=#{CId}
+         d_gxsj=now() where c_id=#{CId}
     </update>
     <select id="findByCid"  resultMap="ReslutNews">
         SELECT
@@ -82,19 +81,17 @@
         c_fbt,
         c_nr,
         c_type,
-         n_type,
-         d_cjsj,
-         d_gxsj from t_news where c_id=#{cid}
 
+         d_cjsj,
+         d_gxsj from t_news where c_id=#{cid} and n_type =1
     </select>
-    <select id="findMoByNews" resultMap="ReslutNews">
+    <select id="findMoNewsByBt" resultMap="ReslutNews">
          select
          c_id,
          c_bt,
          c_fbt,
          c_nr,
          c_type,
-         n_type,
          d_cjsj,
          d_gxsj from t_news
           where c_bt like CONCAT(CONCAT('%', #{CBt}), '%') and n_type= 1

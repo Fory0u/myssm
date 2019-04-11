@@ -32,27 +32,27 @@
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${chart.CId}" name="CId" readonly="readonly"
+                <input required type="text" class="input-text" value="${chart.CId}" name="CId" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">关键词：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${chart.CGjc}" name="CGjc" readonly="readonly"
+                <input required type="text" class="input-text" value="${chart.CGjc}" name="CGjc" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">返回信息：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${chart.CFhxx}" name="CFhxx" readonly="readonly"
+                <input required type="text" class="input-text" value="${chart.CFhxx}" name="CFhxx" readonly="readonly"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
+                <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;"
                        style="width: 250px">
             </div>
         </div>

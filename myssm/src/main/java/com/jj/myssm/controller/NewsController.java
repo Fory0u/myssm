@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,6 +51,7 @@ public class NewsController {
     }
     @RequestMapping("/updateNews.do")
     public String update(News news){
+        news.setDGxsj(new java.sql.Date(System.currentTimeMillis()));
         newsService.update(news);
         return "listNews.do";
     }
@@ -64,7 +67,7 @@ public class NewsController {
         int size = 5;//每页个数
         if(index == null || index <=0)
             index = 1;
-        List<News> newsList1= newsService.findMoByNews(CBt);
+        List<News> newsList1= newsService.findMoNewsByBt(CBt);
         int count = newsList1.size();
         int total = count%size==0?count/size:count/size+1;
 
