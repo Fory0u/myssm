@@ -10,8 +10,8 @@
         <result column="c_nr" property="CNr" jdbcType="VARCHAR"/>
         <result column="c_type" property="CType" jdbcType="VARCHAR"/>
         <result column="n_type" property="NType" jdbcType="INTEGER"/>
-        <result column="d_cjsj" property="DCjsj" jdbcType="TIMESTAMP"/>
-        <result column="d_gxsj" property="DGxsj" jdbcType="TIMESTAMP"/>
+        <result column="d_cjsj" property="DCjsj" javaType="java.sql.Date" jdbcType="DATE"/>
+        <result column="d_gxsj" property="DGxsj" javaType="java.sql.Date" jdbcType="DATE"/>
     </resultMap>
     <select id="getListNews" resultMap="ReslutNews" >
          select

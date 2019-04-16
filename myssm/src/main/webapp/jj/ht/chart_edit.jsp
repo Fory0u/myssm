@@ -28,7 +28,7 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-dish-edit" action="/updateNews.do" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-dish-edit" action="/updateChart.do" method="post" target="_parent">
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -39,14 +39,14 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">关键词：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" value="${chart.CGjc}" name="CGjc" readonly="readonly"
+                <input required type="text" class="input-text" value="${chart.CGjc}" name="CGjc"
                        style="width: 250px">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">返回信息：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" value="${chart.CFhxx}" name="CFhxx" readonly="readonly"
+                <input required type="text" class="input-text" value="${chart.CFhxx}" name="CFhxx"
                        style="width: 250px">
             </div>
         </div>

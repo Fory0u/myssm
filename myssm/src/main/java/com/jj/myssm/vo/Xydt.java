@@ -1,6 +1,6 @@
 package com.jj.myssm.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /***
  * 校园动态表

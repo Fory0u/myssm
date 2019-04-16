@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -20,10 +21,11 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("login.do")
-    public String login(String loginid, String password, ModelMap map){
+    public String login(String loginid, String password, ModelMap map, HttpSession session){
         User user = userService.login(loginid,password);
         if(user != null ){
             map.put("user",user);
+            session.setAttribute("user",user);
             if(user.getNFlag() == 1 ){//用户
                 return "/jj/jjq/index.jsp";
             }else{//管理员

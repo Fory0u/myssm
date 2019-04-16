@@ -34,21 +34,21 @@
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${news.CId}" name="CId" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${news.CBt}" name="CBt" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">副标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${news.CFbt}" name="CFbt" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
 
@@ -73,7 +73,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">创建时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input disabled type="time" class="input-text" value="${news.DCjsj}" name="DCjsj" style="width: 250px">
+                <input disabled type="text" class="input-text" value="${news.DCjsj}" name="DCjsj" style="width: 250px">
             </div>
         </div>
 

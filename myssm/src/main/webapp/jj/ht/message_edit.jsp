@@ -5,6 +5,7 @@
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,26 +29,26 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-dish-edit" action="/updateNews.do" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-dish-edit" action="/updateMessage.do" method="post" target="_parent">
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${message.CId}" name="CId" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">用户id：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${message.CUserId}" name="CUserId" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">用户姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${message.CUserName}" name="CUserName" readonly="readonly"
-                       style="width: 250px">
+                       style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
 
@@ -63,17 +64,6 @@
                 <input required type="text" class="input-text" value="${message.CSpmc}" name="CSpmc" style="width: 250px">
             </div>
         </div>
-
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-xs-4 col-sm-3">公告类型：</label>--%>
-            <%--<div class="formControls col-xs-8 col-sm-9">--%>
-                <%--<select id="CType" class="select" name="CType" size="1" style="width: 250px">--%>
-                    <%--<option value="1">用户</option>--%>
-                    <%--<option value="2">管理员</option>--%>
-                <%--</select>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">留言内容：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -83,7 +73,8 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">创建时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" value="${message.DCjsj}" name="DCjsj" style="width: 250px">
+                <input required readonly type="text" class="input-text" value="<fmt:formatDate value="${message.DCjsj}" pattern="yyyy-MM-dd"/>"
+                 name="DCjsj" style="width: 250px;cursor: not-allowed;background-color: #eee;">
             </div>
         </div>
 

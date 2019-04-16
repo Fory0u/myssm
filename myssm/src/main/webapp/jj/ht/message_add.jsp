@@ -29,14 +29,14 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户i(对应用户表C_id)：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" id="CUserId" name="CUserId" placeholder="用户i(对应用户表C_id)" style="width: 250px">
+                <input required readonly type="text" class="input-text" id="CUserId" name="CUserId" placeholder="用户i(对应用户表C_id)" style="width: 250px;cursor: not-allowed;background-color: #eee;" value="${user.CId}">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" autocomplete="off" placeholder="用户姓名" id="CUerName" name="CUerName" style="width: 250px">
+                <input required readonly type="text" class="input-text" autocomplete="off" placeholder="用户姓名" id="CUserName" name="CUserName" style="width: 250px;cursor: not-allowed;background-color: #eee;" value="${user.CName}">
             </div>
         </div>
         <div class="row cl">
@@ -57,12 +57,12 @@
                 <input required type="text" class="input-text" autocomplete="off" placeholder="留言内容" id="CLxnr" name="CLxnr" style="width: 250px">
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DCjsj" name="DCjsj" style="width: 250px">
-            </div>
-        </div>
+        <%--<div class="row cl">--%>
+            <%--<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>--%>
+            <%--<div class="formControls col-xs-8 col-sm-9">--%>
+                <%--<input required type="text" class="input-text" autocomplete="off" placeholder="创建时间" id="DCjsj" name="DCjsj" style="width: 250px">--%>
+            <%--</div>--%>
+        <%--</div>--%>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <input required class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">

@@ -142,9 +142,9 @@
         <p align="center">
 
             总页数：${total}
-            <a href="${pageContext.request.contextPath}/user.do?listNews&index=${index-1}"><c:if
+            <a href="${pageContext.request.contextPath}/listNews.do?index=${index-1}"><c:if
                     test="${index-1>0}">上一页</c:if> </a>
-            <a href="${pageContext.request.contextPath}/user.do?listNews&index=${index+1}"><c:if
+            <a href="${pageContext.request.contextPath}/listNews.do?index=${index+1}"><c:if
                     test="${index<total}">下一页</c:if> </a>
 
         </p>
