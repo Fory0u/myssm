@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jj.myssm.dao.INewsDAO">
-    <resultMap id="ReslutNews" type="com.jj.myssm.vo.News">
+<mapper namespace="com.jj.myssm.dao.IXydtDAO">
+    <resultMap id="ReslutXydt" type="com.jj.myssm.vo.Xydt">
         <id column="c_id" property="CId" jdbcType="INTEGER"/>
         <result column="c_bt" property="CBt" jdbcType="VARCHAR"/>
         <result column="c_fbt" property="CFbt" jdbcType="VARCHAR"/>
@@ -13,23 +13,23 @@
         <result column="d_cjsj" property="DCjsj" javaType="java.sql.Date" jdbcType="DATE"/>
         <result column="d_gxsj" property="DGxsj" javaType="java.sql.Date" jdbcType="DATE"/>
     </resultMap>
-    <select id="getListNews" resultMap="ReslutNews" >
-         select
-         c_id,
-         c_bt,
-         c_fbt,
-         c_nr,
-         c_type,
-         n_type,
-         d_cjsj,
-         d_gxsj from t_news
-         where  n_type = 1
+    <select id="getListXydt" resultMap="ReslutXydt" >
+        select
+        c_id,
+        c_bt,
+        c_fbt,
+        c_nr,
+        c_type,
+        n_type,
+        d_cjsj,
+        d_gxsj from t_news
+        where  n_type = 2
         <if test="start!= null and size != null">
             LIMIT #{start},#{size}
         </if>
     </select>
-    <select id="countNews" resultType="int">
-        select count(1) from t_news where n_type = 1
+    <select id="countXydt" resultType="int">
+        select count(2) from t_news where n_type = 2
     </select>
     <delete id="delete">
         DELETE from t_news where c_id = #{cid}
@@ -47,7 +47,7 @@
         #{CFbt},
         #{CNr},
         #{CType},
-        1,
+        2,
         now(),
         now()
         )
@@ -61,7 +61,7 @@
          c_type=#{CType},
          d_gxsj=now() where c_id=#{CId}
     </update>
-    <select id="findByCid"  resultMap="ReslutNews">
+    <select id="findByCid"  resultMap="ReslutXydt">
         SELECT
         c_id,
         c_bt,
@@ -69,9 +69,9 @@
         c_nr,
         c_type,
          d_cjsj,
-         d_gxsj from t_news where c_id=#{cid} and n_type =1
+         d_gxsj from t_news where c_id=#{cid} and n_type =2
     </select>
-    <select id="findMoNewsByBt" resultMap="ReslutNews">
+    <select id="findMoXydtByBt" resultMap="ReslutXydt">
          select
          c_id,
          c_bt,
@@ -80,7 +80,7 @@
          c_type,
          d_cjsj,
          d_gxsj from t_news
-          where c_bt like CONCAT(CONCAT('%', #{CBt}), '%') and n_type= 1
+          where c_bt like CONCAT(CONCAT('%', #{CBt}), '%') and n_type= 2
 
     </select>
 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jj.myssm.dao.IShopDAO">
+    <resultMap id="ReslutShop" type="com.jj.myssm.vo.Shop">
+        <id column="c_id" property="CId" jdbcType="INTEGER"/>
+        <result column="c_userid" property="CUserId" jdbcType="VARCHAR"/>
+        <result column="c_username" property="CUserName" jdbcType="VARCHAR"/>
+        <result column="c_photo" property="CPhoto" jdbcType="VARCHAR"/>
+        <result column="c_spmc" property="CSpmc" jdbcType="VARCHAR"/>
+        <result column="c_spms" property="CSpms" jdbcType="VARCHAR"/>
+        <result column="f_spjb" property="FSpjb" jdbcType="FLOAT"/>
+        <result column="n_spsl" property="NSpsl" jdbcType="INTEGER"/>
+        <result column="c_type" property="CType" jdbcType="VARCHAR"/>
+        <result column="d_cjsj" property="DCjsj" jdbcType="DATE"/>
+        <result column="d_gxsj" property="DGxsj" jdbcType="DATE"/>
+        <result column="c_czr" property="CCzr" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getListShop" resultMap="ReslutShop" >
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
+    </select>
+    <select id="countShop" resultType="int">
+        select count(1) from t_shop
+    </select>
+    <delete id="delete">
+        DELETE from t_shop where c_id = #{cid}
+    </delete>
+    <insert id="add">
+        INSERT INTO `erjy`.`t_shop`
+        (`c_userid`, `c_username`, `c_spmc`, `c_spms`, `f_spjg`, `n_spsl`, `c_type`, `d_cjsj`, `d_gxsj`, `c_czr` )
+        VALUES
+        (#{CUserId}, #{CUserName}, #{CSpmc}, #{CSpms}, #{FSpjb,jdbcType=FLOAT}, #{NSpsl,jdbcType=INTEGER},#{CType}, now(), now(), #{CCzr});
+    </insert>
+    <update id="update">
+        UPDATE `erjy`.`t_shop`
+        SET `c_userid` = #{CUserId},
+        `c_username` = #{CUserName},
+        `c_spmc` =  #{CSpmc},
+        `c_spms` = #{CSpms},
+        `f_spjg` = #{FSpjb,jdbcType=FLOAT},
+        `n_spsl` = #{NSpsl,jdbcType=INTEGER},
+        `c_type` = #{CType},
+        `d_gxsj` = now(),
+        `c_czr` = #{CCzr}
+        WHERE
+            `c_id` = #{CId}
+    </update>
+    <select id="findByCid" resultMap="ReslutShop">
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_photo,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop where c_id=#{cid}
+    </select>
+    <select id="findMoByShop" resultMap="ReslutShop">
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_photo,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop
+        where c_spmc like CONCAT('%',#{CSpmc},'%')
+    </select>
+</mapper>

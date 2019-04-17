@@ -14,14 +14,32 @@ import java.util.List;
 public class ChartService {
     @Autowired
     IChartDAO iChartDAO;
-    public Chart findByCid(int cid){return iChartDAO.findByCid(cid);}
-    public int countChart(){return iChartDAO.countChart();}
-    public int delete(int cid){return iChartDAO.delete(cid); }
-    public int add(Chart chart){return iChartDAO.add(chart);}
-    public int update(Chart chart){return iChartDAO.update(chart);}
-    public List<Chart> getListChart(Integer start , Integer size) {
-        return iChartDAO.getListChart(start,size);}
-    public List<Chart> findMoByChart(String CGjc){
+
+    public Chart findByCid(int cid) {
+        return iChartDAO.findByCid(cid);
+    }
+
+    public int countChart() {
+        return iChartDAO.countChart();
+    }
+
+    public int delete(int cid) {
+        return iChartDAO.delete(cid);
+    }
+
+    public int add(Chart chart) {
+        return iChartDAO.add(chart);
+    }
+
+    public int update(Chart chart) {
+        return iChartDAO.update(chart);
+    }
+
+    public List<Chart> getListChart(Integer start, Integer size) {
+        return iChartDAO.getListChart(start, size);
+    }
+
+    public List<Chart> findMoByChart(String CGjc) {
         return iChartDAO.findMoByChart(CGjc);
     }
 }

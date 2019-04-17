@@ -2,16 +2,17 @@ package com.jj.myssm.vo;
 
 import java.sql.Date;
 
-/**公告表
+/**
+ * 公告表
  * Created by admin on 2019/3/28.
  */
 public class News {
-    private  int CId;//主键
+    private int CId;//主键
     private String CBt;//标题
     private String CFbt;//副标题
     private String CNr;//内容
     private String CType;//类型
-    private int NType;//类型
+    private int NType;//1
     private Date DCjsj;//创建时间
     private Date DGxsj;//跟新时间
 

@@ -15,15 +15,31 @@ public class NewsService {
     @Autowired
     INewsDAO iNewsDAO;
 
-    public News findByCid(int cid){return iNewsDAO.findByCid(cid);}
-    public int countNews(){return iNewsDAO.countNews();}
-    public int delete(int cid){return iNewsDAO.delete(cid); }
-    public int add(News news){return iNewsDAO.add(news);}
-    public int update(News news){return iNewsDAO.update(news);}
-    public List<News> getListNews(Integer start , Integer size) {
-        return iNewsDAO.getListNews(start,size);
+    public News findByCid(int cid) {
+        return iNewsDAO.findByCid(cid);
     }
-    public List<News> findMoNewsByBt(String CBt){
+
+    public int countNews() {
+        return iNewsDAO.countNews();
+    }
+
+    public int delete(int cid) {
+        return iNewsDAO.delete(cid);
+    }
+
+    public int add(News news) {
+        return iNewsDAO.add(news);
+    }
+
+    public int update(News news) {
+        return iNewsDAO.update(news);
+    }
+
+    public List<News> getListNews(Integer start, Integer size) {
+        return iNewsDAO.getListNews(start, size);
+    }
+
+    public List<News> findMoNewsByBt(String CBt) {
         return iNewsDAO.findMoNewsByBt(CBt);
     }
 

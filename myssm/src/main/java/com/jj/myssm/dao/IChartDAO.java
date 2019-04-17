@@ -12,10 +12,16 @@ import java.util.List;
 @Component
 public interface IChartDAO {
     Chart findByCid(@Param("cid") int cid);
+
     int countChart();
+
     int delete(@Param("cid") int cid);
+
     int add(Chart chart);
+
     int update(Chart chart);
-    List<Chart> getListChart(@Param("start")Integer start, @Param("size")Integer size);
-    List<Chart> findMoByChart(@Param("CGjc")String CGjc);
+
+    List<Chart> getListChart(@Param("start") Integer start, @Param("size") Integer size);
+
+    List<Chart> findMoByChart(@Param("CGjc") String CGjc);
 }

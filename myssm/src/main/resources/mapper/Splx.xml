@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jj.myssm.dao.ISplxDAO">
+    <resultMap id="ReslutSplx" type="com.jj.myssm.vo.Splx">
+        <id column="c_id" property="CId" jdbcType="INTEGER"/>
+        <result column="c_lxmc" property="CIxmc" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getListSplx" resultMap="ReslutSplx" >
+        SELECT
+        t_splx.c_id,
+        t_splx.c_lxmc
+        FROM
+        t_splx
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
+    </select>
+    <select id="countSplx" resultType="int">
+        select count(1) from t_splx
+    </select>
+    <delete id="delete">
+        DELETE from t_splx where c_id = #{cid}
+    </delete>
+    <insert id="add">
+    INSERT INTO `erjy`.`t_splx`(`c_lxmc`) VALUES ( #{CIxmc});
+    </insert>
+    <update id="update">
+      UPDATE `erjy`.`t_splx` SET `c_lxmc` = #{CIxmc} WHERE `c_id` =#{CId};
+    </update>
+    <select id="findByCid" resultMap="ReslutSplx">
+      SELECT
+        t_splx.c_id,
+        t_splx.c_lxmc
+        FROM
+        t_splx
+      where c_id=#{cid}
+    </select>
+    <select id="findMoBySplx" resultMap="ReslutSplx">
+      SELECT
+        t_splx.c_id,
+        t_splx.c_lxmc
+        FROM
+        t_splx
+      where c_lxmc like CONCAT('%',#{CLxmc},'%')
+    </select>
+</mapper>

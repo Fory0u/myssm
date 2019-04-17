@@ -21,9 +21,9 @@
     <select id="countChart" resultType="int">
         select count(1) from t_chart
     </select>
-    <update id="delete">
+    <delete id="delete">
         DELETE from t_chart where c_id = #{cid}
-    </update>
+    </delete>
     <insert id="add">
         insert into t_chart
         (c_gjc,

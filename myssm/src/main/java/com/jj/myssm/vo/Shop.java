@@ -6,6 +6,7 @@ public class Shop {
     private int CId;
     private String CUserId;
     private String CUserName;
+    private String CPhoto;
     private String CSpmc;
     private String CSpms;
     private float FSpjb;
@@ -105,5 +106,13 @@ public class Shop {
 
     public String getCCzr() {
         return CCzr;
+    }
+
+    public String getCPhoto() {
+        return CPhoto;
+    }
+
+    public void setCPhoto(String CPhoto) {
+        this.CPhoto = CPhoto;
     }
 }

@@ -11,55 +11,62 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
+ * 即时通信表
  * Created by admin on 2019/3/30.
  */
 @Controller
 public class ChartController {
     @Autowired
     ChartService chartService;
+
     @RequestMapping("/listChart.do")
-    public String listChart(Integer index , ModelMap map ){
+    public String listChart(Integer index, ModelMap map) {
         int size = 5;//每页个数
-        if(index == null || index <=0)
+        if (index == null || index <= 0)
             index = 1;
-        int start = (index-1)*size;//开始数
+        int start = (index - 1) * size;//开始数
         int count = chartService.countChart();
-        int total = count%size==0?count/size:count/size+1;
+        int total = count % size == 0 ? count / size : count / size + 1;
 
-        List<Chart> chartList = chartService.getListChart(start,size);
+        List<Chart> chartList = chartService.getListChart(start, size);
 
-        map.put("total",total);
-        map.put("index",index);
-        map.put("chart",chartList);
+        map.put("total", total);
+        map.put("index", index);
+        map.put("chart", chartList);
 
         return "/jj/ht/chartList.jsp";
     }
+
     @RequestMapping("/deleteChart.do")
-    public String delete(int cid){
-        int count=chartService.delete(cid);
+    public String delete(int cid) {
+        int count = chartService.delete(cid);
         System.out.print(count);
         return "listChart.do";
 
     }
+
     @RequestMapping("/addChart.do")
-    public String add(Chart chart){
-        int count= chartService.add(chart);
+    public String add(Chart chart) {
+        int count = chartService.add(chart);
         return "listChart.do";
     }
+
     @RequestMapping("/updateChart.do")
-    public String update(Chart chart){
+    public String update(Chart chart) {
         chartService.update(chart);
         return "listChart.do";
     }
+
     @RequestMapping("/findByCidChart.do")
-    public String findByCid(int cid,ModelMap map){
-        Chart chart= chartService.findByCid(cid);
+    public String findByCid(int cid, ModelMap map) {
+        Chart chart = chartService.findByCid(cid);
         System.out.print(chart);
-        map.put("chart",chart);
+        map.put("chart", chart);
         return "/jj/ht/chart_edit.jsp";
     }
+
     @RequestMapping("/findMoByChart.do")
-    public String findMoByChart(String CGjc,Integer index, ModelMap map){
+    public String findMoByChart(String CGjc, Integer index, ModelMap map) {
         int size = 5;//每页个数
         if (index == null || index <= 0)
             index = 1;

@@ -6,12 +6,12 @@ import java.sql.Date;
  * 校园动态表
  */
 public class Xydt {
-    private  int CId;//主键
+    private int CId;//主键
     private String CBt;//标题
     private String CFbt;//副标题
     private String CNr;//内容
     private String CType;//类型
-    private int NType;//类型
+    private int NType;//2
     private Date DCjsj;//创建时间
     private Date DGxsj;//跟新时间
 
