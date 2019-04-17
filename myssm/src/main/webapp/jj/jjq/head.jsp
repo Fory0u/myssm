@@ -24,6 +24,37 @@
         .header .mallSearch button{
             height: 35px;
         }
+        .shell {
+            width: 95%;
+            margin: 10px auto;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 14px 0;
+            text-align: center;
+            border-top: 1px solid #e6e6e6;
+        }
+
+
+        #gongkao {
+            height: 18px;
+            overflow: hidden;
+        }
+
+        #gongkao  a {
+            display: block;
+            line-height: 18px;
+            text-decoration: none;
+            color: #000;
+            font-family: Arial;
+            font-size: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        #gongkao   a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -37,7 +68,7 @@
         <c:if test="${user!=null}">
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${user.CName}</li>
         </c:if>
-        <li><a href="jj/jjq/wddd.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
+        <li><a href="jj/jjq/shopcart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
     </ul>
     <div class="form-inline">
         <div class="header">
@@ -72,24 +103,34 @@
                 <a href="#">首页</a>
             </li>
             <li class="">
-                <a href="#">校园动态</a>
+                <a href="jj/jjq/dongtai.jsp">校园动态</a>
             </li>
             <li class="">
-                <a href="#">通知公告</a>
+                <a href="jj/jjq/liuyan.jsp">毕业留言</a>
             </li>
             <li class="">
-                <a href="#">毕业留言</a>
-            </li>
-            <li class="">
-                <a href="#">限时交流</a>
-            </li>
-            <li class="">
-                <a href="#">联系我们</a>
+                <a href="jj/jjq/help.jsp">联系我们</a>
             </li>
         </ul>
     </div>
+    <div class="shell">
+        <div id="gongkao">
+            <a href="#">公告1</a>
+            <a href="#">公告3</a>
+            <a href="#">公告2</a>
+        </div>
+    </div>
 
     ​</div>
+<script>
+    var c, _ = Function;
+    with(o = document.getElementById("gongkao")) {
+        // innerHTML += innerHTML;
+        onmouseover = _("c=1");
+        onmouseout = _("c=0");
+    }
+    (F = _("if(#%18||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%18?10:1500);".replace(/#/g, "o.scrollTop")))();
+</script>
 </body>
 </html>
 

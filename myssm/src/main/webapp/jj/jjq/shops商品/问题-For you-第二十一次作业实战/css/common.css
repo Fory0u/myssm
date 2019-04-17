@@ -1,0 +1,41 @@
+@charset "utf-8"
+/**清除浮动**/
+
+
+
+
+
+/**文字**/
+.f14{font-size:14px;}
+/**bg颜色**/
+.col-bg-o{background-color:#ff6700;}/**橙色*/
+.col-bg-g{background-color:#333333;}/**灰色*/
+/**f颜色**/
+.col-f-g{color:#3b423b;}/**灰色*/
+.col-f-lg{color:#b0b0b0;}/**淡灰色*/
+/**宽度和居中**/
+.w1226-m{width:1226px;margin:auto;}
+/****h3格式****/
+.h3-title{
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+/****外边格式****/
+.li-m-rgt{
+	margin-right:10px;
+}
+.m-b{
+	margin-bottom:10px;
+}
+/**li动画***/
+.li-t-5{
+	position:relative;
+	top:0;
+	transition:.2s;
+}
+.li-t-5:hover{
+	top: -5px;
+    box-shadow: 0 10px 17px rgba(0,0,0,0.1);
+}

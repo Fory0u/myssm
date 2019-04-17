@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/*rest*/
+body{background:#fff;color:#323942;min-width:1180px;-webkit-font-smoothing:antialiased;}
+body,ul,ol,dl,dd,p,h1,h2,h3,h4,h5,h6,form,input,textarea,select,td,th,button{margin:0;padding:0;}
+body,textarea,input,select,button{font-size:12px;font-family:"Microsoft YaHei",微软雅黑,"Hiragino Sans GB",Tahoma,Arial,"\5b8b\4f53",SimSun,sans-serif;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+ul{list-style:none;}
+/* img{border:none;display:block;} */
+em,i{font-style:normal;}
+textarea{resize:none;overflow:auto;}
+textarea,input,select,button{outline:none;}
+tabel{border-collapse:collapse;}
+a{text-decoration:none;color:#323942;}
+a:focus{outline:none;}
+a,area{blr:expression(this.onFocus=this.blur());}
+/*clear*/
+.clear:after{content:".";height:0;display:block;clear:both;visibility:hidden;}
+.clear{_zoom:1;*display:inline-block;}
+
+/*float*/
+.fl{float:left;}
+.fr{float:right;}
+.top-logo,.top-city,.top-nav li,.top-login a,.cur-path,.search-inp .inp,.footer-nav li,.footer-code .code,.top-city-menu dt,.top-city-menu dd,.lay-tab-tit li,.lay-list .pic,.lay-zhx-info li,.lay-zhx-list li,.lay-zhx-list h3{float:left;}
+.top-nav,.top-login,.search-box,.btn-search,.footer-nav,.share-guanzhu,.lay-list .info,.lay-zhx-list .price{float:right;}
+
+/*icon*/
+.icon-city,.icon-search,.share,.guanzhu,.city-arrow,.f-iphone .icon-phone{display:inline-block;background:url(./images/com-icon.png) no-repeat;}
+
+/*border-radius*/
+.top-city,.search-inp,.search-menu{border-radius:15px;}
+
+/*transition*/
+.top-city,.r-bar-item i,.search-menu li a,.search-menu li a span{-moz-transition:all 0.2s linear;-webkit-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+
+/*layout*/
+.main{width:1180px;margin:0 auto;}
+/**宽度和居中**/
+
+/**文字**/
+.f14{font-size:14px;}
+/**bg颜色**/
+.col-bg-o{background-color:#ff6700;}/**橙色*/
+.col-bg-g{background-color:#333333;}/**灰色*/
+/**f颜色**/
+.col-f-g{color:#3b423b;}/**灰色*/
+.col-f-lg{color:#b0b0b0;}/**淡灰色*/
+/**宽度和居中**/
+.w1226-m{width:1226px;margin:auto;}
+/****h3格式****/
+.h3-title{
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+/****外边格式****/
+.li-m-rgt{
+	margin-right:10px;
+}
+.m-b{
+	margin-bottom:10px;
+}
+/**li动画***/
+.li-t-5{
+	position:relative;
+	top:0;
+	transition:.2s;
+}
+.li-t-5:hover{
+	top: -5px;
+    box-shadow: 0 10px 17px rgba(0,0,0,0.1);
+}
+.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+/**浮动**/
+.f-lf{
+	float:left;
+}
+.f-rgt{
+	float:right;
+}
