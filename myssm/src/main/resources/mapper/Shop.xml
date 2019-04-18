@@ -10,7 +10,7 @@
         <result column="c_photo" property="CPhoto" jdbcType="VARCHAR"/>
         <result column="c_spmc" property="CSpmc" jdbcType="VARCHAR"/>
         <result column="c_spms" property="CSpms" jdbcType="VARCHAR"/>
-        <result column="f_spjb" property="FSpjb" jdbcType="FLOAT"/>
+        <result column="f_spjg" property="FSpjg" jdbcType="FLOAT"/>
         <result column="n_spsl" property="NSpsl" jdbcType="INTEGER"/>
         <result column="c_type" property="CType" jdbcType="VARCHAR"/>
         <result column="d_cjsj" property="DCjsj" jdbcType="DATE"/>
@@ -46,7 +46,7 @@
         INSERT INTO `erjy`.`t_shop`
         (`c_userid`, `c_username`, `c_spmc`, `c_spms`, `f_spjg`, `n_spsl`, `c_type`, `d_cjsj`, `d_gxsj`, `c_czr` )
         VALUES
-        (#{CUserId}, #{CUserName}, #{CSpmc}, #{CSpms}, #{FSpjb,jdbcType=FLOAT}, #{NSpsl,jdbcType=INTEGER},#{CType}, now(), now(), #{CCzr});
+        (#{CUserId}, #{CUserName}, #{CSpmc}, #{CSpms}, #{FSpjg,jdbcType=FLOAT}, #{NSpsl,jdbcType=INTEGER},#{CType}, now(), now(), #{CCzr});
     </insert>
     <update id="update">
         UPDATE `erjy`.`t_shop`
@@ -54,7 +54,7 @@
         `c_username` = #{CUserName},
         `c_spmc` =  #{CSpmc},
         `c_spms` = #{CSpms},
-        `f_spjg` = #{FSpjb,jdbcType=FLOAT},
+        `f_spjg` = #{FSpjg,jdbcType=FLOAT},
         `n_spsl` = #{NSpsl,jdbcType=INTEGER},
         `c_type` = #{CType},
         `d_gxsj` = now(),
@@ -95,6 +95,6 @@
         t_shop.c_czr
         FROM
         t_shop
-        where c_spmc like CONCAT('%',#{CSpmc},'%')
+        where c_spmc like CONCAT('%',#{CGjc},'%')
     </select>
 </mapper>

@@ -69,7 +69,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">商品价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="number" class="input-text"  step="0.01" value="${shop.FSpjb}" name="FSpjb"
+                <input required type="number" class="input-text"  step="0.01" value="${shop.FSpjg}" name="FSpjg"
                        style="width: 250px">
             </div>
         </div>
@@ -181,11 +181,10 @@
             })
 
 
-            $cusername.on('click',function () {
-                $cuserid.val($(this).data("id"));
+            $cusername.on('change',function () {
+                $cuserid.val($(this).find('option:checked').data("id"));
+                // console.log($cuserid.val())
             })
-
-
 
         })();
 

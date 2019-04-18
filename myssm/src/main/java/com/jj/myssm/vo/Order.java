@@ -3,18 +3,18 @@ package com.jj.myssm.vo;
 import java.sql.Date;
 
 public class Order {
-    private int CId;
-    private String CUserId;
-    private String CUserName;
-    private String CSpid;
-    private String CSpmc;
-    private String CSpdj;
-    private String CSpsl;
-    private int NZs;
-    private float FZj;
-    private String CDdzt;
-    private Date DCjsj;
-    private Date DGxsj;
+    private int CId;//id
+    private String CUserId;//用户id
+    private String CUserName;//用户名
+    private String CSpid;//商品id
+    private String CSpmc;//商品名称
+    private String CSpdj;//商品单价
+    private String CSpsl;//商品数量
+    private int NZs;//总数
+    private float FZj;//总价
+    private String CDdzt;//订单状态
+    private Date DCjsj;//创建时间
+    private Date DGxsj;//更新时间
 
     public String getCDdzt() {
         return CDdzt;

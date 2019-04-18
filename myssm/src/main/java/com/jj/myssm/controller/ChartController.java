@@ -41,20 +41,20 @@ public class ChartController {
     public String delete(int cid) {
         int count = chartService.delete(cid);
         System.out.print(count);
-        return "listChart.do";
+        return "redirect:listChart.do";
 
     }
 
     @RequestMapping("/addChart.do")
     public String add(Chart chart) {
         int count = chartService.add(chart);
-        return "listChart.do";
+        return "redirect:listChart.do";
     }
 
     @RequestMapping("/updateChart.do")
     public String update(Chart chart) {
         chartService.update(chart);
-        return "listChart.do";
+        return "redirect:listChart.do";
     }
 
     @RequestMapping("/findByCidChart.do")

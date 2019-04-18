@@ -41,7 +41,7 @@ public class ShopController {
         int count = shopService.delete(cid);
 //        System.out.print(count);
         if (count >= 1) {
-            return "shop.do?listShop";
+            return "redirect:shop.do?listShop";
         } else {
             return "no";
         }
@@ -51,7 +51,7 @@ public class ShopController {
     public String add(Shop shop) {
         int count = shopService.add(shop);
         if (count >= 1) {
-            return "shop.do?listShop";
+            return "redirect:shop.do?listShop";
         } else {
             return "no";
         }
@@ -61,7 +61,7 @@ public class ShopController {
     public String update(Shop shop) {
         int count = shopService.update(shop);
         if (count >= 1) {
-            return "shop.do?listShop";
+            return "redirect:shop.do?listShop";
         } else {
             return "no";
         }

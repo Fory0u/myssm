@@ -50,6 +50,6 @@
         t_splx.c_lxmc
         FROM
         t_splx
-      where c_lxmc like CONCAT('%',#{CLxmc},'%')
+      where c_lxmc like CONCAT('%',#{CGjc},'%')
     </select>
 </mapper>

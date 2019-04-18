@@ -9,7 +9,7 @@ public class Shop {
     private String CPhoto;//商品图片路径
     private String CSpmc;//商品名称
     private String CSpms;//商品描述
-    private float FSpjb;//商品价格
+    private float FSpjg;//商品价格
     private int NSpsl;//商品数量
     private String CType;//商品类型
     private Date DCjsj;//创建时间
@@ -40,8 +40,8 @@ public class Shop {
         this.CSpms = CSpms;
     }
 
-    public void setFSpjb(float FSpjb) {
-        this.FSpjb = FSpjb;
+    public void setFSpjg(float FSpjg) {
+        this.FSpjg = FSpjg;
     }
 
     public void setNSpsl(int NSpsl) {
@@ -84,8 +84,8 @@ public class Shop {
         return CSpms;
     }
 
-    public float getFSpjb() {
-        return FSpjb;
+    public float getFSpjg() {
+        return FSpjg;
     }
 
     public int getNSpsl() {

@@ -80,7 +80,7 @@
          c_type,
          d_cjsj,
          d_gxsj from t_news
-          where c_bt like CONCAT(CONCAT('%', #{CBt}), '%') and n_type= 2
+          where c_bt like CONCAT(CONCAT('%', #{CGjc}), '%') and n_type= 2
 
     </select>
 

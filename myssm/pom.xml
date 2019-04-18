@@ -18,6 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring-version>4.3.7.RELEASE</spring-version>
+    <jackson.version>2.5.4</jackson.version>
   </properties>
 
   <dependencies>
@@ -134,6 +135,17 @@
       <version>1.2.16</version>
     </dependency>
     <!--LOG4日志 end  -->
+    <!--json包-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
   </dependencies>
 
   <build>

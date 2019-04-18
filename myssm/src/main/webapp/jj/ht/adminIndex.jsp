@@ -78,7 +78,7 @@ basePath:<%=basePath%>
 				</ul>
 			</dd>
 		</dl>
-		
+
 		<dl id="menu-product">
 			<dt><i class="Hui-iconfont">&#xe681;</i>留言管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -92,6 +92,15 @@ basePath:<%=basePath%>
 			<dd>
 				<ul>
                 	<li><a _href="${pageContext.request.contextPath}/listChart.do" data-title="通信列表" href="javascript:void(0)">通信列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe60c;</i>商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="${pageContext.request.contextPath}/shop.do?listShop" data-title="动态列表" href="javascript:void(0)">商品列表</a></li>
 				</ul>
 			</dd>
 		</dl>

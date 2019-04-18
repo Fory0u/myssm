@@ -41,7 +41,7 @@
 <body>
 <article class="page-container">
     <form class="form form-horizontal" id="form-admin-add" action="/shop.do?addShop" method="post" target="_parent">
-        <div class="row cl" style="display: none;">
+        <div class="row cl" style="-display: none;">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>：商品所有人id :</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" id="CUserId" name="CUserId" style="width: 250px">
@@ -71,7 +71,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品价格 ：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="number" class="input-text" step="0.01" id="FSpjb" name="FSpjb" style="width: 250px">
+                <input required type="number" class="input-text" step="0.01" id="FSpjg" name="FSpjg" style="width: 250px">
             </div>
         </div>
 
@@ -120,36 +120,36 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript">
     $(function(){
-        $('.skin-minimal input').iCheck({
-            checkboxClass: 'icheckbox-blue',
-            radioClass: 'iradio-blue',
-            increaseArea: '20%'
-        });
-
-        $("#form-admin-add").validate({
-            rules:{
-                adminName:{
-                    required:true,
-                    minlength:4,
-                    maxlength:16
-                },
-                password:{
-                    required:true,
-                },
-                adminRole:{
-                    required:true,
-                },
-            },
-            onkeyup:false,
-            focusCleanup:true,
-            success:"valid",
-            submitHandler:function(form){
-                $(form).ajaxSubmit();
-                var index = parent.layer.getFrameIndex(window.name);
-                parent.$('.btn-refresh').click();
-                parent.layer.close(index);
-            }
-        });
+        // $('.skin-minimal input').iCheck({
+        //     checkboxClass: 'icheckbox-blue',
+        //     radioClass: 'iradio-blue',
+        //     increaseArea: '20%'
+        // });
+        //
+        // $("#form-admin-add").validate({
+        //     rules:{
+        //         adminName:{
+        //             required:true,
+        //             minlength:4,
+        //             maxlength:16
+        //         },
+        //         password:{
+        //             required:true,
+        //         },
+        //         adminRole:{
+        //             required:true,
+        //         },
+        //     },
+        //     onkeyup:false,
+        //     focusCleanup:true,
+        //     success:"valid",
+        //     submitHandler:function(form){
+        //         $(form).ajaxSubmit();
+        //         var index = parent.layer.getFrameIndex(window.name);
+        //         parent.$('.btn-refresh').click();
+        //         parent.layer.close(index);
+        //     }
+        // });
 
         (function () {
             //所有人id和姓名
@@ -162,7 +162,7 @@
                 url:'${pageContext.request.contextPath}/getAllUser.do',
                 type:"POST",
                 success:function(rs){
-                    console.log(rs)
+                    // console.log(rs)
 
                     for (var i=0;i<rs.length;i++){
 
@@ -170,6 +170,8 @@
 
                         $cusername.append($dom);
                     }
+                    //初始化
+                    $cuserid.val($cusername.find('option:checked').data("id"));
                 }
             })
 
@@ -178,7 +180,7 @@
                 url:'${pageContext.request.contextPath}/splx.do?getAllSplx',
                 type:"POST",
                 success:function(rs){
-                    console.log(rs)
+                    // console.log(rs)
 
                     for (var i=0;i<rs.length;i++){
 
@@ -189,9 +191,9 @@
                 }
             })
 
-
-            $cusername.on('click',function () {
-                $cuserid.val($(this).data("id"));
+            $cusername.on('change',function () {
+                $cuserid.val($(this).find('option:checked').data("id"));
+                // console.log($cuserid.val())
             })
 
 

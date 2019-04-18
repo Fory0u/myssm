@@ -65,7 +65,7 @@
         <table class="table table-border table-bordered table-bg">
             <thead>
             <tr>
-                <th scope="col" colspan="9">
+                <th scope="col" colspan="100%">
                     商品列表
                 </th>
             </tr>
@@ -103,6 +103,9 @@
                 <th width="50" class="">
                     操作人
                 </th>
+                <th width="50" class="">
+                    操作
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -124,7 +127,7 @@
                             ${c.CSpms}
                     </td>
                     <td>
-                            ${c.FSpjb}
+                            ${c.FSpjg}
                     </td>
                     <td>
                             ${c.NSpsl}

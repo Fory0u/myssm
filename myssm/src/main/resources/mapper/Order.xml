@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jj.myssm.dao.IOrderDAO">
+    <resultMap id="ReslutOrder" type="com.jj.myssm.vo.Order">
+        <id column="c_id" property="CId" jdbcType="INTEGER"/>
+        <result column="c_userid" property="CUserId" jdbcType="VARCHAR"/>
+        <result column="c_username" property="CUserName" jdbcType="VARCHAR"/>
+        <result column="c_spid" property="CSpid" jdbcType="VARCHAR"/>
+        <result column="c_spmc" property="CSpmc" jdbcType="VARCHAR"/>
+        <result column="c_spdj" property="CSpdj" jdbcType="VARCHAR"/>
+        <result column="c_spsl" property="CSpsl" jdbcType="VARCHAR"/>
+        <result column="n_zs" property="NZs" jdbcType="INTEGER"/>
+        <result column="f_zj" property="FZj" jdbcType="FLOAT"/>
+        <result column="c_ddzt" property="CDdzt" jdbcType="VARCHAR"/>
+        <result column="d_cjsj" property="DCjsj" jdbcType="DATE"/>
+        <result column="d_gxsj" property="DGxsj" jdbcType="DATE"/>
+    </resultMap>
+    <select id="getListOrder" resultMap="ReslutOrder" >
+        SELECT
+        t_order.c_id,
+        t_order.c_userid,
+        t_order.c_username,
+        t_order.c_spid,
+        t_order.c_spmc,
+        t_order.c_spdj,
+        t_order.c_spsl,
+        t_order.n_zs,
+        t_order.f_zj,
+        t_order.c_ddzt,
+        t_order.d_cjsj,
+        t_order.d_gxsj
+        FROM
+        t_order
+        <if test="start!= null and size != null">
+            LIMIT #{start},#{size}
+        </if>
+    </select>
+    <select id="countOrder" resultType="int">
+        select count(1) from t_order
+    </select>
+    <delete id="delete">
+        DELETE from t_order where c_id = #{cid}
+    </delete>
+    <insert id="add">
+      	INSERT INTO `erjy`.`t_order`
+		( `c_userid`, `c_username`, `c_spid`, `c_spmc`, `c_spdj`, `c_spsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj`, `d_gxsj`) VALUES
+		( #{CUserId}, #{CUserName}, #{CSpid}, #{CSpmc},#{CSpdj},#{CSpsl},#{NZs,jdbcType=INTEGER},#{FZj,jdbcType=FLOAT},#{CDdzt},now(), now());
+    </insert>
+    <update id="update">
+      UPDATE `erjy`.`t_order`
+    SET `c_userid` = #{CUserId},
+    `c_username` = #{CUserName},
+    `c_spid` = #{CSpid},
+    `c_spmc` = #{CSpmc},
+    `c_spdj` = #{CSpdj},
+    `c_spsl` = #{CSpsl},
+    `c_ddzt` = #{CDdzt},
+    `n_zs` = #{NZs,jdbcType=INTEGER},
+    `f_zj` = #{FZj,jdbcType=FLOAT},
+    `d_gxsj` = now()
+    WHERE
+        `c_id` = #{CId};
+    </update>
+    <select id="findByCid" resultMap="ReslutOrder">
+      SELECT
+        t_order.c_id,
+        t_order.c_userid,
+        t_order.c_username,
+        t_order.c_spid,
+        t_order.c_spmc,
+        t_order.c_spdj,
+        t_order.c_spsl,
+        t_order.n_zs,
+        t_order.f_zj,
+        t_order.c_ddzt,
+        t_order.d_cjsj,
+        t_order.d_gxsj
+        FROM
+        t_order
+
+      where c_id=#{cid}
+    </select>
+    <select id="findMoByOrder" resultMap="ReslutOrder">
+        SELECT
+        t_order.c_id,
+        t_order.c_userid,
+        t_order.c_username,
+        t_order.c_spid,
+        t_order.c_spmc,
+        t_order.c_spdj,
+        t_order.c_spsl,
+        t_order.n_zs,
+        t_order.f_zj,
+        t_order.c_ddzt,
+        t_order.d_cjsj,
+        t_order.d_gxsj
+        FROM
+        t_order
+      where c_spmc like CONCAT('%',#{CGjc},'%')
+    </select>
+</mapper>
