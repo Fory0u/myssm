@@ -3,18 +3,18 @@ package com.jj.myssm.vo;
 import java.sql.Date;
 
 public class Shop {
-    private int CId;
-    private String CUserId;
-    private String CUserName;
-    private String CPhoto;
-    private String CSpmc;
-    private String CSpms;
-    private float FSpjb;
-    private int NSpsl;
-    private String CType;
-    private Date DCjsj;
-    private Date DGxsj;
-    private String CCzr;
+    private int CId;//商品编码
+    private String CUserId;//商品所有人id
+    private String CUserName;//商品所有人姓名
+    private String CPhoto;//商品图片路径
+    private String CSpmc;//商品名称
+    private String CSpms;//商品描述
+    private float FSpjb;//商品价格
+    private int NSpsl;//商品数量
+    private String CType;//商品类型
+    private Date DCjsj;//创建时间
+    private Date DGxsj;//更新时间
+    private String CCzr;//操作人
 
 
     public Shop() {

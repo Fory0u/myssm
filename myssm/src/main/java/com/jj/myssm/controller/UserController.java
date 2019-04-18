@@ -1,5 +1,6 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.IUserDAO;
 import com.jj.myssm.services.UserService;
 import com.jj.myssm.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2019/3/24.
@@ -19,6 +22,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
+    @Autowired
+    IUserDAO iUserDAO;
 
     @RequestMapping("login.do")
     public String login(String loginid, String password, ModelMap map, HttpSession session) {
@@ -53,7 +58,12 @@ public class UserController {
 
         return "/jj/ht/usersList.jsp";
     }
-
+    @ResponseBody
+    @RequestMapping("/getAllUser.do")
+    public Object getAllUser( ModelMap map) {
+        List<Map<String,Object>> userList = iUserDAO.getAllUser();
+        return userList;
+    }
     @RequestMapping("/delete.do")
     public String delete(int id) {
         int count = userService.delete(id);

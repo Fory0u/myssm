@@ -1,13 +1,16 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.ISplxDAO;
 import com.jj.myssm.services.SplxService;
 import com.jj.myssm.vo.Splx;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * gxd修改成params
@@ -17,6 +20,8 @@ import java.util.List;
 public class SplxController {
     @Autowired
     SplxService splxService;
+    @Autowired
+    ISplxDAO iSplxDAO;
 
     @RequestMapping(params = "listSplx")
     public String listSplx(Integer index, ModelMap map) {
@@ -34,6 +39,13 @@ public class SplxController {
         map.put("splx", splxList);
 
         return "/jj/ht/splxList.jsp";
+    }
+
+    @ResponseBody
+    @RequestMapping(params = "getAllSplx")
+    public Object getAllSplx( ModelMap map) {
+        List<Map<String,Object>> splxList = iSplxDAO.getAllSplx();
+        return splxList;
     }
 
     @RequestMapping(params = "deleteSplx")

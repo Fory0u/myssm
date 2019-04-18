@@ -7,6 +7,13 @@
         <id column="c_id" property="CId" jdbcType="INTEGER"/>
         <result column="c_lxmc" property="CIxmc" jdbcType="VARCHAR"/>
     </resultMap>
+    <select id="getAllSplx" resultType="hashmap" >
+        SELECT
+        t_splx.c_id,
+        t_splx.c_lxmc
+        FROM
+        t_splx
+    </select>
     <select id="getListSplx" resultMap="ReslutSplx" >
         SELECT
         t_splx.c_id,

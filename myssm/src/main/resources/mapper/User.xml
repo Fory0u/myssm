@@ -10,6 +10,14 @@
         <result column="c_name" property="CName" jdbcType="VARCHAR"/>
         <result column="n_flag" property="NFlag" jdbcType="INTEGER"/>
     </resultMap>
+    <select id="getAllUser" resultType="hashmap" >
+        select
+        t_user.c_id,
+        t_user.c_loginid,
+        t_user.c_password,
+        t_user.c_name,
+        t_user.n_flag from t_user
+    </select>
     <select id="login" resultMap="ReslutUser">
         SELECT
         t_user.c_id,
