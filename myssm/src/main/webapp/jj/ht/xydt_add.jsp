@@ -18,47 +18,29 @@
     <link href="./ht/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
     <link href="./ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
 
-    <title>公告添加</title>
+    <title>商品添加</title>
     <script language="javascript" type="text/javascript">
-//         function validate() {
-//             var CBt = document.getElementById("CBt").value;
-//             var CFbt = document.getElementById("CFbt").value;
-//             var CNr = document.getElementById("CNr").value;
-//             var CType = document.getElementById("CType").value;
-//             if(CBt.length==0){
-//                 alert("请输入标题");
-//                 return false;
-//             }
-//             if(CFbt.length==0){
-//                 alert("请输入副标题！");
-//                 return false;
-//             }
-//
-//             if(CNr.length==0){
-//                 alert("请输入内容!");
-//                 return false;
-//             }
-//             if(CType.length==0){
-//                 alert("请选择公告类型!");
-//                 return false;
-// //            } if(DCjsj.length==0){
-// //                alert("请输入创建时间!");
-// //                return false;
-// //            }
-// //            if(DGxsj.length==0){
-// //                alert("请输入跟新时间!");
-// //                return false;
-//             }else{
-//                 document.getElementById("form-admin-add").submit();
-//                 return true;
-//
-//             }
-//         }
+        // function validate() {
+        //     var CGjc = document.getElementById("CGjc").value;
+        //     var CFhxx = document.getElementById("CFhxx").value;
+        //     if(CGjc.length==0){
+        //         alert("请输入关键词");
+        //         return false;
+        //     }
+        //     if(CFhxx.length==0){
+        //         alert("请输入返回信息！");
+        //         return false;
+        //     }else{
+        //         document.getElementById("form-admin-add").submit();
+        //         return true;
+        //
+        //     }
+        // }
     </script>
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-admin-add" action="/addNews.do" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-admin-add" action="/xydt.do?addXydt" method="post" target="_parent">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -83,9 +65,11 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公告类型：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <select id="CType" name="CType"  style='width:250px;height:30px'>
-                    <option value ="强制性公告">强制性公告</option>
-                    <option value ="指挥性公告">指挥性公告</option>
-                    <option value ="决策性公告">决策性公告</option>
+                    <option value ="宣传性公告">宣传性公告</option>
+                    <option value ="教育性公告">教育性公告</option>
+                    <option value ="主题活动性公告">主题活动性公告</option>
+                    <option value ="荣誉性公告">荣誉性公告</option>
+                    <option value ="活动性公告">活动性公告</option>
                 </select>
             </div>
         </div>
@@ -111,36 +95,40 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript">
     $(function(){
-        $('.skin-minimal input').iCheck({
-            checkboxClass: 'icheckbox-blue',
-            radioClass: 'iradio-blue',
-            increaseArea: '20%'
-        });
+        // $('.skin-minimal input').iCheck({
+        //     checkboxClass: 'icheckbox-blue',
+        //     radioClass: 'iradio-blue',
+        //     increaseArea: '20%'
+        // });
+        //
+        // $("#form-admin-add").validate({
+        //     rules:{
+        //         adminName:{
+        //             required:true,
+        //             minlength:4,
+        //             maxlength:16
+        //         },
+        //         password:{
+        //             required:true,
+        //         },
+        //         adminRole:{
+        //             required:true,
+        //         },
+        //     },
+        //     onkeyup:false,
+        //     focusCleanup:true,
+        //     success:"valid",
+        //     submitHandler:function(form){
+        //         $(form).ajaxSubmit();
+        //         var index = parent.layer.getFrameIndex(window.name);
+        //         parent.$('.btn-refresh').click();
+        //         parent.layer.close(index);
+        //     }
+        // });
 
-        $("#form-admin-add").validate({
-            rules:{
-                adminName:{
-                    required:true,
-                    minlength:4,
-                    maxlength:16
-                },
-                password:{
-                    required:true,
-                },
-                adminRole:{
-                    required:true,
-                },
-            },
-            onkeyup:false,
-            focusCleanup:true,
-            success:"valid",
-            submitHandler:function(form){
-                $(form).ajaxSubmit();
-                var index = parent.layer.getFrameIndex(window.name);
-                parent.$('.btn-refresh').click();
-                parent.layer.close(index);
-            }
-        });
+
+
+
     });
     <%--
     $(function(){

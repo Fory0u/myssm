@@ -30,8 +30,8 @@
 <body>
 <nav class="breadcrumb">
     <i class="Hui-iconfont">&#xe67f;</i> 首页
-    <span class="c-gray en">&gt;</span> 商品
-    <span class="c-gray en">&gt;</span> 商品列表
+    <span class="c-gray en">&gt;</span> 商品类型
+    <span class="c-gray en">&gt;</span> 商品类型列表
     <a class="btn btn-success radius r"
        style="line-height: 1.6em; margin-top: 3px"
        href="javascript:location.replace(location.href);" title="刷新"><i
@@ -41,10 +41,10 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/shop.do?findMoByShop" method="post" id="findMoByShop">
+           <form action="/splx.do?findMoBySplx" method="post" id="findMoBySplx">
 
            <input type="text" class="input-text" style="width: 250px"
-                placeholder="输入商品名称" id="CGjc" name="CGjc">
+                placeholder="输入商品类型名称" id="CGjc" name="CGjc">
             <%--<input type="text" class="input-text" style="width: 250px"--%>
             <%--placeholder="输入编码" id="" name="hosNo">--%>
             <%--<select id="hosType" name="hosType"  style='width:250px;height:30px'>--%>
@@ -57,51 +57,24 @@
         </div>
        <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
-                                        onclick="admin_add('商品添加','jj/ht/shop_add.jsp','600','500')"
+                                        onclick="admin_add('商品类型添加','jj/ht/splx_add.jsp','600','500')"
                                         class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
-                        添加商品</a>
+                        添加商品类型</a>
 					</span>
     </div>
         <table class="table table-border table-bordered table-bg">
             <thead>
             <tr>
                 <th scope="col" colspan="100%">
-                    商品列表
+                    商品类型列表
                 </th>
             </tr>
             <tr class="text-c">
                 <th width="50" class="">
-                    商品编码
+                    商品类型编码
                 </th>
                 <th width="50" class="">
-                    商品所有人id
-                </th>
-                <th width="50" class="">
-                    商品所有人姓名
-                </th>
-                <th width="50" class="">
-                    商品名称
-                </th>
-                <th width="50" class="">
-                    商品描述
-                </th>
-                <th width="50" class="">
-                    商品价格
-                </th>
-                <th width="50" class="">
-                    商品数量
-                </th>
-                <th width="50" class="">
-                    商品类型
-                </th>
-                <th width="50" class="">
-                    创建时间
-                </th>
-                <th width="50" class="">
-                    更新时间
-                </th>
-                <th width="50" class="">
-                    操作人
+                    商品类型名称
                 </th>
                 <th width="50" class="">
                     操作
@@ -109,48 +82,21 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${shop}" var="c">
+            <c:forEach items="${splx}" var="c">
                 <tr class="text-c">
                     <td >
                             ${c.CId}
                     </td>
                     <td>
-                            ${c.CUserId}
-                    </td>
-                    <td>
-                            ${c.CUserName}
-                    </td>
-                    <td>
-                            ${c.CSpmc}
-                    </td>
-                    <td>
-                            ${c.CSpms}
-                    </td>
-                    <td>
-                            ${c.FSpjg}
-                    </td>
-                    <td>
-                            ${c.NSpsl}
-                    </td>
-                    <td>
-                            ${c.CType}
-                    </td>
-                    <td>
-                            ${c.DCjsj}
-                    </td>
-                    <td>
-                            ${c.DGxsj}
-                    </td>
-                    <td>
-                            ${c.CCzr}
+                            ${c.CIxmc}
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('商品编辑','/shop.do?findByCidShop&cid=${c.CId}','1','600','500')"
+                           onclick="admin_edit('商品类型编辑','/splx.do?findByCidSplx&cid=${c.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>
-                        <a title="删除" href="${pageContext.request.contextPath}/shop.do?deleteShop&cid=${c.CId}"
+                        <a title="删除" href="${pageContext.request.contextPath}/splx.do?deleteSplx&cid=${c.CId}"
                            onclick="if(confirm('确定要删除吗?')==false)return false;"
                            class="ml-5"
                            style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -163,9 +109,9 @@
         <p align="center">
 
             总页数：${total}
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index-1}"><c:if
+            <a href="${pageContext.request.contextPath}/splx.do?listSplx&index=${index-1}"><c:if
                     test="${index-1>0}">上一页</c:if> </a>
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index+1}"><c:if
+            <a href="${pageContext.request.contextPath}/splx.do?listSplx&index=${index+1}"><c:if
                     test="${index<total}">下一页</c:if> </a>
 
         </p>
@@ -217,7 +163,7 @@
         layer_show(title, url, w, h);
     }
     $('.mhcx').on("click",function(){
-        $('#findMoByShop').submit();
+        $('#findMoBySplx').submit();
 //        var  cxbt ='CBt='+$('#CBt').val();
 //        window.location.href =getHref()+'findMo.do?'+cxbt;
     })

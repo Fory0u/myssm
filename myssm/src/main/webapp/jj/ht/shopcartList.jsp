@@ -30,8 +30,8 @@
 <body>
 <nav class="breadcrumb">
     <i class="Hui-iconfont">&#xe67f;</i> 首页
-    <span class="c-gray en">&gt;</span> 商品
-    <span class="c-gray en">&gt;</span> 商品列表
+    <span class="c-gray en">&gt;</span> 购物车
+    <span class="c-gray en">&gt;</span> 购物车列表
     <a class="btn btn-success radius r"
        style="line-height: 1.6em; margin-top: 3px"
        href="javascript:location.replace(location.href);" title="刷新"><i
@@ -41,7 +41,7 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/shop.do?findMoByShop" method="post" id="findMoByShop">
+           <form action="/shopcart.do?findMoByShopcart" method="post" id="findMoByShopcart">
 
            <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入商品名称" id="CGjc" name="CGjc">
@@ -55,44 +55,47 @@
            </button>
                </form>
         </div>
-       <div class="cl pd-5 bg-1 bk-gray mt-20">
-					<span class="l"> <a href="javascript:;"
-                                        onclick="admin_add('商品添加','jj/ht/shop_add.jsp','600','500')"
-                                        class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
-                        添加商品</a>
-					</span>
-    </div>
+       <%--<div class="cl pd-5 bg-1 bk-gray mt-20">--%>
+					<%--<span class="l"> <a href="javascript:;"--%>
+                                        <%--onclick="admin_add('购物车添加','jj/ht/shopcart_add.jsp','600','500')"--%>
+                                        <%--class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>--%>
+                        <%--添加购物车</a>--%>
+					<%--</span>--%>
+    <%--</div>--%>
         <table class="table table-border table-bordered table-bg">
             <thead>
             <tr>
                 <th scope="col" colspan="100%">
-                    商品列表
+                    购物车列表
                 </th>
             </tr>
             <tr class="text-c">
                 <th width="50" class="">
-                    商品编码
+                    购物车编码
                 </th>
                 <th width="50" class="">
-                    商品所有人id
+                    用户id
                 </th>
                 <th width="50" class="">
-                    商品所有人姓名
+                    用户名
+                </th>
+                <th width="50" class="">
+                    商品id
                 </th>
                 <th width="50" class="">
                     商品名称
                 </th>
                 <th width="50" class="">
-                    商品描述
-                </th>
-                <th width="50" class="">
-                    商品价格
+                    商品单价
                 </th>
                 <th width="50" class="">
                     商品数量
                 </th>
                 <th width="50" class="">
-                    商品类型
+                    总数
+                </th>
+                <th width="50" class="">
+                    总价
                 </th>
                 <th width="50" class="">
                     创建时间
@@ -101,15 +104,12 @@
                     更新时间
                 </th>
                 <th width="50" class="">
-                    操作人
-                </th>
-                <th width="50" class="">
                     操作
                 </th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${shop}" var="c">
+            <c:forEach items="${shopcart}" var="c">
                 <tr class="text-c">
                     <td >
                             ${c.CId}
@@ -121,19 +121,22 @@
                             ${c.CUserName}
                     </td>
                     <td>
+                            ${c.CSpid}
+                    </td>
+                    <td>
                             ${c.CSpmc}
                     </td>
                     <td>
-                            ${c.CSpms}
+                            ${c.CSpdj}
                     </td>
                     <td>
-                            ${c.FSpjg}
+                            ${c.CSpsl}
                     </td>
                     <td>
-                            ${c.NSpsl}
+                            ${c.NZs}
                     </td>
                     <td>
-                            ${c.CType}
+                            ${c.FZj}
                     </td>
                     <td>
                             ${c.DCjsj}
@@ -141,16 +144,13 @@
                     <td>
                             ${c.DGxsj}
                     </td>
-                    <td>
-                            ${c.CCzr}
-                    </td>
                     <td class="td-manage">
-                        <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('商品编辑','/shop.do?findByCidShop&cid=${c.CId}','1','600','500')"
-                           class="ml-5" style="text-decoration: none"><i
-                                class="Hui-iconfont">&#xe6df;</i>
-                        </a>
-                        <a title="删除" href="${pageContext.request.contextPath}/shop.do?deleteShop&cid=${c.CId}"
+                        <%--<a title="编辑" href="javascript:;"--%>
+                           <%--onclick="admin_edit('购物车编辑','/shopcart.do?findByCidShopcart&cid=${c.CId}','1','600','500')"--%>
+                           <%--class="ml-5" style="text-decoration: none"><i--%>
+                                <%--class="Hui-iconfont">&#xe6df;</i>--%>
+                        <%--</a>--%>
+                        <a title="删除" href="${pageContext.request.contextPath}/shopcart.do?deleteShopcart&cid=${c.CId}"
                            onclick="if(confirm('确定要删除吗?')==false)return false;"
                            class="ml-5"
                            style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -163,9 +163,9 @@
         <p align="center">
 
             总页数：${total}
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index-1}"><c:if
+            <a href="${pageContext.request.contextPath}/shopcart.do?listShopcart&index=${index-1}"><c:if
                     test="${index-1>0}">上一页</c:if> </a>
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index+1}"><c:if
+            <a href="${pageContext.request.contextPath}/shopcart.do?listShopcart&index=${index+1}"><c:if
                     test="${index<total}">下一页</c:if> </a>
 
         </p>
@@ -217,7 +217,7 @@
         layer_show(title, url, w, h);
     }
     $('.mhcx').on("click",function(){
-        $('#findMoByShop').submit();
+        $('#findMoByShopcart').submit();
 //        var  cxbt ='CBt='+$('#CBt').val();
 //        window.location.href =getHref()+'findMo.do?'+cxbt;
     })

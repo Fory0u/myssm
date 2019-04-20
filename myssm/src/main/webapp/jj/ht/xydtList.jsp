@@ -30,8 +30,8 @@
 <body>
 <nav class="breadcrumb">
     <i class="Hui-iconfont">&#xe67f;</i> 首页
-    <span class="c-gray en">&gt;</span> 商品
-    <span class="c-gray en">&gt;</span> 商品列表
+    <span class="c-gray en">&gt;</span> 校园动态
+    <span class="c-gray en">&gt;</span> 校园动态列表
     <a class="btn btn-success radius r"
        style="line-height: 1.6em; margin-top: 3px"
        href="javascript:location.replace(location.href);" title="刷新"><i
@@ -41,10 +41,10 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/shop.do?findMoByShop" method="post" id="findMoByShop">
+           <form action="/xydt.do?findMoByXydt" method="post" id="findMoByXydt">
 
            <input type="text" class="input-text" style="width: 250px"
-                placeholder="输入商品名称" id="CGjc" name="CGjc">
+                placeholder="输入校园动态名称" id="CGjc" name="CGjc">
             <%--<input type="text" class="input-text" style="width: 250px"--%>
             <%--placeholder="输入编码" id="" name="hosNo">--%>
             <%--<select id="hosType" name="hosType"  style='width:250px;height:30px'>--%>
@@ -57,51 +57,39 @@
         </div>
        <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
-                                        onclick="admin_add('商品添加','jj/ht/shop_add.jsp','600','500')"
+                                        onclick="admin_add('校园动态添加','jj/ht/xydt_add.jsp','600','500')"
                                         class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
-                        添加商品</a>
+                        添加校园动态</a>
 					</span>
     </div>
         <table class="table table-border table-bordered table-bg">
             <thead>
             <tr>
                 <th scope="col" colspan="100%">
-                    商品列表
+                    校园动态列表
                 </th>
             </tr>
             <tr class="text-c">
                 <th width="50" class="">
-                    商品编码
+                    校园动态编码
                 </th>
                 <th width="50" class="">
-                    商品所有人id
+                    标题
                 </th>
                 <th width="50" class="">
-                    商品所有人姓名
+                    副标题
                 </th>
                 <th width="50" class="">
-                    商品名称
+                    内容
                 </th>
                 <th width="50" class="">
-                    商品描述
-                </th>
-                <th width="50" class="">
-                    商品价格
-                </th>
-                <th width="50" class="">
-                    商品数量
-                </th>
-                <th width="50" class="">
-                    商品类型
+                    校园动态类型
                 </th>
                 <th width="50" class="">
                     创建时间
                 </th>
                 <th width="50" class="">
-                    更新时间
-                </th>
-                <th width="50" class="">
-                    操作人
+                    跟新时间
                 </th>
                 <th width="50" class="">
                     操作
@@ -109,28 +97,19 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${shop}" var="c">
+            <c:forEach items="${xydt}" var="c">
                 <tr class="text-c">
                     <td >
                             ${c.CId}
                     </td>
                     <td>
-                            ${c.CUserId}
+                            ${c.CBt}
                     </td>
                     <td>
-                            ${c.CUserName}
+                            ${c.CFbt}
                     </td>
                     <td>
-                            ${c.CSpmc}
-                    </td>
-                    <td>
-                            ${c.CSpms}
-                    </td>
-                    <td>
-                            ${c.FSpjg}
-                    </td>
-                    <td>
-                            ${c.NSpsl}
+                            ${c.CNr}
                     </td>
                     <td>
                             ${c.CType}
@@ -141,16 +120,13 @@
                     <td>
                             ${c.DGxsj}
                     </td>
-                    <td>
-                            ${c.CCzr}
-                    </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('商品编辑','/shop.do?findByCidShop&cid=${c.CId}','1','600','500')"
+                           onclick="admin_edit('校园动态编辑','/xydt.do?findByCidXydt&cid=${c.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>
-                        <a title="删除" href="${pageContext.request.contextPath}/shop.do?deleteShop&cid=${c.CId}"
+                        <a title="删除" href="${pageContext.request.contextPath}/xydt.do?deleteXydt&cid=${c.CId}"
                            onclick="if(confirm('确定要删除吗?')==false)return false;"
                            class="ml-5"
                            style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -163,9 +139,9 @@
         <p align="center">
 
             总页数：${total}
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index-1}"><c:if
+            <a href="${pageContext.request.contextPath}/xydt.do?listXydt&index=${index-1}"><c:if
                     test="${index-1>0}">上一页</c:if> </a>
-            <a href="${pageContext.request.contextPath}/shop.do?listShop&index=${index+1}"><c:if
+            <a href="${pageContext.request.contextPath}/xydt.do?listXydt&index=${index+1}"><c:if
                     test="${index<total}">下一页</c:if> </a>
 
         </p>
@@ -217,7 +193,7 @@
         layer_show(title, url, w, h);
     }
     $('.mhcx').on("click",function(){
-        $('#findMoByShop').submit();
+        $('#findMoByXydt').submit();
 //        var  cxbt ='CBt='+$('#CBt').val();
 //        window.location.href =getHref()+'findMo.do?'+cxbt;
     })

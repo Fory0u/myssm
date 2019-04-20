@@ -60,8 +60,8 @@ basePath:<%=basePath%>
 				</ul>
 			</dd>
 		</dl>
-
-		<dl id="menu-product">
+		<%--id="menu-product"--%>
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe620;</i>公告管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -70,16 +70,16 @@ basePath:<%=basePath%>
 			</dd>
 		</dl>
 		
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe60c;</i>动态管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+		<dl >
+			<dt><i class="Hui-iconfont">&#xe60c;</i>校园动态管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/cl.do?listCl" data-title="动态列表" href="javascript:void(0)">动态列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/xydt.do?listXydt" data-title="校园动态列表" href="javascript:void(0)">校园动态列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 
-		<dl id="menu-product">
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe681;</i>留言管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -87,7 +87,7 @@ basePath:<%=basePath%>
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-product">
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe627;</i>通信管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -96,11 +96,27 @@ basePath:<%=basePath%>
 			</dd>
 		</dl>
 
-		<dl id="menu-product">
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe60c;</i>商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="${pageContext.request.contextPath}/shop.do?listShop" data-title="动态列表" href="javascript:void(0)">商品列表</a></li>
+					<li><a _href="${pageContext.request.contextPath}/shop.do?listShop" data-title="商品列表" href="javascript:void(0)">商品列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl >
+			<dt><i class="Hui-iconfont">&#xe60c;</i>商品类型管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="${pageContext.request.contextPath}/splx.do?listSplx" data-title="商品类型列表" href="javascript:void(0)">商品类型列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl >
+			<dt><i class="Hui-iconfont">&#xe60c;</i>订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="${pageContext.request.contextPath}/order.do?listOrder" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>
 				</ul>
 			</dd>
 		</dl>
