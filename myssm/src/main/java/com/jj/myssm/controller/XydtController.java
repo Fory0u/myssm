@@ -41,7 +41,7 @@ public class XydtController {
         int count = xydtService.delete(cid);
 //        System.out.print(count);
         if (count >= 1) {
-            return "xydt.do?listXydt";
+            return "redirect:xydt.do?listXydt";
         } else {
             return "no";
         }
@@ -51,7 +51,7 @@ public class XydtController {
     public String add(Xydt xydt) {
         int count = xydtService.add(xydt);
         if (count >= 1) {
-            return "xydt.do?listXydt";
+            return "redirect:xydt.do?listXydt";
         } else {
             return "no";
         }
@@ -61,7 +61,7 @@ public class XydtController {
     public String update(Xydt xydt) {
         int count = xydtService.update(xydt);
         if (count >= 1) {
-            return "xydt.do?listXydt";
+            return "redirect:xydt.do?listXydt";
         } else {
             return "no";
         }

@@ -41,7 +41,7 @@ public class ShopcartController {
         int count = shopcartService.delete(cid);
 //        System.out.print(count);
         if (count >= 1) {
-            return "shopcart.do?listShopcart";
+            return "redirect:shopcart.do?listShopcart";
         } else {
             return "no";
         }
@@ -51,7 +51,7 @@ public class ShopcartController {
     public String add(Shopcart shopcart) {
         int count = shopcartService.add(shopcart);
         if (count >= 1) {
-            return "shopcart.do?listShopcart";
+            return "redirect:shopcart.do?listShopcart";
         } else {
             return "no";
         }
@@ -61,7 +61,7 @@ public class ShopcartController {
     public String update(Shopcart shopcart) {
         int count = shopcartService.update(shopcart);
         if (count >= 1) {
-            return "shopcart.do?listShopcart";
+            return "redirect:shopcart.do?listShopcart";
         } else {
             return "no";
         }

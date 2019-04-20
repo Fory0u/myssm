@@ -5,8 +5,14 @@
   Time: 12:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,14 +67,14 @@
 ​<div class="container ">
     <ul class="breadcrumb" style="text-align: right;">
 
-        <li><a href="jj/jjq/register.jsp"><span class="glyphicon glyphicon-user"></span>注册</a></li>
+        <li><a href="<%=path%>/jj/jjq/register.jsp"><span class="glyphicon glyphicon-user"></span>注册</a></li>
 <c:if test="${user==null}">
-        <li><a href="jj/jjq/login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+        <li><a href="<%=path%>/jj/jjq/login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
     </c:if>
         <c:if test="${user!=null}">
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${user.CName}</li>
         </c:if>
-        <li><a href="jj/jjq/shopcart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
+        <li><a href="<%=path%>/jj/jjq/shopcart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的购物车</a></li>
     </ul>
     <div class="form-inline">
         <div class="header">
@@ -100,16 +106,19 @@
                 <%--<a href="#">首页</a>--%>
             <%--</li>--%>
             <li class="">
-                <a href="#">首页</a>
+                <a href="<%=path%>/jj/jjq/index.jsp">首页</a>
             </li>
             <li class="">
-                <a href="jj/jjq/dongtai.jsp">校园动态</a>
+                <a href="<%=path%>/jj/jjq/shops商品/sysp.jsp">商品页面</a>
             </li>
             <li class="">
-                <a href="jj/jjq/liuyan.jsp">毕业留言</a>
+                <a href="<%=path%>/jj/jjq/dongtai.jsp">校园动态</a>
             </li>
             <li class="">
-                <a href="jj/jjq/help.jsp">联系我们</a>
+                <a href="<%=path%>/jj/jjq/liuyan.jsp">毕业留言</a>
+            </li>
+            <li class="">
+                <a href="<%=path%>/jj/jjq/help.jsp">联系我们</a>
             </li>
         </ul>
     </div>

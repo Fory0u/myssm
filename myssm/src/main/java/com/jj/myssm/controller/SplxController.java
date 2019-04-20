@@ -53,7 +53,7 @@ public class SplxController {
         int count = splxService.delete(cid);
 //        System.out.print(count);
         if (count >= 1) {
-            return "splx.do?listSplx";
+            return "redirect:splx.do?listSplx";
         } else {
             return "no";
         }
@@ -63,7 +63,7 @@ public class SplxController {
     public String add(Splx splx) {
         int count = splxService.add(splx);
         if (count >= 1) {
-            return "splx.do?listSplx";
+            return "redirect:splx.do?listSplx";
         } else {
             return "no";
         }
@@ -73,7 +73,7 @@ public class SplxController {
     public String update(Splx splx) {
         int count = splxService.update(splx);
         if (count >= 1) {
-            return "splx.do?listSplx";
+            return "redirect:splx.do?listSplx";
         } else {
             return "no";
         }

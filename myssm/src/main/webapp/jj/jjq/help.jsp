@@ -7,12 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>阿里小蜜</title>
+    <title>客服</title>
     <meta id="WV.Meta.StopBounces" value="true">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -84,7 +90,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="./阿里小蜜_files/xiaomi.css">
+    <link rel="stylesheet" href="./客服/xiaomi.css">
 </head>
 <body data-spm="9588098">
 <c:import url="head.jsp"></c:import>
@@ -93,10 +99,10 @@
         <nav class="nav-bar">
             <div class="im-avatar">
                 <div class="avatar-wrapper J_AvatarWrap">
-                    <img src="./阿里小蜜_files/TB1cOtCayERMeJjSspiXXbZLFXa-144-143.png">
+                    <img src="./客服/TB1cOtCayERMeJjSspiXXbZLFXa-144-143.png">
                 </div>
             </div>
-            <div class="im-title"><img src="./阿里小蜜_files/TB114bDayIRMeJjy0FbXXbnqXXa-220-44.png" class="title-image"></div>
+            <div class="im-title"><img src="./客服/TB114bDayIRMeJjy0FbXXbnqXXa-220-44.png" class="title-image"></div>
             <div class="im-info">专门为你解决各类账户、订单、支付等问题，快速响应</div>
         </nav>
     </header>

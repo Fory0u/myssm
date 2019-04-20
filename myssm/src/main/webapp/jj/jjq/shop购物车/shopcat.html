@@ -1,5 +1,5 @@
-<html lang="zh-CN" xml:lang="zh-CN">
-
+<!doctype html>
+<html >
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="UTF-8">
@@ -99,7 +99,7 @@
                                                 class="iconfont"></i></a> </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -152,12 +152,12 @@
         //   if (!url || !size) {
         //     return;
         //   }
-    
+
         //   var dotIndex = url.lastIndexOf('.');
         //   var imgSuffix = url.slice(dotIndex);
         //   var urlMain = url.slice(0, dotIndex);
         //   var newUrl = urlMain + '!' + size + 'x' + size + imgSuffix;
-    
+
         //   return newUrl;
         // };
         function formatImageUrl (path,size){
@@ -170,7 +170,7 @@
           if (!now) {
             return;
           }
-    
+
           var d = new Date(parseInt(now) * 1000);
           var date = {
             Y: d.getFullYear(),
@@ -182,7 +182,7 @@
           };
           var str = temp || '##Y##-##M##-##D## ##h##:##m##:##s##';
           var key = '';
-    
+
           for (var k in date) {
             if (date[k] >= 0) {
               key = '##' + k + '##';
@@ -191,7 +191,7 @@
               }
             }
           }
-    
+
           return str;
         };
     </script>

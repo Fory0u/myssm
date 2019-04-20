@@ -113,6 +113,14 @@ basePath:<%=basePath%>
 			</dd>
 		</dl>
 		<dl >
+			<dt><i class="Hui-iconfont">&#xe60c;</i>购物车管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="${pageContext.request.contextPath}/shopcart.do?listShopcart" data-title="购物车列表" href="javascript:void(0)">购物车列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl >
 			<dt><i class="Hui-iconfont">&#xe60c;</i>订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -120,6 +128,7 @@ basePath:<%=basePath%>
 				</ul>
 			</dd>
 		</dl>
+
 	</div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

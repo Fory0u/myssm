@@ -41,7 +41,7 @@ public class OrderController {
         int count = orderService.delete(cid);
 //        System.out.print(count);
         if (count >= 1) {
-            return "order.do?listOrder";
+            return "redirect:order.do?listOrder";
         } else {
             return "no";
         }
@@ -51,7 +51,7 @@ public class OrderController {
     public String add(Order order) {
         int count = orderService.add(order);
         if (count >= 1) {
-            return "order.do?listOrder";
+            return "redirect:order.do?listOrder";
         } else {
             return "no";
         }
@@ -61,7 +61,7 @@ public class OrderController {
     public String update(Order order) {
         int count = orderService.update(order);
         if (count >= 1) {
-            return "order.do?listOrder";
+            return "redirect:order.do?listOrder";
         } else {
             return "no";
         }

@@ -36,7 +36,7 @@
                        style="width: 250px">
             </div>
         </div>
-        <div class="row cl" style="display: none;">
+        <div class="row cl" >
             <label class="form-label col-xs-4 col-sm-3">商品类型名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${splx.CIxmc}" name="CIxmc"

@@ -68,20 +68,20 @@ public class UserController {
     public String delete(int id) {
         int count = userService.delete(id);
         System.out.print(count);
-        return "listUser.do";
+        return "redirect:listUser.do";
 
     }
 
     @RequestMapping("/add.do")
     public String add(User user) {
         int count = userService.add(user);
-        return "listUser.do";
+        return "redirect:listUser.do";
     }
 
     @RequestMapping("/update.do")
     public String update(User user) {
         userService.update(user);
-        return "listUser.do";
+        return "redirect:listUser.do";
     }
 
     @RequestMapping("/findByCid.do")

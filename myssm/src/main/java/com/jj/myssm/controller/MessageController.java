@@ -39,7 +39,7 @@ public class MessageController {
     public String delete(int cid) {
         int count = messageService.delete(cid);
         System.out.print(count);
-        return "listMessage.do";
+        return "redirect:listMessage.do";
 
     }
 
@@ -52,7 +52,7 @@ public class MessageController {
     @RequestMapping("/updateMessage.do")
     public String update(Message message) {
         messageService.update(message);
-        return "listMessage.do";
+        return "redirect:listMessage.do";
     }
 
     @RequestMapping("/findByCidMessage.do")

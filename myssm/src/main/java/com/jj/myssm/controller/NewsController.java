@@ -55,7 +55,7 @@ public class NewsController {
     public String update(News news) {
         news.setDGxsj(new java.sql.Date(System.currentTimeMillis()));
         newsService.update(news);
-        return "listNews.do";
+        return "redirect:listNews.do";
     }
 
     @RequestMapping("/findByCidNews.do")

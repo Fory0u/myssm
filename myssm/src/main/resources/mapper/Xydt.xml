@@ -71,7 +71,7 @@
          d_cjsj,
          d_gxsj from t_news where c_id=#{cid} and n_type =2
     </select>
-    <select id="findMoXydtByBt" resultMap="ReslutXydt">
+    <select id="findMoByXydt" resultMap="ReslutXydt">
          select
          c_id,
          c_bt,
