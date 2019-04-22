@@ -35,7 +35,14 @@
 .inputSty,.moreBtn i,.tj .tCon i,.tj em i{background:url(./images/icon2.png) no-repeat;}
 .tiaoBox{background:#f6f6f6;}
 /*.tiaoBox li{overflow:hidden;}*/
-.tTit{float:left;width:86px;line-height:34px;text-align:center;color:#323942;font-size:14px;/*font-weight:bold;*/}
+.tTit{    float: left;
+	width: 86px;
+	margin-top: 18px;
+	/* line-height: 11px; */
+	text-align: center;
+	color: #323942;
+	font-size: 14px;
+	/* font-weight: bold; */}
 .tCon{float:left;width:1090px;}
 .tCon div{line-height:34px;}
 /* .tCon a{display:block;line-height:34px;float:left;width:130px;font-size:14px;color:#535d6a;} */

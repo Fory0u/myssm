@@ -1,13 +1,16 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.IShopDAO;
 import com.jj.myssm.services.ShopService;
 import com.jj.myssm.vo.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * gxd修改成params
@@ -17,6 +20,8 @@ import java.util.List;
 public class ShopController {
     @Autowired
     ShopService shopService;
+    @Autowired
+    IShopDAO iShopDAO;
 
     @RequestMapping(params = "listShop")
     public String listShop(Integer index, ModelMap map) {
@@ -88,5 +93,15 @@ public class ShopController {
         map.put("total", total);
         map.put("index", index);
         return "/jj/ht/shopList.jsp";
+    }
+
+    @RequestMapping(params = "searchByTj")
+    public String searchByTj(@RequestBody Map<String,Object> searchMap,ModelMap map ){
+
+        List<Map<String,Object>> list = iShopDAO.searchByTj(searchMap);
+
+
+
+        return "/jj/jjq/shops商品/sysp.jsp";
     }
 }

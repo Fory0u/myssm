@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2019/3/30.
@@ -24,4 +25,6 @@ public interface IShopDAO {
     List<Shop> getListShop(@Param("start") Integer start, @Param("size") Integer size);
 
     List<Shop> findMoByShop(@Param("CGjc") String CGjc);
+
+    List<Map<String, Object>> searchByTj(Map<String, Object> searchMap);
 }
