@@ -24,7 +24,10 @@ public interface IShopDAO {
 
     List<Shop> getListShop(@Param("start") Integer start, @Param("size") Integer size);
 
+
     List<Shop> findMoByShop(@Param("CGjc") String CGjc);
 
-    List<Map<String, Object>> searchByTj(Map<String, Object> searchMap);
+    List<Map<String, Object>> searchByTj(@Param("map")Map<String, String> searchMap);
+
+    List<Map<String, Object>> getShopByLxid(@Param("CId")String CId);
 }

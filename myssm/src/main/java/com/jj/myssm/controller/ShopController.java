@@ -1,6 +1,8 @@
 package com.jj.myssm.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.jj.myssm.dao.IShopDAO;
+import com.jj.myssm.dao.ISplxDAO;
 import com.jj.myssm.services.ShopService;
 import com.jj.myssm.vo.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +27,8 @@ public class ShopController {
     ShopService shopService;
     @Autowired
     IShopDAO iShopDAO;
+    @Autowired
+    ISplxDAO iSplxDAO;
 
     @RequestMapping(params = "listShop")
     public String listShop(Integer index, ModelMap map) {
@@ -95,13 +102,59 @@ public class ShopController {
         return "/jj/ht/shopList.jsp";
     }
 
-    @RequestMapping(params = "searchByTj")
-    public String searchByTj(@RequestBody Map<String,Object> searchMap,ModelMap map ){
+    /***
+     * 首页商品页面
+     * @param searchMap
+     * @param map
+     * @return
+     */
+    @RequestMapping(params = "listShopQt")
+    public String listShopQt(ModelMap map){
 
-        List<Map<String,Object>> list = iShopDAO.searchByTj(searchMap);
+        //查询所有商品分类
+        List<Map<String,Object>> listSplx = iSplxDAO.getAllSplx();
+        List<Map<String,Object>> listSp = new ArrayList<Map<String,Object>>();
 
-
-
+        for(int i=0;i<listSplx.size();i++){
+            listSp =iShopDAO.getShopByLxid(listSplx.get(i).get("c_id").toString());
+            listSplx.get(i).put("listSp",listSp);
+        }
+        map.put("listSplx",listSplx);
         return "/jj/jjq/shops商品/sysp.jsp";
+    }
+
+    /**
+     * 商品条件搜索
+     * @param searchMap
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(params = "searchByTj",produces = "text/html;charset=UTF-8")
+    public Object searchByTj(@RequestBody Map<String,String> searchMap ) {
+
+        Map<String,Object> result  = new HashMap<String,Object>();
+        //商品分类
+        List<Map<String,Object>> listSplx = new ArrayList<Map<String,Object>>();
+        List<Map<String,Object>> listSp = new ArrayList<Map<String,Object>>();
+
+        if( "".equals(searchMap.get("spfl")) ){
+            listSplx = iSplxDAO.getAllSplx();
+        }else{
+            Map<String,Object> aa = new HashMap<String,Object>();
+            aa.put("c_id",searchMap.get("spfl"));
+            aa.put("c_lxmc",iSplxDAO.findByCid(Integer.parseInt(searchMap.get("spfl"))).getCIxmc());
+            listSplx.add(aa);
+        }
+        for(int i=0;i<listSplx.size();i++){
+            searchMap.put("spfl",listSplx.get(i).get("c_id").toString());
+            listSp= iShopDAO.searchByTj(searchMap);
+            listSplx.get(i).put("listSp",listSp);
+        }
+
+
+        result.put("listSplx",listSplx);
+
+        return JSONUtils.toJSONString(result);
     }
 }

@@ -97,4 +97,60 @@
         t_shop
         where c_spmc like CONCAT('%',#{CGjc},'%')
     </select>
+
+    <select id="getShopByLxid" parameterType="String" resultType="hashmap">
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_photo,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop where c_type=#{CId}
+    </select>
+
+    <select id="searchByTj" resultType="hashmap" parameterType="hashmap">
+
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_photo,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop
+
+        <where>
+            <if test="map.spfl != ''">
+                and c_type = ${map.spfl}
+            </if>
+            <if test="map.spjgmin != ''">
+                and f_spjg &gt; ${map.spjgmin}
+            </if>
+            <if test="map.spjgmax != ''">
+                and f_spjg &lt;= ${map.spjgmax}
+            </if>
+            <if test="map.spslmin != ''">
+                and n_spsl &gt; ${map.spslmin}
+            </if>
+            <if test="map.spslmax != ''">
+                and n_spsl &lt;= ${map.spslmax}
+            </if>
+
+        </where>
+    </select>
 </mapper>

@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<%=path%>/res/layui/css/layui.css">
     <link rel="stylesheet" href="<%=path%>/res/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="<%=path%>/res/jquery/jquery.min.js"></script>
+    <script src="<%=path%>/jj/jjq/js/$json.js"></script>
     <script src="<%=path%>/res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=path%>/res/layui/layui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -109,7 +110,7 @@
                 <a href="<%=path%>/jj/jjq/index.jsp">首页</a>
             </li>
             <li class="">
-                <a href="<%=path%>/jj/jjq/shops商品/sysp.jsp">商品页面</a>
+                <a href="<%=path%>/shop.do?listShopQt">商品页面</a>
             </li>
             <li class="">
                 <a href="<%=path%>/jj/jjq/dongtai.jsp">校园动态</a>
