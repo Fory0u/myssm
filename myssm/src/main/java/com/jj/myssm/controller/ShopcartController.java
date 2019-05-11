@@ -91,18 +91,25 @@ public class ShopcartController {
      */
     @RequestMapping(params = "findShopCartByCId")
     public String findShopCartByCId(String cid, ModelMap map,HttpSession session) {
+        //
         User user = (User) session.getAttribute("user");
         if("".equals(cid) || cid == null ){
             return "redirect:shop.do?listShopQt";
         }else if(user == null){
             return "redirect:logout.do";
         }
+        //查询当前session中的购物车
         Shopcart shopcart = shopcartService.findByCid(Integer.parseInt(cid));
         List<Shop> list =  shopCartToShopList(shopcart);
         map.put("shopList", list);
         return "/jj/jjq/shop购物车/shopcart.jsp";
     }
 
+    /***
+     * 购物车对象转换成商品列表
+     * @param shopcart
+     * @return
+     */
     private List<Shop> shopCartToShopList(Shopcart shopcart) {
         String spid = shopcart.getCSpid();
         String spsl = shopcart.getCSpsl();
@@ -146,6 +153,13 @@ public class ShopcartController {
         map.put("index", index);
         return "/jj/ht/shopcartList.jsp";
     }
+
+    /**
+     *
+     * @param map
+     * @param session
+     * @return
+     */
     @ResponseBody
     @RequestMapping(params = "addGwc",produces = "text/html;charset=UTF-8")
     public Object addGwc(@RequestBody Map<String,String> map, HttpSession session) {
@@ -175,7 +189,12 @@ public class ShopcartController {
     }
 
 
-
+    /**
+     *
+     * @param map
+     * @param shopcart
+     * @param session
+     */
     public void addShopToShopCart(Map<String,String> map, Shopcart shopcart, HttpSession session) {
         User user = (User) session.getAttribute("user");
         String spmc = (String) map.get("spmc");
