@@ -73,8 +73,8 @@
 
         .timeline ul li div time {
             position: absolute;
-            background: #f5af19;
-            width: 80px;
+            background: #f9d891;
+            width: 100px;
             height: 30px;
             top: -15px;
             border-radius: 5px;
@@ -183,7 +183,7 @@
                     </div>
                     <div class="scientist">
                         <h1>${o.CFbt}</h1>
-                        <span>${o.CType} </span>
+                        <span>${o.CType}</span>
                     </div>
                 </div>
             </li>

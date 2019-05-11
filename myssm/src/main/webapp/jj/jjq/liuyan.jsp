@@ -34,18 +34,14 @@
 
         #qq {
             width: 600px;
-            /*宽*/
             height: 170px;
-            /*高*/
             background: #fff;
-            /*背景颜色*/
-            margin: 50px auto 30px;
+            margin: 10px auto 20px;
             border-radius: 5px;
-            /*Html5 圆角*/
         }
 
         #qq p {
-            font-size: 12px;
+            font-size: 22px;
             color: #666;
             font-family: "微软雅黑";
             line-height: 45px;
@@ -211,7 +207,7 @@
     <div class="But">
         <img src="<%=path%>/jj/jjq/留言/bba_thumb.gif" class="bq">
         <span class="submit">发表</span>
-        <select class="form-control" style="
+        <select class="form-control spAll" style="
             /* display: inline-block; */
             float: right;
             margin: 0 21px 0 0;
@@ -321,6 +317,13 @@
         </div>
     </c:forEach>
 </div>
+<form id="lyTj" style="-display:none;">
+    <input type="text" id="userid" name="userid" value="${user.CId}">
+    <input type="text" id="username" name="username" value="${user.CName}">
+    <input type="text" id="spid" name="spid" placeholder="商品id" >
+    <input type="text" id="spmc" name="spmc" placeholder="商品名称">
+    <input type="text" id="lxnr" name="lxnr" placeholder="留言内容">
+</form>
 <c:import url="./footer.jsp"></c:import>
 
 </body>

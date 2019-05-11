@@ -1,7 +1,7 @@
 $(function () {
 
     //从缓存中获取数据并渲染
-    let msgBoxList = JSON.parse(window.localStorage.getItem('msgBoxList')) || [];
+    let msgBoxList =  [];
     innerHTMl(msgBoxList)
 
     //点击小图片，显示表情
@@ -31,8 +31,31 @@ $(function () {
         let obj = {
             msg: txt
         }
-        msgBoxList.unshift(obj) //添加到数组里
-        window.localStorage.setItem('msgBoxList', JSON.stringify(msgBoxList)) //将数据保存到缓存
+
+        $('#lxnr').val(txt)
+        $('#spid').val($('.spAll').val())
+        $('#spmc').val($('.spAll option:selected').html())
+        var json =  $("#lyTj").serializeObject();
+        $.ajax({
+            url:'addLy.do',
+            dataType: 'json',
+            type:"POST",
+            data:json,
+            contentType: "application/json;charset=UTF-8", //缺失会出现URL编码，无法转成json对象
+            success:function (rs) {
+                debugger
+                if(rs.success == "ok"){
+                    txt = rs.CLxnr;
+                    msgBoxList.unshift(obj) //添加到数组里
+                }else{
+                    alert("请先登录用户");
+                    window.location.href = getHref() + "logout.do";
+                }
+            }
+        });
+
+
+        // window.localStorage.setItem('msgBoxList', JSON.stringify(msgBoxList)) //将数据保存到缓存
         innerHTMl([obj]) //渲染当前输入框内容
         $('.message').html('') // 清空输入框
 
@@ -48,6 +71,7 @@ $(function () {
 
     //渲染html
     function innerHTMl(List) {
+
         List = List || []
         List.forEach(item => {
             let str =
@@ -55,7 +79,7 @@ $(function () {
 						<div class="headUrl">
 							<img src='./tx.jpg' width='50' height='50'/>
 							<div>
-								<span class="title">木林森里没有木</span>
+								<span class="title">`+$('.breadcrumb li').eq(1).html().match(/[\u4e00-\u9fa5]+/)[0]+`</span>
 								<span class="time">2018-01-01</span>
 							</div>
 							<a class="del">删除</a>
@@ -68,4 +92,11 @@ $(function () {
         })
     }
 
+
+
 })
+var path = window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/') + 1);
+
+function getHref() {
+    return window.location.protocol + '//' + window.location.host + path + '/'
+}
