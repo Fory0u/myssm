@@ -146,7 +146,7 @@
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('商品编辑','/shop.do?findByCidShop&cid=${c.CId}','1','600','500')"
+                           onclick="admin_edit('商品编辑','${pageContext.request.contextPath}/shop.do?findByCidShop&cid=${c.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>

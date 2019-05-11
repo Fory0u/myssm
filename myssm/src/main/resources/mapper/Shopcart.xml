@@ -42,6 +42,9 @@
         DELETE from t_shopcart where c_id = #{cid}
     </delete>
     <insert id="add">
+        <selectKey keyProperty="CId"  keyColumn="c_id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
       INSERT INTO `erjy`.`t_shopcart`
       ( `c_userid`, `c_username`, `c_spid`, `c_spmc`, `c_spdj`, `c_spsl`, `n_zs`, `f_zj`, `d_cjsj`, `d_gxsj` )
       VALUES

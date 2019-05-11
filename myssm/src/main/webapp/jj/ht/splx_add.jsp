@@ -40,7 +40,7 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-admin-add" action="/splx.do?addSplx" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-admin-add" action="<%=path%>/splx.do?addSplx" method="post" target="_parent">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品类型名称：</label>
             <div class="formControls col-xs-8 col-sm-9">

@@ -35,7 +35,7 @@ public class Shopcart {
         return CUserName;
     }
 
-    public void setCUserName(String CUserName) {
+    public void  setCUserName(String CUserName) {
         this.CUserName = CUserName;
     }
 

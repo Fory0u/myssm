@@ -35,13 +35,13 @@
         <!-- 轮播图片及说明文字 -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="../../img/13.jpg" alt="图片1">
+                <img src="<%=path%>/img/13.jpg" alt="图片1">
             </div>
             <div class="item">
-                <img src="../../img/16.png" alt="图片2">
+                <img src="<%=path%>/img/16.png" alt="图片2">
             </div>
             <div class="item">
-                <img src="../../img/17.png" alt="图片3">
+                <img src="<%=path%>/img/17.png" alt="图片3">
             </div>
         </div>
         <!-- 控制按钮：左右切换 -->
@@ -54,14 +54,14 @@
     </div>
     <div class="form-inline" style="margin-left: 20px">
         <h3>热门分类</h3>
-        <a href="#"><img src="../../img/19.jpg" class="img-thumbnail"></a>
-        <a href="#"><img src="../../img/20.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="#"><img src="<%=path%>/img/19.jpg" class="img-thumbnail"></a>
+        <a href="#"><img src="<%=path%>/img/20.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="../../img/21.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="#"><img src="<%=path%>/img/21.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="../../img/22.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="#"><img src="<%=path%>/img/22.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="../../img/19.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="#"><img src="<%=path%>/img/19.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
     </div>
 

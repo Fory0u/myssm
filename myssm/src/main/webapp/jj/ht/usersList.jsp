@@ -41,7 +41,7 @@
 		<%--<form action="hospital.do?hospitalUserList" method="post">--%>
 			<div class="page-container">
 				<div class="text-c">
-					<form action="/findMoByUser.do" method="post" id="findMoByUser">
+					<form action="<%=path%>/findMoByUser.do" method="post" id="findMoByUser">
 					<input type="text" class="input-text" style="width: 250px"
 						placeholder="输入登录名" id="CLoginId" name="CLoginId">
 					<%--<input type="text" class="input-text" style="width: 250px"--%>

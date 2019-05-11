@@ -15,9 +15,17 @@ public class Shop {
     private Date DCjsj;//创建时间
     private Date DGxsj;//更新时间
     private String CCzr;//操作人
-
+    private int MAxSl;//当前选择了几样商品 个数
 
     public Shop() {
+    }
+
+    public int getMAxSl() {
+        return MAxSl;
+    }
+
+    public void setMAxSl(int MAxSl) {
+        this.MAxSl = MAxSl;
     }
 
     public void setCId(int CId) {

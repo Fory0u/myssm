@@ -42,7 +42,7 @@
 
     <div class="page-container">
         <div class="text-c">
-            <form action="/findMoByMessage.do" method="post" id="findMoByMessage">
+            <form action="<%=path%>/findMoByMessage.do" method="post" id="findMoByMessage">
             <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入商品名称" id="CSpmc" name="CSpmc">
             <%--<input type="text" class="input-text" style="width: 250px"--%>
@@ -123,7 +123,7 @@
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('留言编辑','/findByCidMessage.do?cid=${m.CId}','1','600','500')"
+                           onclick="admin_edit('留言编辑','${pageContext.request.contextPath}/findByCidMessage.do?cid=${m.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>

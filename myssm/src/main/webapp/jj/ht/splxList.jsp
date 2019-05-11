@@ -41,7 +41,7 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/splx.do?findMoBySplx" method="post" id="findMoBySplx">
+           <form action="<%=path%>/splx.do?findMoBySplx" method="post" id="findMoBySplx">
 
            <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入商品类型名称" id="CGjc" name="CGjc">
@@ -92,7 +92,7 @@
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('商品类型编辑','/splx.do?findByCidSplx&cid=${c.CId}','1','600','500')"
+                           onclick="admin_edit('商品类型编辑','${pageContext.request.contextPath}/splx.do?findByCidSplx&cid=${c.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>

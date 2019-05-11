@@ -97,7 +97,7 @@
                 <div class="hm-el-ma-rgt f-lf">
                     <ul class="hm-el-ma-rgt-top clearfix shopListMain">
                         <c:forEach var="shop" items="${o.listSp}" varStatus="aa">
-                            <li <c:if test="${aa.count%4!=0}" >class="li-m-rgt"</c:if> >
+                            <li <c:if test="${aa.count%4!=0}" >class="li-m-rgt"</c:if> onclick="toSpxqym(this)" data-spid="${shop.c_id}">
                                 <a href="#">
                                     <img src="<%=path%>/jj/jjq/shops商品/images/main/home/0${aa.count}.jpg" alt="">
                                 </a>

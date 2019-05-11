@@ -41,7 +41,7 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/xydt.do?findMoByXydt" method="post" id="findMoByXydt">
+           <form action="<%=path%>/xydt.do?findMoByXydt" method="post" id="findMoByXydt">
 
            <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入校园动态名称" id="CGjc" name="CGjc">
@@ -122,7 +122,7 @@
                     </td>
                     <td class="td-manage">
                         <a title="编辑" href="javascript:;"
-                           onclick="admin_edit('校园动态编辑','/xydt.do?findByCidXydt&cid=${c.CId}','1','600','500')"
+                           onclick="admin_edit('校园动态编辑','${pageContext.request.contextPath}/xydt.do?findByCidXydt&cid=${c.CId}','1','600','500')"
                            class="ml-5" style="text-decoration: none"><i
                                 class="Hui-iconfont">&#xe6df;</i>
                         </a>

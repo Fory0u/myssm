@@ -17,10 +17,10 @@
 <head>
     <meta charset="utf-8" />
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="../../res/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../../res/layui/css/layui.css">
-    <script type="text/javascript" src="../../res/layui/layui.js"></script>
-    <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=path%>/res/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<%=path%>/res/layui/css/layui.css">
+    <script type="text/javascript" src="<%=path%>/res/layui/layui.js"></script>
+    <script type="text/javascript" src="<%=path%>/res/jquery/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <style type="text/css">
@@ -49,7 +49,7 @@
     <div class="login login-bg">
         <div class="body login-cont">
             <div class="aquare form-box ">
-                <form class="layui-form" id="loginForm" action="/login.do" method="post">
+                <form class="layui-form" id="loginForm" action="<%=path%>/login.do" method="post">
                     <legend>账户登录</legend>
                     <div class="layui-form-item">
                         <div class="layui-inline iphone">

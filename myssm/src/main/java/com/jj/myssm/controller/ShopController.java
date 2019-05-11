@@ -4,7 +4,9 @@ import com.alibaba.druid.support.json.JSONUtils;
 import com.jj.myssm.dao.IShopDAO;
 import com.jj.myssm.dao.ISplxDAO;
 import com.jj.myssm.services.ShopService;
+import com.jj.myssm.services.ShopcartService;
 import com.jj.myssm.vo.Shop;
+import com.jj.myssm.vo.Shopcart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +32,8 @@ public class ShopController {
     IShopDAO iShopDAO;
     @Autowired
     ISplxDAO iSplxDAO;
+    @Autowired
+    ShopcartService shopcartService;
 
     @RequestMapping(params = "listShop")
     public String listShop(Integer index, ModelMap map) {
@@ -87,6 +92,25 @@ public class ShopController {
         return "/jj/ht/shop_edit.jsp";
     }
 
+    /**
+     *
+     * @param cid
+     * @param map
+     * @return
+     */
+    @RequestMapping(params = "toSpxqym")
+    public String toSpxqym(int cid, ModelMap map, HttpSession session) {
+        Shop shop = shopService.findByCid(cid);
+//        System.out.print(shop);
+        map.put("shop", shop);
+        if(session.getAttribute("shopCartId") != null ){
+            int shopcarid = Integer.parseInt(session.getAttribute("shopCartId").toString());
+            Shopcart shopcart = shopcartService.findByCid(shopcarid);
+            session.setAttribute("shopcart",shopcart);
+        }
+        return "/jj/jjq/商品详情页面/spxqym.jsp";
+    }
+
     @RequestMapping(params = "findMoByShop")
     public String findMoByShop(String CGjc, Integer index, ModelMap map) {
         int size = 5;//每页个数
@@ -104,7 +128,6 @@ public class ShopController {
 
     /***
      * 首页商品页面
-     * @param searchMap
      * @param map
      * @return
      */

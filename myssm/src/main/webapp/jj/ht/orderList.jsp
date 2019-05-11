@@ -41,7 +41,7 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/order.do?findMoByOrder" method="post" id="findMoByOrder">
+           <form action="<%=path%>/order.do?findMoByOrder" method="post" id="findMoByOrder">
 
            <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入商品名称" id="CGjc" name="CGjc">
@@ -73,23 +73,23 @@
                 <th width="50" class="">
                     订单编码
                 </th>
-                <th width="50" class="">
-                    用户id
-                </th>
+                <%--<th width="50" class="">--%>
+                    <%--用户id--%>
+                <%--</th>--%>
                 <th width="50" class="">
                     用户名
                 </th>
+                <%--<th width="50" class="">--%>
+                    <%--商品id--%>
+                <%--</th>--%>
                 <th width="50" class="">
-                    商品id
+                    商品名称（以分号隔开）
                 </th>
                 <th width="50" class="">
-                    商品名称
+                    商品单价（以分号隔开）
                 </th>
                 <th width="50" class="">
-                    商品单价
-                </th>
-                <th width="50" class="">
-                    商品数量
+                    商品数量（以分号隔开）
                 </th>
                 <th width="50" class="">
                     总数
@@ -117,15 +117,15 @@
                     <td >
                             ${c.CId}
                     </td>
-                    <td>
-                            ${c.CUserId}
-                    </td>
+                    <%--<td>--%>
+                            <%--${c.CUserId}--%>
+                    <%--</td>--%>
                     <td>
                             ${c.CUserName}
                     </td>
-                    <td>
-                            ${c.CSpid}
-                    </td>
+                    <%--<td>--%>
+                            <%--${c.CSpid}--%>
+                    <%--</td>--%>
                     <td>
                             ${c.CSpmc}
                     </td>
@@ -142,7 +142,8 @@
                             ${c.FZj}
                     </td>
                     <td>
-                            ${c.CDdzt}
+                            <c:if test="${c.CDdzt == '1'}">未支付</c:if>
+                            <c:if test="${c.CDdzt == '2'}">已完成</c:if>
                     </td>
                     <td>
                             ${c.DCjsj}

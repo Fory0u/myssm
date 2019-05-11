@@ -71,7 +71,8 @@
                     for (var j = 0;j<shopList.length;j++){
                         for (var k = 0;k<shopList[j].length;k++) {
                             className=k%4?"li-m-rgt":"";
-                            s = "<li class="+className+">" +
+                            s = "<li class="+className+" onclick=\"toSpxqym(this)\"  " +
+                                "data-spid='"+shopList[j][k].c_id+"' >" +
                                 "                                <a href=\"#\">\n" +
                                 "                                    <img src=\"/jj/jjq/shops商品/images/main/home/0"+(k)+".jpg\" alt=\"\">\n" +
                                 "                                </a>\n" +
@@ -103,3 +104,17 @@
     })
 
 })();
+
+var path  = window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1);
+
+function getHref(){
+    return  window.location.protocol + '//' + window.location.host +   path +'/'
+}
+
+//跳转商品详情页面
+function toSpxqym(e) {
+
+    window.location.href = getHref()+'shop.do?toSpxqym&cid='+$(e).data('spid');
+    // console.log(getHref() + 'shop.do?toSpxqym&cid=' + $(e).data('spid'));
+    // console.log(e);
+}

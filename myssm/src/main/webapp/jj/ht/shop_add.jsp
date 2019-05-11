@@ -40,7 +40,7 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-admin-add" action="/shop.do?addShop" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-admin-add" action="<%=path%>/shop.do?addShop" method="post" target="_parent">
         <div class="row cl" style="-display: none;">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>：商品所有人id :</label>
             <div class="formControls col-xs-8 col-sm-9">

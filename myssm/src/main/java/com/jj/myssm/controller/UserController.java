@@ -39,6 +39,12 @@ public class UserController {
         } else {//登陆失败
             return "/jj/jjq/login.jsp";
         }
+
+    }
+    @RequestMapping("logout.do")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:login.do";
     }
 
     @RequestMapping("/listUser.do")

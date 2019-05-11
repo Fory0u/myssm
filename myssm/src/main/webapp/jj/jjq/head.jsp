@@ -75,15 +75,15 @@
         <c:if test="${user!=null}">
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${user.CName}</li>
         </c:if>
-        <li><a href="<%=path%>/jj/jjq/shopcart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> 我的购物车</a></li>
+        <li><a href="<%=path%>/shopcart.do?findShopCartByCId&cid=${shopcart.CId}" id="shopHref"><span class="glyphicon glyphicon-shopping-cart"></span> 我的购物车</a></li>
     </ul>
     <div class="form-inline">
         <div class="header">
             <div class="headerLayout ">
                 <div class="headerCon">
                     <h1 class="mallLogo">
-                        <a href="#" title="二手市场">
-                            二手市场
+                        <a href="#" title="校园二手交易市场">
+                            校园二手交易市场
                         </a>
                     </h1>
                     <div class="mallSearch">
