@@ -5,7 +5,7 @@
   Time: 14:57
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
     String path = request.getContextPath();
@@ -24,6 +24,11 @@
     <meta name="description" content="">
     <meta name="data-spm" content="a311a">
     <meta name="format-detection" content="telephone=no">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="<%=path%>/jj/jjq/js/$json.js"></script>
     <style>
         .m-alicare {
             position: absolute;
@@ -92,8 +97,9 @@
     </style>
     <link rel="stylesheet" href="./客服/xiaomi.css">
 </head>
-<body data-spm="9588098">
+<body >
 <c:import url="head.jsp"></c:import>
+
 <div class="m-alicare">
     <header class="m-alicare-header">
         <nav class="nav-bar">

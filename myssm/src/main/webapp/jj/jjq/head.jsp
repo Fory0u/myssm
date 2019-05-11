@@ -69,11 +69,12 @@
     <ul class="breadcrumb" style="text-align: right;">
 
         <li><a href="<%=path%>/jj/jjq/register.jsp"><span class="glyphicon glyphicon-user"></span>注册</a></li>
-<c:if test="${user==null}">
-        <li><a href="<%=path%>/jj/jjq/login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-    </c:if>
+        <c:if test="${user==null}">
+            <li><a href="<%=path%>/jj/jjq/login.jsp"><span class="glyphicon glyphicon-log-in"></span>登录</a></li>
+        </c:if>
         <c:if test="${user!=null}">
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${user.CName}</li>
+            <li><a href="${pageContext.request.contextPath}/logout.do">退出</a></li>
         </c:if>
         <li><a href="<%=path%>/shopcart.do?findShopCartByCId&cid=${shopcart.CId}" id="shopHref"><span class="glyphicon glyphicon-shopping-cart"></span> 我的购物车</a></li>
     </ul>
@@ -113,10 +114,10 @@
                 <a href="<%=path%>/shop.do?listShopQt">商品页面</a>
             </li>
             <li class="">
-                <a href="<%=path%>/jj/jjq/dongtai.jsp">校园动态</a>
+                <a href="<%=path%>/xydt.do?getAllXydtToQt">校园动态</a>
             </li>
             <li class="">
-                <a href="<%=path%>/jj/jjq/liuyan.jsp">毕业留言</a>
+                <a href="<%=path%>/getAllMessageToQt.do">毕业留言</a>
             </li>
             <li class="">
                 <a href="<%=path%>/jj/jjq/help.jsp">联系我们</a>

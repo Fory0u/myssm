@@ -49,19 +49,25 @@
     <div class="login login-bg">
         <div class="body login-cont">
             <div class="aquare form-box ">
-                <form class="layui-form" id="loginForm" action="/login.do" method="post">
+                <form class="layui-form" id="loginForm" action="<%=path%>/register.do" method="post">
                     <legend>账户注册</legend>
                     <div class="layui-form-item">
                         <div class="layui-inline iphone">
                             <div class="layui-input-inline">
-                                <i class="layui-icon layui-icon-username iphone-icon"></i>
-                                <input required type="text" name="loginid" id="loginid"  placeholder="请设置用户名" autocomplete="off" class="layui-input">
+                                <i class="layui-icon layui-icon-user iphone-icon"></i>
+                                <input required type="text" name="CName" id="CName"  placeholder="请设置用户名" autocomplete="off" class="layui-input">
                             </div>
                         </div>
-                        <div class="layui-inline  iphone">
+                        <div class="layui-inline iphone">
+                            <div class="layui-input-inline">
+                                <i class="layui-icon layui-icon-username iphone-icon"></i>
+                                <input required type="text" name="CLoginId" id="CLoginId"  placeholder="请设置登录id" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline iphone">
                             <div class="layui-input-inline">
                                 <i class="layui-icon layui-icon-password iphone-icon"></i>
-                                <input required id="password" type="password" name="password" placeholder="请设置密码"  class="layui-input">
+                                <input required id="CPassWord" type="password" name="CPassWord" placeholder="请设置密码"  class="layui-input">
                             </div>
                         </div>
                     </div>
@@ -71,6 +77,7 @@
                             <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="login()">注册</button>
                         </div>
                     </div>
+                    <input type="hidden" name="NFlag" id="NFlag"  value="1">
                 </form>
             </div>
 

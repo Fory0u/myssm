@@ -41,10 +41,26 @@ public class UserController {
         }
 
     }
-    @RequestMapping("logout.do")
+    @RequestMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:login.do";
+    }
+
+    /**
+     * 用户注册前台
+     * @param session
+     * @return
+     */
+    @RequestMapping("/register.do")
+    public String register(User user,HttpSession session) {
+        int count = userService.add(user);
+
+        if(count>0){
+            return "redirect:login.do";
+        }else{
+            return "redirect:register.do";
+        }
     }
 
     @RequestMapping("/listUser.do")

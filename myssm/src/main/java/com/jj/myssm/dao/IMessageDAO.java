@@ -25,4 +25,6 @@ public interface IMessageDAO {
     List<Message> getListMessage(@Param("start") Integer start, @Param("size") Integer size);
 
     List<Message> findMoByMessage(@Param("CSpmc") String CSpmc);
+
+    List<Message> getAllMessage();
 }

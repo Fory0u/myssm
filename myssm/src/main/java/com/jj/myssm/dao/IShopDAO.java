@@ -30,4 +30,7 @@ public interface IShopDAO {
     List<Map<String, Object>> searchByTj(@Param("map")Map<String, String> searchMap);
 
     List<Map<String, Object>> getShopByLxid(@Param("CId")String CId);
+
+    List<Shop> getAllShop();
+
 }

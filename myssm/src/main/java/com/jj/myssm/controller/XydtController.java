@@ -1,5 +1,6 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.IXydtDAO;
 import com.jj.myssm.services.XydtService;
 import com.jj.myssm.vo.Xydt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ import java.util.List;
 public class XydtController {
     @Autowired
     XydtService xydtService;
-
+    @Autowired
+    IXydtDAO iXydtDAO;
     @RequestMapping(params = "listXydt")
     public String listXydt(Integer index, ModelMap map) {
         int size = 5;//每页个数
@@ -88,5 +90,13 @@ public class XydtController {
         map.put("total", total);
         map.put("index", index);
         return "/jj/ht/xydtList.jsp";
+    }
+
+    @RequestMapping(params = "getAllXydtToQt")
+    public String getAllXydtToQt( ModelMap map) {
+        List<Xydt> xydtList = iXydtDAO.getAllXydt();
+//        System.out.print(xydt);
+        map.put("xydtList", xydtList);
+        return "/jj/jjq/dongtai.jsp";
     }
 }

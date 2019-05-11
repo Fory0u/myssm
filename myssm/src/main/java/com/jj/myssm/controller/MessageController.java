@@ -1,7 +1,10 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.IMessageDAO;
+import com.jj.myssm.dao.IShopDAO;
 import com.jj.myssm.services.MessageService;
 import com.jj.myssm.vo.Message;
+import com.jj.myssm.vo.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,6 +19,11 @@ import java.util.List;
 public class MessageController {
     @Autowired
     MessageService messageService;
+
+    @Autowired
+    IShopDAO iShopDAO;
+    @Autowired
+    IMessageDAO iMessageDAO;
 
     @RequestMapping("/listMessage.do")
     public String listMessage(Integer index, ModelMap map) {
@@ -76,5 +84,19 @@ public class MessageController {
         map.put("total", total);
         map.put("index", index);
         return "/jj/ht/messageList.jsp";
+    }
+
+
+    @RequestMapping("/getAllMessageToQt.do")
+    public String getAllMessageToQt(ModelMap map) {
+        List<Message> messageList = iMessageDAO.getAllMessage();
+
+        List<Shop> shopList = iShopDAO.getAllShop();
+
+
+        map.put("messageList", messageList);
+        map.put("shopList", shopList);
+        return "/jj/jjq/liuyan.jsp";
+
     }
 }

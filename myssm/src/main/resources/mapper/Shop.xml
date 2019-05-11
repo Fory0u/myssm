@@ -17,6 +17,22 @@
         <result column="d_gxsj" property="DGxsj" jdbcType="DATE"/>
         <result column="c_czr" property="CCzr" jdbcType="VARCHAR"/>
     </resultMap>
+    <select id="getAllShop" resultMap="ReslutShop" >
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop
+    </select>
     <select id="getListShop" resultMap="ReslutShop" >
         SELECT
         t_shop.c_id,

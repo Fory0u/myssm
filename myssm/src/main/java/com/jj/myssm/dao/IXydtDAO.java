@@ -24,4 +24,7 @@ public interface IXydtDAO {
     List<Xydt> getListXydt(@Param("start") Integer start, @Param("size") Integer size);
 
     List<Xydt> findMoByXydt(@Param("CGjc") String CGjc);
+
+    List<Xydt> getAllXydt();
+
 }
