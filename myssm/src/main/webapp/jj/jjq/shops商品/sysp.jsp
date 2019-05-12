@@ -124,7 +124,7 @@
         </c:forEach>
     </div>
 </div>
-<form id="shopTj" style="-display:none;">
+<form id="shopTj" style="display:none;">
     <input type="text" id="spfl" name="spfl" placeholder="商品分类">
     <input type="text" id="spjgmin" name="spjgmin" placeholder="商品价格最小值" value="">
     <input type="text" id="spjgmax" name="spjgmax" placeholder="商品价格最大值" value="">

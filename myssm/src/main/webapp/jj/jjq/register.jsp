@@ -41,7 +41,11 @@
             right: 5% !important;
             border: 1px solid #d9dadc !important;
         }
-
+        #dlBtn{
+            width: 100%;
+            background: #cfb2f6;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -70,11 +74,17 @@
                                 <input required id="CPassWord" type="password" name="CPassWord" placeholder="请设置密码"  class="layui-input">
                             </div>
                         </div>
+                        <div class="layui-inline  iphone">
+                            <div class="layui-input-inline">
+                                <img class="layui-icon yzm " style="position: absolute;right: 1px;top: 1px;width: 106px;height: 37px;" src="https://img.showapi.com/images/temp/20190512/94335a4c-7310-4f77-aae0-bff1e72550c2.jpg">
+                                <input  id="yzm" type="text" name="yzm" placeholder="请输入验证码" class="layui-input" style="padding-left: 21px;">
+                            </div>
+                        </div>
                     </div>
                     <div class="layui-form-item login-btn">
                         <div class="layui-input-block" style="  padding: 0 !important;">
                             <%--<input required class="layui-btn" type="submit" value="登录">--%>
-                            <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="login()">注册</button>
+                                <input type="button" class="layui-btn"   value="注册" id="dlBtn">
                         </div>
                     </div>
                     <input type="hidden" name="NFlag" id="NFlag"  value="1">
@@ -86,14 +96,79 @@
     </div>
 </div>
 <script type="text/javascript">
-    //    $(function () {
-    //
-    //
-    //    })
-    function login(){
-        $('#loginForm').submit();
-//            $('#loginForm').serialize()
-    }
+    $(function () {
+        //以下代码仅为演示用,具体传入参数请参看接口描述详情页.
+        //需要引用jquery库
+        var text;
+        function formatterDateTime() {
+            var date=new Date()
+            var month=date.getMonth() + 1
+            var datetime = date.getFullYear()
+                + ""// "年"
+                + (month >= 10 ? month : "0"+ month)
+                + ""// "月"
+                + (date.getDate() < 10 ? "0" + date.getDate() : date
+                    .getDate())
+                + ""
+                + (date.getHours() < 10 ? "0" + date.getHours() : date
+                    .getHours())
+                + ""
+                + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date
+                    .getMinutes())
+                + ""
+                + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date
+                    .getSeconds());
+            return datetime;
+        }
+
+        function getYzm(){
+            text="";
+            $.ajax({
+                type: 'post',
+                url: 'http://route.showapi.com/26-4',
+                dataType: 'json',
+                data: {
+                    "showapi_timestamp": formatterDateTime(),
+                    "showapi_appid": '94843', //这里需要改成自己的appid
+                    "showapi_sign": 'e5738c3230f64646a8f30fa74d6df332',  //这里需要改成自己的应用的密钥secret
+                    "border":"",
+                    "border_color":"105,179,90",
+                    "border_thickness":"",
+                    "image_width":"",
+                    "image_height":"",
+                    "textproducer_char_string":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    "textproducer_char_length":"4",
+                    "textproducer_font_names":"",
+                    "textproducer_font_size":"",
+                    "textproducer_font_color":"105,179,90",
+                    "textproducer_char_space":"",
+                    "noise_color":"105,179,90",
+                    "obscurificator_impl":""
+                },
+                success: function(result) {
+                    debugger
+                    text=result.showapi_res_body.text;
+                    $('.yzm').attr('src',result.showapi_res_body.img_path_https);
+                }
+            });
+        }
+        getYzm();
+        $('.yzm').click(function () {
+            getYzm()
+        })
+
+        $('#dlBtn').click(function () {
+            if((text.toLowerCase() == $('#yzm').val() )|| (text.toUpperCase() == $('#yzm').val() )){
+                $('#loginForm').submit();
+            }else{
+                alert("验证码错误");
+                getYzm();
+                return;
+            }
+        })
+
+    });
+
 
 </script>
 </body>

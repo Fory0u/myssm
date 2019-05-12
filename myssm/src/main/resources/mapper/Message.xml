@@ -47,6 +47,9 @@
         DELETE from t_message where c_id = #{cid}
     </delete>
     <insert id="add">
+        <selectKey keyProperty="CId"  keyColumn="c_id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         insert into t_message
         (c_userid,
         c_username,

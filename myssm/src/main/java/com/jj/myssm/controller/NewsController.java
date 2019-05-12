@@ -1,14 +1,20 @@
 package com.jj.myssm.controller;
 
+import com.jj.myssm.dao.INewsDAO;
 import com.jj.myssm.services.NewsService;
 import com.jj.myssm.vo.News;
+import com.jj.myssm.vo.Xydt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2019/3/28.
@@ -18,7 +24,8 @@ import java.util.List;
 public class NewsController {
     @Autowired
     NewsService newsService;
-
+    @Autowired
+    INewsDAO iNewsDAO;
     @RequestMapping("/listNews.do")
     public String listNews(Integer index, ModelMap map) {
         int size = 5;//每页个数
@@ -79,5 +86,19 @@ public class NewsController {
         map.put("total", total);
         map.put("index", index);
         return "/jj/ht/newsList.jsp";
+    }
+
+    @ResponseBody
+    @RequestMapping("/getAllNewsToQt.do")
+    public Map<String,Object> getAllNewsToQt() {
+        Map<String,Object> result  = new HashMap<String,Object>();
+        List<News> newsList = iNewsDAO.getAllNews();
+        if(newsList.size() == 0){
+            result.put("success","no");
+        }else{
+            result.put("newsList",newsList);
+            result.put("success","ok");
+        }
+        return result;
     }
 }

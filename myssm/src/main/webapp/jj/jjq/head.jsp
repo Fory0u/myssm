@@ -35,15 +35,20 @@
             width: 95%;
             margin: 10px auto;
             border-bottom: 1px solid #e6e6e6;
-            padding: 14px 0;
+            padding: 10px 0;
             text-align: center;
             border-top: 1px solid #e6e6e6;
+            height: 18px;
+            position: relative;
+            overflow: hidden;
         }
 
 
         #gongkao {
-            height: 18px;
-            overflow: hidden;
+            position: absolute;
+            top: 2px;
+            left: 47%;
+            transition: .8s;
         }
 
         #gongkao  a {
@@ -56,6 +61,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            height: 18px;
             width: 100%;
         }
 
@@ -126,21 +132,61 @@
     </div>
     <div class="shell">
         <div id="gongkao">
-            <a href="#">公告1</a>
-            <a href="#">公告3</a>
-            <a href="#">公告2</a>
         </div>
     </div>
 
     ​</div>
 <script>
-    var c, _ = Function;
-    with(o = document.getElementById("gongkao")) {
-        // innerHTML += innerHTML;
-        onmouseover = _("c=1");
-        onmouseout = _("c=0");
+    $(function () {
+        $.ajax({
+            url:getHref()+'getAllNewsToQt.do',
+            dataType: 'json',
+            type:"POST",
+            contentType: "application/json;charset=UTF-8", //缺失会出现URL编码，无法转成json对象
+            success:function (rs) {
+                debugger
+                var str ="";
+                if(rs.success == "ok"){
+                    for (var i =0;i<rs.newsList.length;i++){
+                        str += "<a href=\"#\">"+rs.newsList[i].cbt+"</a>"
+                    }
+                    $('#gongkao').append(str);
+                    var heigth = $('#gongkao a').height();
+                    var $gongkao = $('#gongkao')
+                    var i=0;
+                    setInterval(function () {
+                        $gongkao.css("top",(parseFloat($gongkao.css('top'))*1-heigth)+"px");
+                        if($gongkao.height()-heigth-2 <= Math.abs(parseFloat($gongkao.css('top'))*1) ){
+                            $gongkao.css("top",'2px')
+                        }
+                    },1000);
+
+
+                }else{
+                    $('#gongkao').append("暂无公告");
+                }
+                str ="";
+
+            }
+        })
+
+
+
+
+    })
+    var path = window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/') + 1);
+
+    function getHref() {
+        return window.location.protocol + '//' + window.location.host + path + '/'
     }
-    (F = _("if(#%18||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%18?10:1500);".replace(/#/g, "o.scrollTop")))();
+
+    // var c, _ = Function;
+    // with(o = document.getElementById("gongkao")) {
+    //     innerHTML += innerHTML;
+    //     onmouseover = _("c=1");
+    //     onmouseout = _("c=0");
+    // }
+    // (F = _("if(#%9||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%9?10:1500);".replace(/#/g, "o.scrollTop")))();
 </script>
 </body>
 </html>

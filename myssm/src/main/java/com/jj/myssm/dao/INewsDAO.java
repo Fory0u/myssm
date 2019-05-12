@@ -24,4 +24,6 @@ public interface INewsDAO {
     List<News> getListNews(@Param("start") Integer start, @Param("size") Integer size);
 
     List<News> findMoNewsByBt(@Param("CBt") String CBt);//模糊查询
+
+    List<News> getAllNews();
 }

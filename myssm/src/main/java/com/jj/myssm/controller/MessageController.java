@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -100,7 +101,7 @@ public class MessageController {
         if(user == null ){
             return "redirect:logout.do";
         }
-
+        //只取最前的10个
         List<Message> messageList = iMessageDAO.getAllMessage();
         List<Shop> shopList = iShopDAO.getAllShop();
         map.put("messageList", messageList);
@@ -117,10 +118,13 @@ public class MessageController {
 
         mapToMessage(map,message);
         int count = messageService.add(message);
-
         if(count > 0 ){
+            message = messageService.findByCid(message.getCId());
             result.put("success","ok");
+            result.put("data", new SimpleDateFormat("yyyy-MM-dd").format(message.getDCjsj()) );
+            result.put("username",message.getCUserName());
             result.put("CLxnr",message.getCLxnr());
+            result.put("spmc",message.getCSpmc());
         }else{
             result.put("success","no");
         }

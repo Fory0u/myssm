@@ -309,7 +309,7 @@
                     <span class="title">${o.CUserName}</span>
                     <span class="time">${o.DCjsj}</span>
                 </div>
-                <a class="del">删除</a>
+                <a class="del"><span>评论商品：</span>${o.CSpmc}</a>
             </div>
             <div class="msgTxt">
                 ${o.CLxnr}
@@ -317,7 +317,7 @@
         </div>
     </c:forEach>
 </div>
-<form id="lyTj" style="-display:none;">
+<form id="lyTj" style="display:none;">
     <input type="text" id="userid" name="userid" value="${user.CId}">
     <input type="text" id="username" name="username" value="${user.CName}">
     <input type="text" id="spid" name="spid" placeholder="商品id" >

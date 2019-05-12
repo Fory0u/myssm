@@ -1,14 +1,19 @@
 package com.jj.myssm.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.jj.myssm.dao.IChartDAO;
 import com.jj.myssm.services.ChartService;
 import com.jj.myssm.vo.Chart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 即时通信表
@@ -78,5 +83,19 @@ public class ChartController {
         map.put("total", total);
         map.put("index", index);
         return "/jj/ht/chartList.jsp";
+    }
+
+    @ResponseBody
+    @RequestMapping("/findQuestion.do")
+    public Map<String,Object> findQuestion( @RequestBody Map<String,String> map) {
+        Map<String,Object> result  = new HashMap<String,Object>();
+        List<Chart> chartList = chartService.findMoByChart(map.get("question"));
+
+        if(chartList.size() == 0){
+            result.put("message","亲，人家没看懂啦，再说说遇到什么问题了呐~");
+        }else{
+            result.put("chartList",chartList);
+        }
+        return result;
     }
 }

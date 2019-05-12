@@ -274,7 +274,7 @@
         <div class="popFotter">
         </div>
     </div>
-<form id="addGwcForm" style="-display:none;">
+<form id="addGwcForm" style="display:none;">
     <!--当前商品的id-->
     <input type="text" id="spid_this" name="spid_this" placeholder="商品id_当前" value="${shop.CId}">
     <input type="text" id="spmc_this" name="spmc_this" placeholder="商品名称_当前" value="${shop.CSpmc}">

@@ -169,8 +169,10 @@
 <body>
 <c:import url="./head.jsp"></c:import>
 <div class="container">
-    <section class="timeline" style="background: linear-gradient(0deg, #f9f9f9, #ecf9f7);">
-        <ul>
+    <section class="timeline" style="background: linear-gradient(0deg, #f9f9f9, #ecf9f7);padding: 20px 0;">
+        <ul style="
+    margin-bottom: 70px;
+">
             <c:forEach items="${xydtList}" var="o">
             <li class="in-view">
                 <div>

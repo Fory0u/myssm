@@ -49,9 +49,10 @@
     </select>
     <select id="findMoByChart" resultMap="ReslutChart">
         SELECT
+        c_id,
         c_gjc,
         c_fhxx
         from t_chart
-        where c_gjc like CONCAT(CONCAT('%', #{CGjc}), '%')
+        where c_gjc like CONCAT('%', #{CGjc}, '%')
     </select>
 </mapper>

@@ -101,4 +101,7 @@ public class SplxController {
         map.put("index", index);
         return "/jj/ht/splxList.jsp";
     }
+
+
+
 }

@@ -181,7 +181,7 @@
             <div class="cart-recommend hide" id="J_historyRecommend"></div>
         </div>
     </div>
-    <form id="addOrderForm" style="-display:none;">
+    <form id="addOrderForm" style="display:none;">
         <input type="text" id="username" name="username" placeholder="用户姓名" value="${user.CName}">
         <input type="text" id="userid" name="userid" placeholder="用户id" value="${user.CId}">
 
