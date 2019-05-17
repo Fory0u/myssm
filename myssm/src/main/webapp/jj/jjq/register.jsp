@@ -74,12 +74,12 @@
                                 <input required id="CPassWord" type="password" name="CPassWord" placeholder="请设置密码"  class="layui-input">
                             </div>
                         </div>
-                        <div class="layui-inline  iphone">
-                            <div class="layui-input-inline">
-                                <img class="layui-icon yzm " style="position: absolute;right: 1px;top: 1px;width: 106px;height: 37px;" src="https://img.showapi.com/images/temp/20190512/94335a4c-7310-4f77-aae0-bff1e72550c2.jpg">
-                                <input  id="yzm" type="text" name="yzm" placeholder="请输入验证码" class="layui-input" style="padding-left: 21px;">
-                            </div>
-                        </div>
+                        <%--<div class="layui-inline  iphone">--%>
+                            <%--<div class="layui-input-inline">--%>
+                                <%--<img class="layui-icon yzm " style="position: absolute;right: 1px;top: 1px;width: 106px;height: 37px;" src="https://img.showapi.com/images/temp/20190512/94335a4c-7310-4f77-aae0-bff1e72550c2.jpg">--%>
+                                <%--<input  id="yzm" type="text" name="yzm" placeholder="请输入验证码" class="layui-input" style="padding-left: 21px;">--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                     </div>
                     <div class="layui-form-item login-btn">
                         <div class="layui-input-block" style="  padding: 0 !important;">
@@ -96,80 +96,134 @@
     </div>
 </div>
 <script type="text/javascript">
+    // $(function () {
+    //     //以下代码仅为演示用,具体传入参数请参看接口描述详情页.
+    //     //需要引用jquery库
+    //     // var text;
+    //     // function formatterDateTime() {
+    //     //     var date=new Date()
+    //     //     var month=date.getMonth() + 1
+    //     //     var datetime = date.getFullYear()
+    //     //         + ""// "年"
+    //     //         + (month >= 10 ? month : "0"+ month)
+    //     //         + ""// "月"
+    //     //         + (date.getDate() < 10 ? "0" + date.getDate() : date
+    //     //             .getDate())
+    //     //         + ""
+    //     //         + (date.getHours() < 10 ? "0" + date.getHours() : date
+    //     //             .getHours())
+    //     //         + ""
+    //     //         + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date
+    //     //             .getMinutes())
+    //     //         + ""
+    //     //         + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date
+    //     //             .getSeconds());
+    //     //     return datetime;
+    //     // }
+    //
+    //     // function getYzm(){
+    //     //    text="";
+    //     //     $.ajax({
+    //     //         type: 'post',
+    //     //         url: 'http://route.showapi.com/26-4',
+    //     //         dataType: 'json',
+    //     //         data: {
+    //     //             "showapi_timestamp": formatterDateTime(),
+    //     //             "showapi_appid": '94843', //这里需要改成自己的appid
+    //     //             "showapi_sign": 'e5738c3230f64646a8f30fa74d6df332',  //这里需要改成自己的应用的密钥secret
+    //     //             "border":"",
+    //     //             "border_color":"105,179,90",
+    //     //             "border_thickness":"",
+    //     //             "image_width":"",
+    //     //             "image_height":"",
+    //     //             "textproducer_char_string":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    //     //             "textproducer_char_length":"4",
+    //     //             "textproducer_font_names":"",
+    //     //             "textproducer_font_size":"",
+    //     //             "textproducer_font_color":"105,179,90",
+    //     //             "textproducer_char_space":"",
+    //     //             "noise_color":"105,179,90",
+    //     //             "obscurificator_impl":""
+    //     //         },
+    //     //         success: function(result) {
+    //     //             debugger
+    //     //             text=result.showapi_res_body.text;
+    //     //             $('.yzm').attr('src',result.showapi_res_body.img_path_https);
+    //     //         }
+    //     //     });
+    //     // }
+    //     // getYzm();
+    //     // $('.yzm').click(function () {
+    //     //     getYzm()
+    //     // })
+    //
+    //     $('#dlBtn').click(function () {
+    //         // if((text.toLowerCase() == $('#yzm').val() )|| (text.toUpperCase() == $('#yzm').val() )){
+    //         $('#loginForm').submit();
+    //         // }else{
+    //         //     alert("验证码错误");
+    //         //     getYzm();
+    //         //     return;
+    //         // }
+    //     })
+    //
+    // });
+
     $(function () {
-        //以下代码仅为演示用,具体传入参数请参看接口描述详情页.
-        //需要引用jquery库
-        var text;
-        function formatterDateTime() {
-            var date=new Date()
-            var month=date.getMonth() + 1
-            var datetime = date.getFullYear()
-                + ""// "年"
-                + (month >= 10 ? month : "0"+ month)
-                + ""// "月"
-                + (date.getDate() < 10 ? "0" + date.getDate() : date
-                    .getDate())
-                + ""
-                + (date.getHours() < 10 ? "0" + date.getHours() : date
-                    .getHours())
-                + ""
-                + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date
-                    .getMinutes())
-                + ""
-                + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date
-                    .getSeconds());
-            return datetime;
-        }
-
-        function getYzm(){
-            text="";
-            $.ajax({
-                type: 'post',
-                url: 'http://route.showapi.com/26-4',
-                dataType: 'json',
-                data: {
-                    "showapi_timestamp": formatterDateTime(),
-                    "showapi_appid": '94843', //这里需要改成自己的appid
-                    "showapi_sign": 'e5738c3230f64646a8f30fa74d6df332',  //这里需要改成自己的应用的密钥secret
-                    "border":"",
-                    "border_color":"105,179,90",
-                    "border_thickness":"",
-                    "image_width":"",
-                    "image_height":"",
-                    "textproducer_char_string":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                    "textproducer_char_length":"4",
-                    "textproducer_font_names":"",
-                    "textproducer_font_size":"",
-                    "textproducer_font_color":"105,179,90",
-                    "textproducer_char_space":"",
-                    "noise_color":"105,179,90",
-                    "obscurificator_impl":""
-                },
-                success: function(result) {
-                    debugger
-                    text=result.showapi_res_body.text;
-                    $('.yzm').attr('src',result.showapi_res_body.img_path_https);
-                }
-            });
-        }
-        getYzm();
-        $('.yzm').click(function () {
-            getYzm()
-        })
-
         $('#dlBtn').click(function () {
-            if((text.toLowerCase() == $('#yzm').val() )|| (text.toUpperCase() == $('#yzm').val() )){
-                $('#loginForm').submit();
-            }else{
-                alert("验证码错误");
-                getYzm();
-                return;
+            var flag =true;
+            var v1 = $('#CLoginId').val();
+            var v2 = $('#CPassWord').val();
+
+            if("" == v1){
+                alert('用户名不能为空');
+                $('#CLoginId').val("")
+                flag =false
             }
+            else if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]{3,18}$").test(v1)){
+                alert('用户名格式有误');
+                $('#CLoginId').val("")
+                flag =false
+
+            }
+            else if(/(^\_)|(\__)|(\_+$)/.test(v1)){
+                alert('用户名首尾不能出现下划线\'_\'');
+                $('#CLoginId').val("")
+                flag =false
+            }
+            else if(/^\d+\d+\d$/.test(v1)){
+                alert('用户名不能全为数字');
+                $('#CLoginId').val("")
+                flag =false
+            }
+            if(!flag)  return;
+
+            if("" == v2){
+                alert('密码不能为空');
+                // $('#CLoginId').val("")
+                $('#CPassWord').val("");
+                flag =false
+            }
+            else if(!(/^[a-z0-9_-]{3,18}$/.test(v2))){
+                alert('密码格式有误');
+                // $('#CLoginId').val("")
+                $('#CPassWord').val("");
+                flag =false
+            }
+
+
+            // if((text.toLowerCase() == $('#yzm').val() )|| (text.toUpperCase() == $('#yzm').val() )){
+            //  alert("提交")
+            if(flag)
+                $('#loginForm').submit();
+            // }else{
+            //     alert("验证码错误");
+            //     getYzm();
+            //     return;
+            // }
         })
 
     });
-
-
 </script>
 </body>
 </html>

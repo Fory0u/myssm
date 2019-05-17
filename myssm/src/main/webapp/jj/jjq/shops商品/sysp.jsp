@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="<%=path%>/jj/jjq/shops商品/base.css">
     <link rel="stylesheet" href="<%=path%>/jj/jjq/shops商品/sysp.css">
     <script src="<%=path%>/jj/jjq/shops商品/sysp.js"></script>
+    <style>
+        a:focus, a:hover,a:active{
+            text-decoration: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,7 +104,8 @@
                         <c:forEach var="shop" items="${o.listSp}" varStatus="aa">
                             <li <c:if test="${aa.count%4!=0}" >class="li-m-rgt"</c:if> onclick="toSpxqym(this)" data-spid="${shop.c_id}">
                                 <a href="#">
-                                    <img src="<%=path%>/jj/jjq/shops商品/images/main/home/0${aa.count}.jpg" alt="">
+                                    <%--<img src="<%=path%>/jj/jjq/shops商品/images/main/home/0${aa.count}.jpg" alt="">--%>
+                                    <img src="<%=path%>/upload/${shop.c_photo}" alt="">
                                 </a>
                                 <p class="title">
                                     <a href="#">${shop.c_spmc}</a>

@@ -27,4 +27,5 @@ public interface ISplxDAO {
     List<Splx> findMoBySplx(@Param("CGjc") String CGjc);
 
     List<Map<String,Object>> getAllSplx();
+
 }

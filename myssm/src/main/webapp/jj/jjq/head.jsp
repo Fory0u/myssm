@@ -94,8 +94,8 @@
                         </a>
                     </h1>
                     <div class="mallSearch">
-                        <form action="" class="layui-form" novalidate="">
-                            <input type="text" name="title" required="" lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品">
+                        <form action="<%=path%>/shop.do?findMoByShopQt" class="layui-form"  method="post">
+                            <input type="text" name="CGjc" required="" lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品">
                             <button class="layui-btn" lay-submit="" lay-filter="formDemo">
                                 <i class="layui-icon layui-icon-search"></i>
                             </button>

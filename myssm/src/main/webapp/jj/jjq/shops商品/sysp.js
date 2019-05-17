@@ -12,7 +12,8 @@
 
         $clearTj.on('click',function () {
             $("#shopTj")[0].reset();
-            $('.tCon a.active').removeClass('active')
+            $('.tCon a.active').removeClass('active');
+            searchByTj();
         });
         //商品分类
         $('.spfl').on('click',function () {
@@ -51,12 +52,13 @@
                     var arrRs = rs.listSplx;
                     var s = "";
                     var shopList = [];
-
+                    var imgsrc ;
                     for (var i = 0;i<arrRs.length;i++){
+                        imgsrc = path+"/jj/jjq/shops商品/images/main/home/nav-left.jpg";
                         s = "<h3 class=\"h3-title\">"+arrRs[i].c_lxmc+"</h3>\n" +
                             "            <div class=\"hm-el-main clearfix\">\n" +
                             "                <div class=\"hm-el-ma-lf f-lf\">\n" +
-                            "                    <img src=\"/jj/jjq/shops商品/images/main/home/nav-left.jpg\" alt=\"\">\n" +
+                            "                    <img src=\""+imgsrc+"\">" +
                             "                </div>\n" +
                             "                <div class=\"hm-el-ma-rgt f-lf\">\n" +
                             "                    <ul class=\"hm-el-ma-rgt-top clearfix shopListMain\" >\n" +
@@ -68,13 +70,15 @@
                         shopList.push(arrRs[i].listSp);
                     }
                     var className= "";
+
                     for (var j = 0;j<shopList.length;j++){
                         for (var k = 0;k<shopList[j].length;k++) {
                             className=k%4?"li-m-rgt":"";
-                            s = "<li class="+className+" onclick=\"toSpxqym(this)\"  " +
+                            imgsrc = path+"/upload/"+shopList[j][k].c_photo;
+                            s = "<li  class=\"+className+\"   onclick=\"toSpxqym(this)\"  " +
                                 "data-spid='"+shopList[j][k].c_id+"' >" +
                                 "                                <a href=\"#\">\n" +
-                                "                                    <img src=\"/jj/jjq/shops商品/images/main/home/0"+(k)+".jpg\" alt=\"\">\n" +
+                                "                                    <img src=\""+imgsrc+"\">" +
                                 "                                </a>\n" +
                                 "                                <p class=\"title\">\n" +
                                 "                                    <a href=\"#\">"+shopList[j][k].c_spmc+"</a>\n" +

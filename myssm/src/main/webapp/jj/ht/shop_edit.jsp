@@ -28,11 +28,11 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-dish-edit" action="<%=path%>/shop.do?updateShop" method="post" target="_parent">
+    <form class="form form-horizontal" id="form-dish-edit" action="<%=path%>/shop.do?updateShop" method="post" target="_parent" enctype="multipart/form-data">
         <div class="row cl" style="display:none;">
             <label class="form-label col-xs-4 col-sm-3">id：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input required type="text" class="input-text" value="${shop.CId}" name="CId" readonly="readonly"
+                <input required type="text" class="input-text" value="${shop.CId}" name="CId"
                        style="width: 250px">
             </div>
         </div>
@@ -64,6 +64,13 @@
             <div class="formControls col-xs-8 col-sm-9">
                 <input required type="text" class="input-text" value="${shop.CSpms}" name="CSpms"
                        style="width: 250px">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">商品图片：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="file" required id="photo"
+                       name="photo" value="${shop.CPhoto}" style="width: 250px">
             </div>
         </div>
         <div class="row cl">

@@ -39,6 +39,7 @@
         t_shop.c_userid,
         t_shop.c_username,
         t_shop.c_spmc,
+        t_shop.c_photo,
         t_shop.c_spms,
         t_shop.f_spjg,
         t_shop.n_spsl,
@@ -60,14 +61,15 @@
     </delete>
     <insert id="add">
         INSERT INTO `erjy`.`t_shop`
-        (`c_userid`, `c_username`, `c_spmc`, `c_spms`, `f_spjg`, `n_spsl`, `c_type`, `d_cjsj`, `d_gxsj`, `c_czr` )
+        (`c_userid`, `c_photo`,`c_username`, `c_spmc`, `c_spms`, `f_spjg`, `n_spsl`, `c_type`, `d_cjsj`, `d_gxsj`, `c_czr` )
         VALUES
-        (#{CUserId}, #{CUserName}, #{CSpmc}, #{CSpms}, #{FSpjg,jdbcType=FLOAT}, #{NSpsl,jdbcType=INTEGER},#{CType}, now(), now(), #{CCzr});
+        (#{CUserId}, #{CPhoto},#{CUserName}, #{CSpmc}, #{CSpms}, #{FSpjg,jdbcType=FLOAT}, #{NSpsl,jdbcType=INTEGER},#{CType}, now(), now(), #{CCzr});
     </insert>
     <update id="update">
         UPDATE `erjy`.`t_shop`
         SET `c_userid` = #{CUserId},
         `c_username` = #{CUserName},
+        `c_photo` = #{CPhoto},
         `c_spmc` =  #{CSpmc},
         `c_spms` = #{CSpms},
         `f_spjg` = #{FSpjg,jdbcType=FLOAT},
@@ -94,6 +96,33 @@
         t_shop.c_czr
         FROM
         t_shop where c_id=#{cid}
+    </select>
+    <select id="findMoByShopFl" resultType="string">
+        SELECT
+        DISTINCT t_shop.c_type
+        FROM
+        t_shop
+        where c_spmc like CONCAT('%',#{CGjc},'%')
+        order by c_type
+    </select>
+    <select id="findMoByShopQt" parameterType="String" resultType="hashmap">
+        SELECT
+        t_shop.c_id,
+        t_shop.c_userid,
+        t_shop.c_username,
+        t_shop.c_photo,
+        t_shop.c_spmc,
+        t_shop.c_spms,
+        t_shop.f_spjg,
+        t_shop.n_spsl,
+        t_shop.c_type,
+        t_shop.d_cjsj,
+        t_shop.d_gxsj,
+        t_shop.c_czr
+        FROM
+        t_shop
+        where c_spmc like CONCAT('%',#{CGjc},'%')
+        order by c_type
     </select>
     <select id="findMoByShop" resultMap="ReslutShop">
         SELECT
@@ -130,6 +159,8 @@
         t_shop.c_czr
         FROM
         t_shop where c_type=#{CId}
+        order by d_gxsj desc
+        LIMIT 8
     </select>
 
     <select id="searchByTj" resultType="hashmap" parameterType="hashmap">

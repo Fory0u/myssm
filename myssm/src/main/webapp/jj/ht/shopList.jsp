@@ -41,7 +41,7 @@
 
     <div class="page-container">
        <div class="text-c">
-           <form action="/shop.do?findMoByShop" method="post" id="findMoByShop">
+           <form action="<%=path%>/shop.do?findMoByShop" method="post" id="findMoByShop">
 
            <input type="text" class="input-text" style="width: 250px"
                 placeholder="输入商品名称" id="CGjc" name="CGjc">
@@ -73,9 +73,9 @@
                 <th width="50" class="">
                     商品编码
                 </th>
-                <th width="50" class="">
-                    商品所有人id
-                </th>
+                <%--<th width="50" class="">--%>
+                    <%--商品所有人id--%>
+                <%--</th>--%>
                 <th width="50" class="">
                     商品所有人姓名
                 </th>
@@ -84,6 +84,9 @@
                 </th>
                 <th width="50" class="">
                     商品描述
+                </th>
+                <th width="50" class="">
+                    商品图片
                 </th>
                 <th width="50" class="">
                     商品价格
@@ -114,9 +117,9 @@
                     <td >
                             ${c.CId}
                     </td>
-                    <td>
-                            ${c.CUserId}
-                    </td>
+                    <%--<td>--%>
+                            <%--${c.CUserId}--%>
+                    <%--</td>--%>
                     <td>
                             ${c.CUserName}
                     </td>
@@ -125,6 +128,9 @@
                     </td>
                     <td>
                             ${c.CSpms}
+                    </td>
+                    <td>
+                            ${c.CPhoto}
                     </td>
                     <td>
                             ${c.FSpjg}

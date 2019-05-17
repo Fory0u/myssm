@@ -33,4 +33,7 @@ public interface IShopDAO {
 
     List<Shop> getAllShop();
 
+    List<String> findMoByShopFl(@Param("CGjc")String cGjc);
+
+    List<Map<String, Object>> findMoByShopQt(@Param("CGjc")String cGjc);
 }

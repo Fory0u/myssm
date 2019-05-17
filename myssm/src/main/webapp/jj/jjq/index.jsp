@@ -54,14 +54,14 @@
     </div>
     <div class="form-inline" style="margin-left: 20px">
         <h3>热门分类</h3>
-        <a href="#"><img src="<%=path%>/img/19.jpg" class="img-thumbnail"></a>
-        <a href="#"><img src="<%=path%>/img/20.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="<%=path%>/shop.do?listShopQt"><img src="<%=path%>/img/19.jpg" class="img-thumbnail"></a>
+        <a href="<%=path%>/shop.do?listShopQt"><img src="<%=path%>/img/20.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="<%=path%>/img/21.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="<%=path%>/shop.do?listShopQt"><img src="<%=path%>/img/21.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="<%=path%>/img/22.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="<%=path%>/shop.do?listShopQt"><img src="<%=path%>/img/22.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
-        <a href="#"><img src="<%=path%>/img/19.jpg" class="img-thumbnail" style="margin-left: 10px">
+        <a href="<%=path%>/shop.do?listShopQt"><img src="<%=path%>/img/19.jpg" class="img-thumbnail" style="margin-left: 10px">
         </a>
     </div>
 
